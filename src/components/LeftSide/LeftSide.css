@@ -1,0 +1,57 @@
+.leftSide-container {
+  width: 250px;
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  margin: 0;
+
+  z-index: 100;
+}
+.leftSide-logo {
+  display: flex;
+  justify-content: center;
+}
+.leftSide-logo img {
+  width: 150px;
+  height: 100px;
+  margin-top: 0px;
+}
+.sidebar-link {
+  height: 55px;
+  display: flex;
+  margin-left: 10px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.sidebar-link div {
+  font-family: Roboto, Arial;
+  font-size: 15px;
+  margin-left: 10px;
+  color: gray;
+}
+.icons {
+  color: gray;
+  font-size: "40px";
+}
+.leftside-HR {
+  display: flex;
+  width: 80%;
+  height: 1px;
+  color: gray;
+  opacity: 0.3;
+  background-color: gray;
+  margin-left: 0px;
+  align-items: center;
+}
+.leftside-font {
+  font-family: Roboto, Arial;
+  font-size: 15px;
+  color: #034b5e;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}

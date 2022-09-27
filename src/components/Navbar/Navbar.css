@@ -1,0 +1,72 @@
+.Navbar-container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 258px;
+  right: 360px;
+  background-color: #f5f5f5;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(228, 228, 228);
+  padding-top: 8px;
+}
+.navbar-leftSection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 15px;
+
+  color: gray;
+  font-size: 18px;
+}
+.navbar-leftSection p {
+  font-size: 22px;
+  color: #034b5e;
+  font-weight: 700;
+}
+.navbar-rightSection {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 0.5px solid lightgray;
+  border-radius: 15px;
+  margin-left: 25px;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  height: 40%;
+}
+.search-input {
+  border: none;
+  font-size: 14px;
+}
+
+.navbar-notification {
+  position: relative;
+  margin-left: 10px;
+}
+.notifications-count {
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  background-color: rgb(200, 0, 0);
+  color: white;
+  font-family: Roboto, Arial;
+  font-size: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 10px;
+}
+.notification-icon {
+  height: 24px;
+}
