@@ -3,8 +3,8 @@
   flex-direction: row;
   position: fixed;
   top: 0;
-  left: 258px;
-  right: 360px;
+  left: 267px;
+  right: 375px;
   background-color: #f5f5f5;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -16,7 +16,6 @@
   flex: 1;
   flex-direction: column;
   margin-left: 15px;
-
   color: gray;
   font-size: 18px;
 }

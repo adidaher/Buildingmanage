@@ -1,0 +1,22 @@
+.InboxList-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  margin-top: 20px;
+  width: 95%;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  align-items: flex-start;
+}
+.InboxList-Title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: white;
+  margin-left: 18px;
+  padding-bottom: 15px;
+  width: 100%;
+}

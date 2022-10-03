@@ -1,0 +1,47 @@
+.Services-containers {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 30px;
+  width: 95%;
+  height: 38%;
+  margin-top: 20px;
+  justify-content: center;
+}
+.Services-Title {
+  color: #298097;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 120px;
+  margin-bottom: 60px;
+}
+.available-services {
+  display: flex;
+  flex-direction: row;
+  padding-left: 60px;
+  padding-right: 62px;
+  align-items: center;
+  justify-content: space-between;
+}
+.service-background {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-icon {
+  width: 22px;
+  height: 26px;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service span {
+  margin-top: 5px;
+  font-size: 18px;
+}

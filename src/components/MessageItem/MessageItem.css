@@ -1,0 +1,47 @@
+.MessageItem-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 18px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-color: rgba(128, 128, 128, 0.283);
+  border-width: 1px;
+  border-style: solid;
+  width: 100%;
+  background-color: white;
+}
+.message-info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.message-senderProf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4fafcb;
+}
+.senderProf-pic {
+  width: 25px;
+  height: 25px;
+}
+.message-content {
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  align-content: flex-start;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.message-title {
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+}
+.sender-name {
+  font-size: 18px;
+}
