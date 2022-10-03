@@ -9,17 +9,15 @@ import AttatchFile from "../components/AttatchFile/AttatchFile";
 const ReportIssue = () => {
   return (
     <div className="ReportIssue-container">
-      <div className="stam">
-        <LeftSide />
-        <Navbar
-          title={"Report For Issue"}
-          desc={"Please chose the issue catagory"}
-        />
-        <RightSide />
-        <div className="ReportIssue-content">
-          <IssueCard />
-          <AttatchFile />
-        </div>
+      <LeftSide name={"Profile"} />
+      <Navbar
+        title={"Report For Issue"}
+        desc={"Please chose the issue catagory"}
+      />
+      <RightSide />
+      <div className="ReportIssue-content">
+        <IssueCard />
+        <AttatchFile />
       </div>
     </div>
   );

@@ -11,57 +11,63 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-const LeftSide = () => {
+const LeftSide = (props) => {
+  // document.getElementById(props.name).style.backgroundColor = "#FCBA2D";
+  /* console.log(props.name);
+  console.log(props.name + "2");
+  document.getElementById(props.name).style.color = "#FCBA2D";
+  document.getElementById(props.name + "2").style.color = "#FCBA2D";*/
+
   return (
     <div className="leftSide-container">
       <div className="leftSide-logo">
         <img src={logo} alt="" />
       </div>
 
-      <div class="sidebar-link" style={{ paddingTop: "25px" }}>
+      <div className="sidebar-link" style={{ paddingTop: "25px" }}>
         <HomeOutlinedIcon className="icons" />
         <div>Dashborad</div>
       </div>
 
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <ErrorOutlineOutlinedIcon className="icons" />
         <div>Report for issue</div>
       </div>
 
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <HowToVoteOutlinedIcon className="icons" />
         <div>Vote</div>
       </div>
 
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <InsightsOutlinedIcon className="icons" />
         <div>Statistics</div>
       </div>
 
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <MailOutlinedIcon className="icons" />
         <div>Inbox</div>
       </div>
 
-      <div class="sidebar-link">
-        <Person2OutlinedIcon className="icons" style={{ color: "#FCBA2D" }} />
-        <div>Inbox</div>
+      <div className="sidebar-link">
+        <Person2OutlinedIcon id="Profile" />
+        <div id="Profile2">Profile</div>
       </div>
 
       <hr className="leftside-HR" />
 
       <div className="leftside-font">Other</div>
 
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <InfoOutlinedIcon className="icons" />
         <div>Help & Support</div>
       </div>
-      <div class="sidebar-link">
+      <div className="sidebar-link">
         <SettingsOutlinedIcon className="icons" />
         <div>Setting</div>
       </div>
 
-      <div class="sidebar-link" style={{ paddingTop: "15px" }}>
+      <div className="sidebar-link" style={{ paddingTop: "15px" }}>
         <LogoutOutlinedIcon className="icons" />
         <div>Log Out</div>
       </div>

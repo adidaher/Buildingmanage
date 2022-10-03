@@ -7,6 +7,7 @@
   top: 0;
   margin: 0;
   z-index: 100;
+  padding-left: 10px;
 }
 .leftSide-logo {
   display: flex;
@@ -27,11 +28,11 @@
 
 .sidebar-link div {
   font-family: Roboto, Arial;
-  font-size: 15px;
+  font-size: 18px;
   margin-left: 10px;
   color: gray;
 }
-.icons {
+.sidebar-link svg {
   color: gray;
   font-size: "40px";
 }
