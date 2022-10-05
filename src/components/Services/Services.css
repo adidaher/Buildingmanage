@@ -12,7 +12,8 @@
   color: #298097;
   font-size: 24px;
   font-weight: 700;
-  margin-left: 120px;
+  margin-left: 8%;
+  padding-top: 15px;
   margin-bottom: 60px;
 }
 .available-services {
@@ -22,6 +23,7 @@
   padding-right: 62px;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 .service-background {
   width: 55px;

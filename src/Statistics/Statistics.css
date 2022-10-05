@@ -1,0 +1,10 @@
+.Statistics-content {
+  display: flex;
+  margin-top: 100px;
+  margin-left: 260px;
+  margin-right: 368px;
+  height: 100%;
+  align-items: center;
+  background-color: #f5f5f5;
+  flex-direction: column;
+}

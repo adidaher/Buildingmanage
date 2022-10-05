@@ -25,7 +25,9 @@
   flex-direction: row;
   align-items: flex-start;
 }
-
+.sidebar-link:hover {
+  cursor: pointer;
+}
 .sidebar-link div {
   font-family: Roboto, Arial;
   font-size: 18px;

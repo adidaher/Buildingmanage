@@ -1,0 +1,73 @@
+.BillCard-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 20px;
+  width: 40%;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  color: #919499;
+  border-radius: 30px;
+}
+.Billcard-row1 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  align-items: center;
+}
+.Card-title {
+  font-size: 24px;
+}
+.Card-Status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+.Card-icon {
+  color: #007d50;
+  font-size: 30px;
+}
+.Card-price {
+  display: flex;
+  flex: 3;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+}
+.Billcard-row2 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  align-items: center;
+  margin-top: 20px;
+  flex: 2;
+}
+.date-icon {
+  flex: 1;
+  font-size: 30px;
+}
+.Billcard-date {
+  flex: 2;
+  font-size: 18px;
+}
+.BillCard-Button {
+  flex: 3;
+  display: flex;
+  background-color: #077e71;
+  color: white;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  height: 45px;
+  font-family: Work Sans;
+}
+.BillCard-Button:hover {
+  cursor: pointer;
+}
+.BillCard-Arrow {
+  margin-left: 8px;
+}
