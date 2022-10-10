@@ -23,7 +23,10 @@ const IssueCard = () => {
         <div className="desc">
           Issue Describe <StarIcon style={{ color: "red", fontSize: "14px" }} />
         </div>
-        <input className="IssueDesInput" />
+        <input
+          placeholder="Please insert description"
+          className="IssueDesInput"
+        />
       </div>
 
       <div className="IssueDetails">

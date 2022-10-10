@@ -8,15 +8,34 @@
   margin: 0;
   z-index: 100;
   padding-left: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.leftSide-container :hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.leftSide-container svg:hover {
+  box-shadow: none;
+}
+.leftSide-container .sidebar-link div:hover {
+  box-shadow: none;
 }
 .leftSide-logo {
   display: flex;
   justify-content: center;
+  box-shadow: none;
+}
+.leftSide-logo:hover {
+  box-shadow: none;
 }
 .leftSide-logo img {
   width: 150px;
   height: 100px;
   margin-top: 0px;
+  box-shadow: none;
+}
+.leftSide-logo img:hover {
+  box-shadow: none;
 }
 .sidebar-link {
   height: 55px;

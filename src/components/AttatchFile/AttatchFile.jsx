@@ -2,6 +2,7 @@ import React from "react";
 import "./AttatchFile.css";
 import camera from "../../imges/camera.png";
 import attatch from "../../imges/attach.png";
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 const AttatchFile = () => {
   return (
     <div className="attatchfile-container">
@@ -15,7 +16,10 @@ const AttatchFile = () => {
         </button>
       </div>
       <div className="ReportButtonContainer">
-        <button className="ReportButton">Report</button>
+        <button className="ReportButton">
+          Report
+          <CheckCircleOutlineOutlinedIcon className="ReportButton-icon" />
+        </button>
       </div>
     </div>
   );

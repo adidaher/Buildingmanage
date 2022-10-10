@@ -155,6 +155,7 @@ const Chart = () => {
           <Bar dataKey="Shekel" fill="#347AE2" background={{ fill: "#eee" }} />
         </BarChart>
 
+
         
 <LineChart width={1000} height={300} data={data}>
     <XAxis dataKey="name"/>
@@ -174,6 +175,7 @@ const Chart = () => {
 
         </div>
         </div>
+
   );
 };
 

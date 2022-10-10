@@ -1,44 +1,44 @@
-.BillCard-container {
+.UnPaidBillCard-container {
   display: flex;
   flex-direction: column;
   background-color: white;
   margin-top: 20px;
-  width: 40%;
+  margin-left: 20px;
   padding-top: 5px;
   padding-bottom: 15px;
   color: #919499;
   border-radius: 30px;
 }
-.BillCard-container:hover {
+.UnPaidBillCard-container:hover {
   scale: 1.08;
 }
-.Billcard-row1 {
+.UnPaidBillCard-row1 {
   display: flex;
   flex-direction: row;
   padding-left: 20px;
   align-items: center;
 }
-.Card-title {
+.UnPaidBillCard-title {
   font-size: 24px;
 }
-.Card-Status {
+.UnPaidBillCard-Status {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 10px;
 }
-.Card-icon {
+.UnPaidBillCard-icon {
   color: #007d50;
   font-size: 30px;
 }
-.Card-price {
+.UnPaidBillCard-price {
   display: flex;
   flex: 3;
   font-size: 25px;
   align-items: center;
   justify-content: center;
 }
-.Billcard-row2 {
+.UnPaidBillCard-row2 {
   display: flex;
   flex-direction: row;
   padding-left: 10px;
@@ -46,15 +46,15 @@
   margin-top: 20px;
   flex: 2;
 }
-.date-icon {
+.UnPaidBillCarddate-icon {
   flex: 1;
   font-size: 30px;
 }
-.Billcard-date {
+.UnPaidBillCard-date {
   flex: 2;
   font-size: 18px;
 }
-.BillCard-Button {
+.UnPaidBillCard-Button {
   flex: 3;
   display: flex;
   background-color: #077e71;
@@ -68,9 +68,9 @@
   height: 45px;
   font-family: Work Sans;
 }
-.BillCard-Button:hover {
+.UnPaidBillCard-Button:hover {
   cursor: pointer;
 }
-.BillCard-Arrow {
+.UnPaidBillCard-Arrow {
   margin-left: 8px;
 }

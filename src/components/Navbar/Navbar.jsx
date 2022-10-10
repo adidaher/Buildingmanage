@@ -12,7 +12,7 @@ const Navbar = (props) => {
       <div className="navbar-rightSection">
         <div className="search-container">
           <input className="search-input" placeholder="Search" />
-          <SearchIcon style={{ color: "gray", fontSize: 24 }} />
+          <SearchIcon style={{ color: "gray", fontSize: "30px" }} />
         </div>
 
         <div className="navbar-notification">
