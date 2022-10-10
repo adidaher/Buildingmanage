@@ -13,7 +13,7 @@ const Statistics = () => {
       <Navbar title={"Statistics"} desc={"Check Your Statistic"} />
       <RightSide />
       <div className="Statistics-content">
-        <ChartTitle status={true} />
+      
         <Chart />
       </div>
     </div>

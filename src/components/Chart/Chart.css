@@ -7,8 +7,8 @@
   border-radius: 30px;
   padding-top: 5px;
   padding-bottom: 15px;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items:flex-start;
 }
 h1 {
   margin-left: 0px;
@@ -16,9 +16,53 @@ h1 {
 .water {
   color: #0b677e;
 }
+
 .bar {
   margin-top: 0px;
 }
 .elec {
   color: #0b677e;
+}
+
+label
+{
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+input{
+  font-size: 20px;
+}
+
+button
+{
+
+  background-color: #0b677e;
+  color: white;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  font-size: 20px;
+  height: 35px;
+  font-family: Work Sans;
+  
+}
+
+h2
+{
+  color: #347AE2;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.predict
+{
+  margin-top: 50px;
+}
+.elec
+
+{
+  color: #FF9500;
+  font-weight: bold;
+  margin-left: 10px;
 }

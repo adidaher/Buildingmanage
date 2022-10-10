@@ -1,3 +1,4 @@
+
 import "./App.css";
 import Bills from "./Bills/Bills";
 import Home from "./Home/Home.jsx";
@@ -5,9 +6,10 @@ import Inbox from "./Inbox/Inbox";
 import ReportIssue from "./ReportIssue/ReportIssue";
 import Statistics from "./Statistics/Statistics";
 import { Route, Routes } from "react-router-dom";
+import Chat from "./Chat/Chat";
 import UnPaidBills from "./UnPaidBills/UnPaidBills";
 import Polls from "./Polls/Polls";
-//aa
+
 function App() {
   document.body.style = "background: #f5f5f5;";
   return (
@@ -24,4 +26,7 @@ function App() {
   );
 }
 
+
+
 export default App;
+
