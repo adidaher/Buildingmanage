@@ -17,9 +17,7 @@ h1 {
   color: #0b677e;
 }
 
-.bar {
-  margin-top: 0px;
-}
+
 .elec {
   color: #0b677e;
 }
@@ -30,11 +28,18 @@ label
   font-weight: bold;
   font-size: 30px;
 }
-input{
-  font-size: 20px;
+#from{
+  font-size: 30px;
+  
 }
 
-button
+#to{
+  font-size: 30px;
+  
+}
+
+
+#calc,#pred
 {
 
   background-color: #0b677e;
