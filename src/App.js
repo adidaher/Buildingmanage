@@ -1,3 +1,4 @@
+
 import "./App.css";
 import Bills from "./Bills/Bills";
 import Home from "./Home/Home.jsx";
@@ -5,6 +6,10 @@ import Inbox from "./Inbox/Inbox";
 import ReportIssue from "./ReportIssue/ReportIssue";
 import Statistics from "./Statistics/Statistics";
 import { Route, Routes } from "react-router-dom";
+import Chat from "./Chat/Chat";
+
+import React from "react";
+
 
 function App() {
   document.body.style = "background: #f5f5f5;";
@@ -16,8 +21,12 @@ function App() {
       <Route path="/bills" element={<Bills />} />
       <Route path="/statistics" element={<Statistics />} />
       <Route path="/profile" element={<Home />} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   );
 }
 
+
+
 export default App;
+
