@@ -4,7 +4,9 @@ import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutli
 import InsertInvitationOutlinedIcon from "@mui/icons-material/InsertInvitationOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Arrow from "../../imges/arrow.svg";
+import { useNavigate } from "react-router-dom";
 const BillCard = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="BillCard-container">
       <div className="Billcard-row1">
@@ -21,7 +23,10 @@ const BillCard = (props) => {
       <div className="Billcard-row2">
         <InsertInvitationOutlinedIcon className="date-icon" />
         <div className="Billcard-date">{props.date}</div>
-        <button className="BillCard-Button">
+        <button
+          className="BillCard-Button"
+          onClick={() => navigate("/statistics")}
+        >
           For Statics
           <img src={Arrow} className="BillCard-Arrow" />
         </button>

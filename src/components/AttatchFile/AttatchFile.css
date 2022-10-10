@@ -41,11 +41,24 @@
   align-content: center;
 }
 .ReportButton {
-  width: 20%;
+  display: flex;
+  width: 220px;
+  height: 40px;
   padding: 10px;
   font-size: 16px;
   color: white;
   background-color: #488d9f;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.ReportButton-icon {
+  margin-left: 5px;
+}
+.ReportButton:hover {
+  cursor: pointer;
+}
+.ReportButton:focus {
+  background-color: #44c08a;
 }

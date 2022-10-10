@@ -10,7 +10,7 @@ import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LeftSide = (props) => {
   // document.getElementById(props.name).style.backgroundColor = "#FCBA2D";
@@ -24,11 +24,10 @@ const LeftSide = (props) => {
       <div className="leftSide-logo">
         <img src={logo} alt="" />
       </div>
-
       <div
         className="sidebar-link"
         style={{ paddingTop: "25px" }}
-        onClick={() => navigate("/bills")}
+        onClick={() => navigate("/UnPaidBills")}
       >
         <HomeOutlinedIcon className="icons" />
         <div>Dashborad</div>
@@ -39,12 +38,12 @@ const LeftSide = (props) => {
         <div>Report for issue</div>
       </div>
 
-      <div className="sidebar-link">
+      <div className="sidebar-link" onClick={() => navigate("/Polls")}>
         <HowToVoteOutlinedIcon className="icons" />
         <div>Vote</div>
       </div>
 
-      <div className="sidebar-link" onClick={() => navigate("/statistics")}>
+      <div className="sidebar-link" onClick={() => navigate("/bills")}>
         <InsightsOutlinedIcon className="icons" />
         <div>Statistics</div>
       </div>
