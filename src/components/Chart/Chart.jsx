@@ -87,6 +87,7 @@ const Chart = () => {
  
   
  /*
+ 
 <span className="elec">
   {" "}
   <h1>Electricity Bills</h1>
