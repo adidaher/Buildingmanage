@@ -15,7 +15,7 @@ const PayNowCard = (props) => {
               />
             </div>
             <div className="col-7">
-              <input type="text" placeholder="**** **** **** 3193" />
+              <input id="number1" type="text" placeholder="**** **** **** 3193" />
             </div>
           </div>
 
@@ -25,7 +25,7 @@ const PayNowCard = (props) => {
               <span id="card-inner">Card holder name</span>
             </div>
             <div className="row row-2">
-              <input type="text" placeholder="Bojan Viner" />
+              <input id="number2"  type="text" placeholder="Bojan Viner" />
             </div>
           </div>
           <div className="row three">
@@ -35,15 +35,15 @@ const PayNowCard = (props) => {
                   <span id="card-inner">Card number</span>
                 </div>
                 <div className="row row-2">
-                  <input type="text" placeholder="5134-5264-4" />
+                  <input id="number3"  type="text" placeholder="5134-5264-4" />
                 </div>
               </div>
             </div>
             <div className="col-2">
-              <input type="text" placeholder="Exp. date" />
+              <input id="number4" type="text" placeholder="Exp. date" />
             </div>
             <div className="col-2">
-              <input type="text" placeholder="CVV" />
+              <input id="number5" type="text" placeholder="CVV" />
             </div>
           </div>
           <button className="btn d-flex mx-auto">

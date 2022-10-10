@@ -118,18 +118,20 @@ const Chart = () => {
 */
   return (
     <div className="Chart-container">
-      <div className="bar">
         <span className="water">
           <h1>Water Bills</h1>
         </span>
 
+<div>
         <label>From:</label>
-         <input type="month"  onChange={handleFrom}></input>
+         <input id="from" type="month"  onChange={handleFrom}></input>
 
          <label>To:</label>
-         <input type="month"  onChange={handleTo}></input>
+         <input id="to" type="month"  onChange={handleTo}></input>
 
-        <button onClick={editData}>Calculate</button>
+         </div>
+
+        <button id="calc" onClick={editData}>Calculate</button>
 
         <BarChart
           width={1000}
@@ -168,12 +170,12 @@ const Chart = () => {
 <div className="predict">
         <label>Choose Month:</label>
          <input type="month" onChange={handleSelectedMonth}></input>
-        <button onClick={handlePrediction} >Predict Bill</button>
+        <button id="pred" onClick={handlePrediction} >Predict Bill</button>
         <h2>{prediction}</h2>
         <h2 className="elec">{elecPrediction}</h2>
 </div>
 
-        </div>
+ 
         </div>
 
   );
