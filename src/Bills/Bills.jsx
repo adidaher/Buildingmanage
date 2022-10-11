@@ -12,7 +12,6 @@ const Bills = () => {
       <Navbar title={"Bills"} desc={"Your Bills"} />
       <RightSide />
       <div className="Bills-content">
-    
         <Chart />
         <BillTable />
       </div>
