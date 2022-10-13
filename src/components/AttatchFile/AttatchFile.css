@@ -8,6 +8,7 @@
   color: #919499;
   padding-left: 20px;
   border-radius: 30px;
+  justify-content: center;
 }
 .attatchfile-title {
   margin-top: 15px;
@@ -21,22 +22,24 @@
   align-content: center;
 }
 .attatchfile-icon {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin-left: 60px;
   border: none;
 }
 .addphotoButton {
   background-color: white;
   border: none;
+  height: 100%;
 }
 .editButton {
   background-color: white;
   border: none;
+  height: 100%;
 }
 .ReportButtonContainer {
   display: flex;
-  margin-top: 45px;
+  margin-top: 30px;
   justify-content: center;
   align-content: center;
 }

@@ -5,7 +5,7 @@ import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import Services from "../components/Services/Services";
-
+import Axios from "axios";
 const home = () => {
   return (
     <div className="home-container">
