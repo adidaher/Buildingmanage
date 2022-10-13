@@ -53,7 +53,7 @@
   font-weight: bold;
 }
 
-input {
+#number1,#number2,#number3,#number4 {
   border: none;
   outline: none;
   font-size: 1rem;

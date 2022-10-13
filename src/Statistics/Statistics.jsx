@@ -4,7 +4,7 @@ import "./Statistics.css";
 import LeftSide from "../components/LeftSide/LeftSide.jsx";
 import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
-import ChartTitle from "../components/ChartTitle/ChartTitle";
+
 
 const Statistics = () => {
   return (

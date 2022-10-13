@@ -22,6 +22,7 @@ function App() {
       <Route path="/statistics" element={<Statistics />} />
       <Route path="/profile" element={<Home />} />
       <Route path="/Polls" element={<Polls />} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   );
 }
