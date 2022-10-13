@@ -3,7 +3,7 @@ import "./ReportIssue.css";
 import LeftSide from "../components/LeftSide/LeftSide.jsx";
 import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
-import IssueCard from "../components/issueCard/IssueCard.jsx";
+import IssueCard from "../components/IssueCard/IssueCard.jsx";
 import AttatchFile from "../components/AttatchFile/AttatchFile";
 
 const ReportIssue = () => {
