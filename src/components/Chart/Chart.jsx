@@ -22,14 +22,14 @@ const Chart = () => {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [prediction, setPrediction] = useState("");
   const [elecPrediction, setElecPrediction] = useState("");
+  const [type, setType] = useState("Water");
+  const [color, setColor] = useState("#347AE2");
 
   const handleFrom = event => {
     setFrom(event.target.value);
     db1=db;
     let start=db.findIndex(obj => obj.name === from);
-    /*console.log(start);
-    console.log(from);*/
-
+  
   }
   
 
@@ -43,8 +43,24 @@ const Chart = () => {
     setSelectedMonth(event.target.value); 
   }
 
+  function  handleChange(e) {
+    setType(e.target.value);
+   
+  }
+
   const editData = ()=> {
+    if(type==="Electricity")
+    {
+      db=elecdb;
+      setColor("#FF9500");
+    }
+    else
+    {
+    db=waterdb;
+    setColor("#347AE2");
+    }
     let start=db.findIndex(obj => obj.name === from);
+  
     let end=db.findIndex(obj => obj.name === to);
     db1=db;
    
@@ -61,12 +77,11 @@ const Chart = () => {
  }
 
 
- 
-  let  db = [
+  let  waterdb = [
     { name: "2021-10", Shekel: 500 },
     { name: "2021-11", Shekel: 300 },
     { name: "2021-12", Shekel: 600 },
-    { name: "2022-01", Shekel: 700 },
+    { name: "2022-01", Shekel: 400 },
     { name: "2022-02", Shekel: 500 },
     { name: "2022-03", Shekel: 500 },
     { name: "2022-04", Shekel: 400 },
@@ -78,49 +93,41 @@ const Chart = () => {
     { name: "2022-10", Shekel: 520 },
     { name: "2022-11", Shekel: 490 },
     { name: "2022-12", Shekel: 510 },
+  ];
+  let  elecdb = [
+    { name: "2021-10", Shekel: 300 },
+    { name: "2021-11", Shekel: 500 },
+    { name: "2021-12", Shekel: 350 },
+    { name: "2022-01", Shekel: 400 },
+    { name: "2022-02", Shekel: 300 },
+    { name: "2022-03", Shekel:400 },
+    { name: "2022-04", Shekel: 650 },
+    { name: "2022-05", Shekel: 300 },
+    { name: "2022-06", Shekel: 800 },
+    { name: "2022-07", Shekel: 400 },
+    { name: "2022-08", Shekel: 450 },
+    { name: "2022-09", Shekel: 570 },
+    { name: "2022-10", Shekel: 520 },
+    { name: "2022-11", Shekel: 490 },
+    { name: "2022-12", Shekel: 510 },
 
 
 
 
   ];
+  let db=waterdb;
   let db1=db;
- 
-  
- /*
- 
-<span className="elec">
-  {" "}
-  <h1>Electricity Bills</h1>
-</span>
-<BarChart
- width={1000}
- height={500}
-  data={data}
-  margin={{
-    top: 5,
-    right: 30,
-    left: 80,
-    bottom: 5,
-  }}
-  barSize={20}
->
-  <XAxis
-    dataKey="name"
-    scale="point"
-    padding={{ left: 10, right: 10 }}
-  />
-  <YAxis />
-  <Tooltip />
-  <Legend />
-  <CartesianGrid strokeDasharray="3 3" />
-  <Bar dataKey="Shekel" fill="#FF9500" background={{ fill: "#eee" }} />
-</BarChart>
-</div>
-*/
+
   return (
     <div className="Chart-container">
+      <select className="options" onChange={handleChange}>
+
+  <option >Water</option>
+  <option>Electricity</option>
+  </select>
+
         <span className="water">
-          <h1>Water Bills</h1>
+          <h1>{type} Bills</h1>
         </span>
 
 <div>
@@ -130,9 +137,11 @@ const Chart = () => {
          <label>To:</label>
          <input id="to" type="month"  onChange={handleTo}></input>
 
-         </div>
+         
 
         <button id="calc" onClick={editData}>Calculate</button>
+
+        </div>
 
         <BarChart
           width={1000}
@@ -155,7 +164,7 @@ const Chart = () => {
           <Tooltip />
           <Legend />
           <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="Shekel" fill="#347AE2" background={{ fill: "#eee" }} />
+          <Bar dataKey="Shekel" fill={color} background={{ fill: "#eee" }} />
         </BarChart>
 
 
@@ -164,13 +173,13 @@ const Chart = () => {
     <XAxis dataKey="name"/>
     <YAxis/>
     <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
-    <Line dataKey="Shekel" fill="#FF9500" background={{ fill: "#eee" }} />
+    <Line dataKey="Shekel" fill={color} background={{ fill: "#eee" }} />
   </LineChart>
 
 
 <div className="predict">
         <label>Choose Month:</label>
-         <input type="month" onChange={handleSelectedMonth}></input>
+         <input id="predictMonth" type="month" onChange={handleSelectedMonth}></input>
         <button id="pred" onClick={handlePrediction} >Predict Bill</button>
         <h2>{prediction}</h2>
         <h2 className="elec">{elecPrediction}</h2>

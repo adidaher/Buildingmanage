@@ -28,15 +28,11 @@ label
   font-weight: bold;
   font-size: 30px;
 }
-#from{
+#from,#to,#predictMonth{
   font-size: 30px;
   
 }
 
-#to{
-  font-size: 30px;
-  
-}
 
 
 #calc,#pred
@@ -45,11 +41,12 @@ label
   background-color: #0b677e;
   color: white;
   border-radius: 15px;
+  border-width: 3px;
   align-items: center;
   justify-content: center;
   margin-left: 10px;
-  font-size: 20px;
-  height: 35px;
+  font-size: 30px;
+  height: 42px;
   font-family: Work Sans;
   
 }
