@@ -13,25 +13,32 @@
 .BillFilter {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  margin-left: 20px;
   align-items: center;
+  width: 100%;
 }
-.from {
-  margin-left: 10px;
+.billType {
   display: flex;
   flex-direction: row;
-  flex: 1;
+  justify-items: center;
+  align-items: center;
+}
+.options {
+  padding: 10px;
+  padding-left: 0;
+  font-size: 18px;
+}
+.from {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
 }
 .to {
   display: flex;
   flex-direction: row;
-  flex: 1;
-  margin-left: 10px;
+  margin-left: 20px;
 }
-.calco {
-  flex: 1;
-  margin-left: 15px;
-}
+
 h1 {
   margin-left: 15px;
 }
@@ -46,26 +53,32 @@ h1 {
 label {
   padding: 10px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
-#from {
-  font-size: 30px;
+#from,
+#to,
+#predictMonth {
+  font-size: 18px;
 }
 
 #to {
-  font-size: 30px;
+  font-size: 18px;
 }
 
 #calc,
 #pred {
-  background-color: #0b677e;
+  background-color: #488d9f;
   color: white;
+  border: none;
   border-radius: 15px;
+
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
-  font-size: 20px;
-  height: 35px;
+  margin-left: 10px;
+  font-size: 18px;
+  height: 42px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: Work Sans;
 }
 
@@ -81,4 +94,15 @@ h2 {
   color: #ff9500;
   font-weight: bold;
   margin-left: 10px;
+}
+.monthChoose {
+  margin-left: 15px;
+}
+.charts {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }

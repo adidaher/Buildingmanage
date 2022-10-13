@@ -27,9 +27,19 @@ const styles = {
 
 const users = {
   0: "You",
-  Michel: "Michel",
+  1: "Michel",
   2: "Evan"
 };
+
+let messageData = [
+  new Message({ id: "1", message: "Hey guys", senderName: "Michel" }),
+  new Message({ id: "2", message: "Hello", senderName: "Evan" }),
+  new Message({ id: "1", message: "Hey guys", senderName: "Michel" }),
+  new Message({ id: "2", message: "Hello", senderName: "Evan" }),
+  new Message({ id: "1", message: "Hey guys", senderName: "Michel" }),
+  new Message({ id: "2", message: "Hello", senderName: "Evan" })
+];
+
 
 const customBubble = props => (
   <div>
@@ -43,19 +53,8 @@ class Chat extends React.Component {
   constructor() {
     super();
     this.state = {
-      messages: [
-        new Message({ id: "Michel", message: "Hey guys!", senderName: "Michel" }),
-        new Message({
-          id: 2,
-          message: (
-            <p>
-              <span>11:50:</span>Hey! Evan here. react-chat-ui is pretty dooope.
-            </p>
-          ),
-          senderName: "Evan"
-        })
-      ],
-      useCustomBubble: false,
+      messages: messageData,
+      useCustomBubble: true,
       curr_user: 0
     };
   }
@@ -120,9 +119,9 @@ class Chat extends React.Component {
             <button
               style={{
                 ...styles.button,
-                ...(this.state.curr_user === "Michel" ? styles.selected : {})
+                ...(this.state.curr_user === 1 ? styles.selected : {})
               }}
-              onClick={() => this.onPress("Michel")}
+              onClick={() => this.onPress(1)}
             >
               Michel
             </button>
