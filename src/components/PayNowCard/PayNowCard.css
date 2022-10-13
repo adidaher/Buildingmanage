@@ -53,7 +53,11 @@
   font-weight: bold;
 }
 
-#number1,#number2,#number3,#number4 {
+#number1,
+#number2,
+#number3,
+#number4,
+#number5 {
   border: none;
   outline: none;
   font-size: 1rem;
