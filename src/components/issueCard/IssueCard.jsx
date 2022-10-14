@@ -4,7 +4,7 @@ import StarIcon from "@mui/icons-material/Star";
 const IssueCard = () => {
   return (
     <div className="issue-card">
-      <div className="card-title">Discribe the issue:</div>
+      <div className="card-title">Describe the issue:</div>
       <div className="issue-catagory">
         <div className="filterTitle">Issue Catagory</div>
         <select className="FilterOption">

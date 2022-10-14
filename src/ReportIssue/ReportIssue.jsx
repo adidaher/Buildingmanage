@@ -12,7 +12,7 @@ const ReportIssue = () => {
       <LeftSide name={"Profile"} />
       <Navbar
         title={"Report For Issue"}
-        desc={"Please chose the issue catagory"}
+        desc={"Please choose the issue catagory"}
       />
       <RightSide />
       <div className="ReportIssue-content">
