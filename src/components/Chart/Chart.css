@@ -55,15 +55,8 @@ label {
   font-weight: bold;
   font-size: 20px;
 }
-#from,
-#to,
-#predictMonth {
-  font-size: 18px;
-}
 
-#to {
-  font-size: 18px;
-}
+
 
 #calc,
 #pred {
