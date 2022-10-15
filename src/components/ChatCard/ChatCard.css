@@ -1,18 +1,19 @@
 
   
   .container {
-   width: 500px;
+   width: 1500px;
+
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
 
   }
 
   .chatfeed-wrapper {
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
-   
+    height:800px;
     margin: 0 auto;
-    border: 1px solid #ddd;
+    border: 3px solid #0b677e;
     padding-bottom: 20px;
   }
   
@@ -41,22 +42,30 @@
   .text-center {
     text-align: center;
   }
+  .typeMessage
+  {
+    text-align: center;
+    margin-bottom: 5px;
+  }
   
   #messageType
   {
     margin-bottom: 5px;
-    width:475px;
+    width:1000px;
     height: 40px;
     border-radius: 15px;
     border-width: 3px;
     font-family: Work Sans;
     font-size: 30px;
+    margin: 0 auto;
+    
   }
 
   .sendBtn
   {
-  
+   
     text-align: center
+    
   }
 
   #send

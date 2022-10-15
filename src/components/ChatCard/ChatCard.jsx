@@ -13,12 +13,16 @@ const users = {
 };
 
 let messageData = [
-  new Message({ id: "1", message: "Hey guys", senderName: "Adi" }),
+  new Message({ id: "1", message: "Hey guys I am going to pay now", senderName: "Adi" }),
   new Message({ id: "2", message: "Hello", senderName: "Michel" }),
   new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
   new Message({ id: "1", message: "Hey guys", senderName: "Adi" }),
   new Message({ id: "2", message: "Hello", senderName: "Michel" }),
+  new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
+  new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
+  new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
+  new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
   new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
 
@@ -61,16 +65,34 @@ class Chat extends React.Component {
   }
 
   render() {
+
     return (
       <div className="container">
         <div className="chatfeed-wrapper">
           <ChatFeed
-            maxHeight={500}
+            maxHeight={700}
             messages={this.state.messages} // Boolean: list of message objects
             showSenderName
+            bubbleStyles={
+              {
+             
+                text: {
+                  fontSize: 20,color: "#0b677e",fontWeight: "bold",fontFamily: "Work Sans"
+                 
+    
+                },
+                chatbubble: {
+                  borderRadius: 20,
+                
+                  background: "white"
+                }
+
+              }
+            }
           />
 
           <form onSubmit={e => this.onMessageSubmit(e)}>
+            <div className="typeMessage">
             <input id="messageType" 
               ref={m => {
                 this.message = m;
@@ -78,7 +100,10 @@ class Chat extends React.Component {
               placeholder="Type a message..."
               className="message-input"
             />
-          </form>
+            </div>
+            </form>
+     
+          
           <div className="sendBtn">
           <button id="send" onClick={e => this.onMessageSubmit(e)}>
               Send Message
