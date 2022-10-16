@@ -3,17 +3,19 @@ import React from "react";
 import { ChatFeed, ChatBubble, BubbleGroup, Message } from "react-chat-ui";
 import "./ChatCard.css";
 
-
 const users = {
-
   1: "Adi",
   2: "Michel",
   3: "Zeev",
-  4: "Shlomo"
+  4: "Shlomo",
 };
 
 let messageData = [
-  new Message({ id: "1", message: "Hey guys I am going to pay now", senderName: "Adi" }),
+  new Message({
+    id: "1",
+    message: "Hey guys I am going to pay now",
+    senderName: "Adi",
+  }),
   new Message({ id: "2", message: "Hello", senderName: "Michel" }),
   new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
@@ -25,21 +27,15 @@ let messageData = [
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
   new Message({ id: "3", message: "Hey guys", senderName: "Zeev" }),
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
-
-
 ];
-
-
 
 class Chat extends React.Component {
   constructor() {
     super();
     this.state = {
       messages: messageData,
-      curr_user: 1//take the number from data base
+      curr_user: 1, //take the number from data base
     };
-  
-   
   }
 
   onMessageSubmit(e) {
@@ -48,24 +44,22 @@ class Chat extends React.Component {
     if (!input.value) {
       return false;
     }
-  this.pushMessage(this.state.curr_user, input.value);
+    this.pushMessage(this.state.curr_user, input.value);
     input.value = "";
     return true;
   }
 
   pushMessage(recipient, message) {
-
     const newMessage = new Message({
       id: recipient,
       message,
-      senderName: users[recipient]
+      senderName: users[recipient],
     });
     messageData.push(newMessage);
     this.setState(this.state);
   }
 
   render() {
-
     return (
       <div className="container">
         <div className="chatfeed-wrapper">
@@ -73,43 +67,38 @@ class Chat extends React.Component {
             maxHeight={700}
             messages={this.state.messages} // Boolean: list of message objects
             showSenderName
-            bubbleStyles={
-              {
-             
-                text: {
-                  fontSize: 20,color: "#0b677e",fontWeight: "bold",fontFamily: "Work Sans"
-                 
-    
-                },
-                chatbubble: {
-                  borderRadius: 20,
-                
-                  background: "white"
-                }
+            bubbleStyles={{
+              text: {
+                fontSize: 20,
+                color: "#0b677e",
+                fontWeight: "bold",
+                fontFamily: "Work Sans",
+              },
+              chatbubble: {
+                borderRadius: 20,
 
-              }
-            }
+                background: "white",
+              },
+            }}
           />
 
-          <form onSubmit={e => this.onMessageSubmit(e)}>
+          <form onSubmit={(e) => this.onMessageSubmit(e)}>
             <div className="typeMessage">
-            <input id="messageType" 
-              ref={m => {
-                this.message = m;
-              }}
-              placeholder="Type a message..."
-              className="message-input"
-            />
+              <input
+                id="messageType"
+                ref={(m) => {
+                  this.message = m;
+                }}
+                placeholder="Type a message..."
+                className="message-input"
+              />
             </div>
-            </form>
-     
-          
+          </form>
+
           <div className="sendBtn">
-          <button id="send" onClick={e => this.onMessageSubmit(e)}>
+            <button id="send" onClick={(e) => this.onMessageSubmit(e)}>
               Send Message
             </button>
-
-            
           </div>
         </div>
       </div>
