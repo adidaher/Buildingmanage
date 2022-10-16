@@ -10,7 +10,7 @@
   border-radius: 30px;
 }
 .UnPaidBillCard-container:hover {
-  scale: 1.08;
+  scale: 1.03;
 }
 .UnPaidBillCard-row1 {
   display: flex;

@@ -64,19 +64,18 @@ class Chat extends React.Component {
       <div className="container">
         <div className="chatfeed-wrapper">
           <ChatFeed
-            maxHeight={700}
+            maxHeight={900}
             messages={this.state.messages} // Boolean: list of message objects
             showSenderName
             bubbleStyles={{
               text: {
-                fontSize: 20,
+                fontSize: 22,
                 color: "#0b677e",
                 fontWeight: "bold",
                 fontFamily: "Work Sans",
               },
               chatbubble: {
                 borderRadius: 20,
-
                 background: "white",
               },
             }}

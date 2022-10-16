@@ -1,36 +1,30 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  margin-top: 20px;
   width: 95%;
-  height: 95%;
-  padding-top: 5px;
-  padding-bottom: 15px;
-  color: black;
-  padding-left: 20px;
-  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .chatfeed-wrapper {
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
-  height: 960px;
-
+  height: 900px;
+  margin: 0 auto;
+  border: 3px solid #eeee;
   padding-bottom: 20px;
 }
 
 #chat-panel {
-  padding: 0px 0px;
-  min-height: 900px;
+  padding: 0px 10px;
 }
 
 .chat-history {
   display: block;
-  min-height: 860px;
+  min-height: 250px;
 }
 
 .outer {
   display: block;
+
   overflow-y: scroll;
   position: relative;
 }

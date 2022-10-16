@@ -48,9 +48,9 @@ const LeftSide = (props) => {
         <div>Statistics</div>
       </div>
 
-      <div className="sidebar-link" onClick={() => navigate("/inbox")}>
+      <div className="sidebar-link" onClick={() => navigate("/chat")}>
         <MailOutlinedIcon className="icons" />
-        <div>Inbox</div>
+        <div>Chat</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/profile")}>
@@ -64,7 +64,7 @@ const LeftSide = (props) => {
 
       <div className="sidebar-link">
         <InfoOutlinedIcon className="icons" />
-        <div>Help & Support</div>
+        <div>Add Bill</div>
       </div>
       <div className="sidebar-link">
         <SettingsOutlinedIcon className="icons" />

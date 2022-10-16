@@ -72,6 +72,7 @@ const UnPaidBills = () => {
           <UnPaidBillCard
             title={"Water"}
             status={false}
+            price={"700"}
             date={"19 May 2022"}
             onclickHandler={setpp}
           />
