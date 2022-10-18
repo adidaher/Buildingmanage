@@ -1,0 +1,36 @@
+.DashBoard-content {
+  display: flex;
+  margin-top: 100px;
+  margin-left: 260px;
+  margin-right: 368px;
+  height: 100%;
+  align-items: center;
+  background-color: #f5f5f5;
+  flex-direction: column;
+}
+.updates-card {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  margin-top: 20px;
+  width: 95%;
+  height: 55%;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  color: black;
+  padding-left: 20px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.donutchart {
+  flex: 4;
+}
+.DashBoardMessage {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  font-size: 22px;
+  color: #034b5e;
+  font-weight: 700;
+}

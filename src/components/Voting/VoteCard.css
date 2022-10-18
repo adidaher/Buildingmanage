@@ -1,5 +1,6 @@
 .poll {
-  width: 400px;
+  width: 45%;
+  height: 160px;
   padding: 1.5rem;
   margin: 50px;
   font-family: sans-serif;
@@ -19,7 +20,7 @@
 }
 
 .poll__option:not(:last-child) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .poll__option-fill {
@@ -31,5 +32,5 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }

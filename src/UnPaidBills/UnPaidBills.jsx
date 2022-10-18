@@ -5,6 +5,7 @@ import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
 import UnPaidBillCard from "../components/UnpaidBillCard/UnPaidBillCard";
 import PayNowCard from "../components/PayNowCard/PayNowCard";
+
 const UnPaidBills = () => {
   const [price, setPrice] = useState(0);
 
@@ -84,7 +85,6 @@ const UnPaidBills = () => {
             onclickHandler={setpp}
           />
         </div>
-
         <PayNowCard price={price} className="VisaCard" />
       </div>
     </div>

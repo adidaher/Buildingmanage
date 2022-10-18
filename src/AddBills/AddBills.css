@@ -1,0 +1,105 @@
+.AddBills-content {
+  display: flex;
+  margin-top: 100px;
+  margin-left: 260px;
+  margin-right: 368px;
+  height: 100%;
+  align-items: center;
+  background-color: #f5f5f5;
+  flex-direction: column;
+}
+.AddBill-component {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 20px;
+  width: 95%;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.AddBill-Create {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: space-between;
+  margin: 15px 30px;
+  font-size: 18px;
+}
+.AddBillDetails {
+  display: flex;
+  flex: 1;
+  margin: 5px 20px;
+  border-width: 3px;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: #f5f5f5;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 22px;
+  padding: 10px;
+}
+.AddBillDetails input {
+  border: none;
+  font-size: 18px;
+  width: 219px;
+  padding: 0;
+}
+.AddBillDetails select {
+  border-width: 2px;
+  border-color: #f5f5f5;
+}
+.options {
+  width: 219px;
+  height: 40px;
+  font-size: 18px;
+}
+.noteMessage {
+  font-size: 18px;
+  color: black;
+  font-weight: 700;
+  font-family: "Urbanist", sans-serif;
+}
+.companyIcon-background {
+  width: 55px;
+  height: 55px;
+  background-color: #10bcf2;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.AddBill-component svg {
+  margin: 10px 20px;
+  font-size: 30px;
+  color: black;
+  visibility: hidden;
+}
+.AddBillHR {
+  height: 2px;
+  width: 100%;
+  color: #f5f5f5;
+  background-color: #f5f5f5;
+}
+.billamount {
+  border: none;
+}
+.addfile {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+}
+.addfile button {
+  background-color: transparent;
+  border: none;
+}
+.addfile button:hover {
+  cursor: pointer;
+}
+.addfile svg {
+  font-size: 36px;
+  visibility: visible;
+}

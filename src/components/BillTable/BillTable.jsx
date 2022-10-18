@@ -1,6 +1,6 @@
 import React from "react";
 import "./BillTable.css";
-const BillTable = () => {
+const BillTable = (props) => {
   return (
     <div className="BillTable-container">
       <table>
@@ -12,134 +12,23 @@ const BillTable = () => {
           <th>Amount</th>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-unpaid">Unpaid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-pending">pending</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
-
-          <tr>
-            <td>
-              <a href="#">INV__1001</a>
-            </td>
-            <td>Paragon</td>
-            <td>1/5/2021</td>
-            <td>
-              <p className="status status-paid">Paid</p>
-            </td>
-            <td className="Amount">$520.18</td>
-          </tr>
+          {props.tableData.map((item, i) => (
+            <tr key={i}>
+              <td>
+                <a href="#">{i + 1}</a>
+              </td>
+              <td>{item.company} </td>
+              <td>{item.Date}</td>
+              <td>
+                {item.status == false ? (
+                  <p className="status status-unpaid">Unpaid</p>
+                ) : (
+                  <p className="status status-paid">Paid</p>
+                )}
+              </td>
+              <td className="Amount">{item.amount}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

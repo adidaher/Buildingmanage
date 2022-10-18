@@ -27,15 +27,15 @@ const LeftSide = (props) => {
       <div
         className="sidebar-link"
         style={{ paddingTop: "25px" }}
-        onClick={() => navigate("/UnPaidBills")}
+        onClick={() => navigate("/DashBoard")}
       >
         <HomeOutlinedIcon className="icons" />
         <div>Dashborad</div>
       </div>
 
-      <div className="sidebar-link" onClick={() => navigate("/reportIssue")}>
+      <div className="sidebar-link" onClick={() => navigate("/Issues")}>
         <ErrorOutlineOutlinedIcon className="icons" />
-        <div>Report for issue</div>
+        <div>Issue</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/Polls")}>
@@ -43,7 +43,7 @@ const LeftSide = (props) => {
         <div>Vote</div>
       </div>
 
-      <div className="sidebar-link" onClick={() => navigate("/bills")}>
+      <div className="sidebar-link" onClick={() => navigate("/statistics")}>
         <InsightsOutlinedIcon className="icons" />
         <div>Statistics</div>
       </div>
@@ -62,7 +62,7 @@ const LeftSide = (props) => {
 
       <div className="leftside-font">Other</div>
 
-      <div className="sidebar-link">
+      <div className="sidebar-link" onClick={() => navigate("/addBill")}>
         <InfoOutlinedIcon className="icons" />
         <div>Add Bill</div>
       </div>
