@@ -11,7 +11,7 @@ const IssuesCard = (props) => {
   return (
     <div className="IssuesCard-container">
       <div className="IssuesCard-row1">
-        <span className="IssuesCard-title">{props.title}</span>
+        <span className="IssuesCard-title">{props.category}</span>
 
         <span className="IssuesCard-desc">{props.desc}</span>
       </div>

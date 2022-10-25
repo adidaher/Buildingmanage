@@ -1,14 +1,47 @@
 import React from "react";
 import "./AddIssue.css";
-import StarIcon from "@mui/icons-material/Star";
+import Axios from "axios";
+import { useState } from "react";
+
 const AddIssue= () => {
+
+ 
+  const [desc, setDesc] = useState("");
+  const [date, setDate] = useState("");
+
+  const [issueList, setIssueList] = useState([]);
+
+  
+
+  
+
+
+  const addIssue = () => {
+    Axios.post("http://localhost:3001/addIssue", {
+      category: document.getElementById("choice").value,
+      desc: desc,
+      date: date,
+    }).then(() => {
+      setIssueList([
+        ...issueList,
+        {
+          category: document.getElementById("choice").value,
+          desc: desc,
+          date: date,
+
+        },
+      ]);
+    });
+  };
+
+ 
   return (
     <div className="AddIssue-Container">
       <div className="card mt-50 mb-50">
         <div className="card-title mx-auto">Add Issue</div>
 
         <div className="Title">Issue Catagory</div>
-        <select className="FilterOption">
+        <select id="choice"  className="FilterOption">
           <option disabled selected>
             Select issue catagory
           </option>
@@ -27,6 +60,9 @@ const AddIssue= () => {
         <input
           placeholder="Please insert description"
           className="IssueDesInput"
+          onChange={(event) => {
+            setDesc(event.target.value);
+          }}
         />
 
         <div className="IssueHandler">
@@ -38,12 +74,15 @@ const AddIssue= () => {
         <input type="date"
           placeholder="Please insert date"
           className="IssueDateInput"
+          onChange={(event) => {
+            setDate(event.target.value);
+          }}
         
         />
         </div>
    </div>
     
-          <button className="btn d-flex mx-auto">
+          <button className="btn d-flex mx-auto" onClick={addIssue}>
             <b>ADD</b>
           </button>
        
