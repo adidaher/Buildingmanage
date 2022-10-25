@@ -19,7 +19,6 @@ const RightSide = () => {
           <span>Adi Daher</span>
         </div>
       </div>
-
       <div className="row">
         <div className="sec1">
           <p>Postal code</p>
@@ -30,7 +29,6 @@ const RightSide = () => {
           <span>NAZARETH</span>
         </div>
       </div>
-
       <div className="row">
         <div className="sec1">
           <p>Serial Number</p>
@@ -41,7 +39,7 @@ const RightSide = () => {
           <span>VISA 4567</span>
         </div>
       </div>
-
+      {/*
       <div className="row">
         <div className="sec1">
           <p>Monthley Repayments</p>
@@ -52,13 +50,13 @@ const RightSide = () => {
           <span>74658$</span>
         </div>
       </div>
-
       <div className="row">
         <div className="sec1">
           <p>OverDue Limit</p>
           <span>10$</span>
         </div>
       </div>
+      */}
     </div>
   );
 };

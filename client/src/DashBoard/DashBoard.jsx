@@ -8,6 +8,24 @@ import BillTable from "../components/BillTable/BillTable";
 
 const DashBoard = () => {
   let sum = 0;
+  /* const users = [
+    {
+      Apatment_number: "5B Floor No 4",
+      User: "Adi Daher",
+      Postal_code: "2490",
+      Location: "NAZARETH",
+      serial_number: "CYO21091270421",
+      Payment_Method: "VISA 4567",
+    },
+    {
+      Apatment_number: "2A Floor No 1",
+      User: "Michael Diab",
+      Postal_code: "2490",
+      Location: "HAIFA",
+      serial_number: "CYO21091270421",
+      Payment_Method: "VISA 2591",
+    },
+  ];*/
   const data = [
     {
       number: 3,
@@ -41,7 +59,6 @@ const DashBoard = () => {
     series[i] = data[i].amount;
     label[i] = data[i].company;
   }
-  console.log(label);
   const options = {
     series: [2, 4, 2],
     labels: label,
