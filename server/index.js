@@ -51,6 +51,16 @@ app.get("/retrieveAllVotes", (req, res) => {
   });
 });
 
+app.get("/retrieveAllBills", (req, res) => {
+  db.query("SELECT * FROM bills", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.post("/addPoll", (req, res) => {
   const vote_num = req.body.vote_num;
   const vote_question = req.body.vote_question;
@@ -94,6 +104,25 @@ app.post("/updateoptionone", (req, res) => {
   );
 });
 
+app.post("/addbill", (req, res) => {
+  const bill_id = req.body.bill_id;
+  const bill_type = req.body.bill_type;
+  const bill_date = req.body.bill_date;
+  const bill_status = req.body.bill_status;
+  const bill_amount = req.body.bill_amount;
+  db.query(
+    "INSERT INTO bills (bill_id, bill_type, bill_date, bill_status, bill_amount) VALUES (?,?,?,?,?)",
+    [bill_id, bill_type, bill_date, bill_status, bill_amount],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 app.post("/updateoptiontwo", (req, res) => {
   const count = req.body.count;
   const vote_num = req.body.voteNum;
@@ -110,11 +139,25 @@ app.post("/updateoptiontwo", (req, res) => {
   );
 });
 
+app.post("/deletePoll", (req, res) => {
+  const vote_num = req.body.voteNum;
+  db.query(
+    "Delete from votes where vote_num = ?",
+    [vote_num],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 db.connect((err) => {
   if (err) console.log("Enable to Connected to MySQL Server!");
   console.log("Connected to MySQL Server!");
 });
-
 app.listen(3001, () => {
   console.log("Yey, your server is running on port 3001");
 });

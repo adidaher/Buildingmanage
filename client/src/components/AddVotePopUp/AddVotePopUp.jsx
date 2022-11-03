@@ -1,5 +1,6 @@
 import React from "react";
-import "./AddVotePopUp.css";
+import "./AddVotePopUp.scss";
+import CloseIcon from "@mui/icons-material/Close";
 
 const AddVotePopUp = ({ setOpenModal, onClick }) => {
   const onSubmit = (e) => {
@@ -15,16 +16,15 @@ const AddVotePopUp = ({ setOpenModal, onClick }) => {
     <div className="modalBackground">
       <form onSubmit={onSubmit}>
         <div className="modalContainer">
-          <div className="titleCloseBtn">
-            <button
-              type="button"
+          <div className="close-viewer">
+            <CloseIcon
+              className="close-button"
               onClick={() => {
                 setOpenModal(false);
               }}
-            >
-              X
-            </button>
+            />
           </div>
+
           <div className="title">
             <input
               name="subject"

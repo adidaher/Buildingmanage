@@ -23,10 +23,21 @@ const VoteCard = (props) => {
     document.getElementById(props.id + "3").style.backgroundColor = "#009578";
     document.getElementById(props.id + "4").style.fontWeight = "bold";
   }
-
+  const DeletePoll = () => {
+    Axios.post("http://localhost:3001/deletePoll", {
+      voteNum: props.id,
+    });
+    props.votinghandler();
+  };
   return (
     <div className="poll">
-      <div className="poll__title">{props.question}</div>
+      <div className="poll__title">
+        {props.question}
+        <button className="DeletePollBtn" onClick={DeletePoll}>
+          X
+        </button>
+      </div>
+
       <div className="poll__option">
         <div
           className="poll__option-fill"
