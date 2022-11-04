@@ -41,6 +41,37 @@ app.get("/getIssues", (req, res) => {
   });
 });
 
+app.get("/getWaterBills", (req, res) => {
+  db.query("SELECT * FROM billss HAVING type = 'Water' ", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+app.get("/retrieveAllVotes", (req, res) => {
+  db.query("SELECT * FROM votes", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+app.get("/getElecBills", (req, res) => {
+  db.query(
+    "SELECT * FROM billss HAVING type = 'Electricity' ",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 app.get("/retrieveAllVotes", (req, res) => {
   db.query("SELECT * FROM votes", (err, result) => {
     if (err) {
