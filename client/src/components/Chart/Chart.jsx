@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Chart.css";
 import {
   PieChart,
@@ -13,9 +13,10 @@ import {
   Bar,
   LineChart,
 } from "recharts";
+import Axios from "axios";
 
 const Chart = () => {
-  const [data, SetData] = useState([{}]);
+
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
@@ -23,11 +24,36 @@ const Chart = () => {
   const [elecPrediction, setElecPrediction] = useState("");
   const [type, setType] = useState("Water");
   const [color, setColor] = useState("#347AE2");
+    const [waterData, SetWaterData] = useState([{}]);
+    const [elecData, SetElecData] = useState([{}]);
+    const [data, SetData] = useState([{}])
+  
+    const getWaterBills = () => {
+      Axios.get("http://localhost:3001/getWaterBills").then((response) => {     
+        SetWaterData(response.data);
+      });
+    };
+    useEffect(() => {
+      Axios.get("http://localhost:3001/getWaterBills").then((response) => {
+        SetWaterData(response.data);
+      });
+    }, []);
+
+    const getElecBills = () => {
+      Axios.get("http://localhost:3001/getElecBills").then((response) => {
+        SetElecData(response.data);
+      });
+    };
+    useEffect(() => {
+      Axios.get("http://localhost:3001/getElecBills").then((response) => {
+        SetElecData(response.data);
+      });
+    }, []);
 
   const handleFrom = (event) => {
     setFrom(event.target.value);
     db1 = db;
-    let start = db.findIndex((obj) => obj.name === from);
+ 
   };
 
   const handleTo = (event) => {
@@ -44,15 +70,19 @@ const Chart = () => {
 
   const editData = () => {
     if (type === "Electricity") {
-      db = elecdb;
+console.log(elecData);
+      db = elecData;
       setColor("#FF9500");
-    } else {
-      db = waterdb;
+    }
+     else {
+      console.log(waterData);
+      db = waterData;
       setColor("#347AE2");
     }
-    let start = db.findIndex((obj) => obj.name === from);
+    
+    let start = db.findIndex((obj) => obj.date === from);
 
-    let end = db.findIndex((obj) => obj.name === to);
+    let end = db.findIndex((obj) => obj.date  === to);
     db1 = db;
 
     db1 = db1.slice(start, end + 1);
@@ -65,42 +95,15 @@ const Chart = () => {
     setElecPrediction(`Expected electricity bill: ${db[monthIndex].Shekel}₪`);
   };
 
+ 
   let waterdb = [
     { name: "2021-10", Shekel: 500 },
-    { name: "2021-11", Shekel: 300 },
-    { name: "2021-12", Shekel: 600 },
-    { name: "2022-01", Shekel: 400 },
-    { name: "2022-02", Shekel: 500 },
-    { name: "2022-03", Shekel: 500 },
-    { name: "2022-04", Shekel: 400 },
-    { name: "2022-05", Shekel: 200 },
-    { name: "2022-06", Shekel: 200 },
-    { name: "2022-07", Shekel: 400 },
-    { name: "2022-08", Shekel: 450 },
-    { name: "2022-09", Shekel: 570 },
-    { name: "2022-10", Shekel: 520 },
-    { name: "2022-11", Shekel: 490 },
-    { name: "2022-12", Shekel: 510 },
+
   ];
-  let elecdb = [
-    { name: "2021-10", Shekel: 300 },
-    { name: "2021-11", Shekel: 500 },
-    { name: "2021-12", Shekel: 350 },
-    { name: "2022-01", Shekel: 400 },
-    { name: "2022-02", Shekel: 300 },
-    { name: "2022-03", Shekel: 400 },
-    { name: "2022-04", Shekel: 650 },
-    { name: "2022-05", Shekel: 300 },
-    { name: "2022-06", Shekel: 800 },
-    { name: "2022-07", Shekel: 400 },
-    { name: "2022-08", Shekel: 450 },
-    { name: "2022-09", Shekel: 570 },
-    { name: "2022-10", Shekel: 520 },
-    { name: "2022-11", Shekel: 490 },
-    { name: "2022-12", Shekel: 510 },
-  ];
-  let db = waterdb;
-  let db1 = db;
+
+  let db = getWaterBills();
+  let db1=getElecBills();
+ db1 = db;
 
   return (
     <div className="Chart-container">
@@ -141,7 +144,7 @@ const Chart = () => {
           barSize={20}
         >
           <XAxis
-            dataKey="name"
+            dataKey="date"
             scale="point"
             padding={{ left: 10, right: 10 }}
           />
@@ -149,14 +152,14 @@ const Chart = () => {
           <Tooltip />
           <Legend />
           <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="Shekel" fill={color} background={{ fill: "#eee" }} />
+          <Bar dataKey="amount" fill={color} background={{ fill: "#eee" }} />
         </BarChart>
 
         <LineChart width={1000} height={300} data={data}>
-          <XAxis dataKey="name" />
+          <XAxis dataKey="date" />
           <YAxis />
           <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-          <Line dataKey="Shekel" fill={color} background={{ fill: "#eee" }} />
+          <Line dataKey="amount" fill={color} background={{ fill: "#eee" }} />
         </LineChart>
       </div>
       <div className="predict">
