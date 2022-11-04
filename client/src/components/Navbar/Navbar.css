@@ -34,6 +34,7 @@
 }
 .search-container {
   display: flex;
+  position: relative;
   align-items: center;
   border: 0.5px solid lightgray;
   border-radius: 15px;
@@ -73,4 +74,24 @@
 }
 .notification-icon {
   font-size: 30px;
+}
+.search-container .tooltip {
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.search-container:hover .tooltip {
+  opacity: 1;
 }

@@ -10,9 +10,12 @@
 }
 
 .poll__title {
+  display: flex;
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .poll__option:hover {

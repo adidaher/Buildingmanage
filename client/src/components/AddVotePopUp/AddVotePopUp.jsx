@@ -1,38 +1,55 @@
 import React from "react";
-import "./AddVotePopUp.css";
+import "./AddVotePopUp.scss";
+import CloseIcon from "@mui/icons-material/Close";
 
-const AddVotePopUp = ({ setOpenModal }) => {
+const AddVotePopUp = ({ setOpenModal, onClick }) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const subject = e.target.subject.value;
+    const option_one = e.target.option_one.value;
+    const option_two = e.target.option_two.value;
+    onClick(subject, option_one, option_two);
+    setOpenModal(false);
+  };
+
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-          >
-            X
-          </button>
+      <form onSubmit={onSubmit}>
+        <div className="modalContainer">
+          <div className="close-viewer">
+            <CloseIcon
+              className="close-button"
+              onClick={() => {
+                setOpenModal(false);
+              }}
+            />
+          </div>
+
+          <div className="title">
+            <input
+              name="subject"
+              placeholder="Enter poll subject please"
+              required
+            ></input>
+          </div>
+          <div className="body">
+            <input name="option_one" placeholder="Option 1" required />
+            <input name="option_two" placeholder="Option 2" required />
+          </div>
+          <div className="footer">
+            <button
+              type="button"
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
+            <button type="submit">Submit</button>
+          </div>
         </div>
-        <div className="title">
-          <input placeholder="Enter poll subject please"></input>
-        </div>
-        <div className="body">
-          <input placeholder="Option 1" />
-          <input placeholder="Option 2" />
-        </div>
-        <div className="footer">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button>Submit</button>
-        </div>
-      </div>
+      </form>
     </div>
   );
 };

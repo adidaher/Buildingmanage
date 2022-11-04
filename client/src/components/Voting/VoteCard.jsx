@@ -1,21 +1,43 @@
 import React from "react";
 import "./VoteCard.css";
+import Axios from "axios";
 
 const VoteCard = (props) => {
   const voteToFirst = () => {
-    console.log("hi");
     document.getElementById(props.id + "1").style.backgroundColor = "#009578";
     document.getElementById(props.id + "2").style.fontWeight = "bold";
+    Axios.post("http://localhost:3001/updateoptionone", {
+      count: props.optionOneEvg + 1,
+      voteNum: props.id,
+    });
+    props.votinghandler();
   };
 
-  const voteToSec = () => {
-    console.log("hi");
+  async function voteToSec() {
+    await Axios.post("http://localhost:3001/updateoptiontwo", {
+      count: props.optionTwoEvg + 1,
+      voteNum: props.id,
+    });
+    await props.votinghandler();
+
     document.getElementById(props.id + "3").style.backgroundColor = "#009578";
     document.getElementById(props.id + "4").style.fontWeight = "bold";
+  }
+  const DeletePoll = () => {
+    Axios.post("http://localhost:3001/deletePoll", {
+      voteNum: props.id,
+    });
+    props.votinghandler();
   };
   return (
     <div className="poll">
-      <div className="poll__title">{props.question}</div>
+      <div className="poll__title">
+        {props.question}
+        <button className="DeletePollBtn" onClick={DeletePoll}>
+          X
+        </button>
+      </div>
+
       <div className="poll__option">
         <div
           className="poll__option-fill"
@@ -26,7 +48,7 @@ const VoteCard = (props) => {
           <span className="poll__label" onClick={voteToFirst}>
             {props.optionOne}
           </span>
-          <span className="poll__percentage">{props.optionOneEvg}%</span>
+          <span className="poll__percentage">{props.optionOneEvg}</span>
         </div>
       </div>
 
@@ -40,7 +62,7 @@ const VoteCard = (props) => {
           <span className="poll__label" onClick={voteToSec}>
             {props.optionTwo}
           </span>
-          <span className="poll__percentage">{props.optionTwoEvg}%</span>
+          <span className="poll__percentage">{props.optionTwoEvg}</span>
         </div>
       </div>
     </div>
