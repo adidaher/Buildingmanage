@@ -72,16 +72,6 @@ app.get("/getElecBills", (req, res) => {
   );
 });
 
-app.get("/retrieveAllVotes", (req, res) => {
-  db.query("SELECT * FROM votes", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
-
 app.get("/retrieveAllBills", (req, res) => {
   db.query("SELECT * FROM bills", (err, result) => {
     if (err) {
