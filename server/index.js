@@ -82,6 +82,29 @@ app.get("/retrieveAllBills", (req, res) => {
   });
 });
 
+app.get("/getnotification", (req, res) => {
+  db.query(
+    "SELECT * FROM notification HAVING status = 'unread'",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.post("/readnotification", (req, res) => {
+  db.query("UPDATE notification SET status = 'read'", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.post("/addPoll", (req, res) => {
   const vote_num = req.body.vote_num;
   const vote_question = req.body.vote_question;
