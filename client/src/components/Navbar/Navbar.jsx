@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,7 +8,7 @@ import Axios from "axios";
 const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
-  const [notificationCount, setCount] = useState(0);
+  const [notificationCount, setCount] = useState();
 
   const openPopover = (event) => {
     setAnchor(event.currentTarget);
@@ -20,10 +20,17 @@ const Navbar = (props) => {
     await Axios.post("http://localhost:3001/readnotification").then(() => {
       console.log("notification count " + notificationCount);
       setAnchor(false);
-      setnotification(null);
+      setnotification([]);
       setCount(0);
     });
   }
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/getnotification").then((response) => {
+      setnotification(response.data);
+      setCount(notificationList.length);
+    });
+  }, []);
 
   async function getnotification() {
     await Axios.get("http://localhost:3001/getnotification").then(
@@ -33,6 +40,7 @@ const Navbar = (props) => {
       }
     );
   }
+
   getnotification();
   return (
     <div className="Navbar-container">
