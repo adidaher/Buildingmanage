@@ -42,7 +42,7 @@ app.get("/getIssues", (req, res) => {
 });
 
 app.get("/getWaterBills", (req, res) => {
-  db.query("SELECT * FROM billss HAVING type = 'Water' ", (err, result) => {
+  db.query("SELECT * FROM bills WHERE type = ? ",["Water"], (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -61,7 +61,7 @@ app.get("/retrieveAllVotes", (req, res) => {
 });
 app.get("/getElecBills", (req, res) => {
   db.query(
-    "SELECT * FROM billss HAVING type = 'Electricity' ",
+    "SELECT * FROM bills WHERE type = ? ",["Electricity"],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -73,7 +73,7 @@ app.get("/getElecBills", (req, res) => {
 });
 
 app.get("/retrieveAllBills", (req, res) => {
-  db.query("SELECT * FROM bills", (err, result) => {
+  db.query("SELECT * FROM bills ORDER BY status DESC", (err, result) => {
     if (err) {
       console.log(err);
     } else {

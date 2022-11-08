@@ -17,8 +17,8 @@ import Axios from "axios";
 
 const Chart = () => {
 
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const [from, setFrom] = useState("2021-10");
+  const [to, setTo] = useState("2022-01");
   const [selectedMonth, setSelectedMonth] = useState("");
   const [prediction, setPrediction] = useState("");
   const [elecPrediction, setElecPrediction] = useState("");
@@ -26,29 +26,26 @@ const Chart = () => {
   const [color, setColor] = useState("#347AE2");
     const [waterData, SetWaterData] = useState([{}]);
     const [elecData, SetElecData] = useState([{}]);
-    const [data, SetData] = useState([{}])
+    const [data, SetData] = useState([{ date: "2021-10", amount: 400 },
+    { date: "2021-11", amount: 500 },
+    { date: "2021-12", amount: 450 },
+    {date: "2022-01", amount: 500 }])
+
+
   
     const getWaterBills = () => {
       Axios.get("http://localhost:3001/getWaterBills").then((response) => {     
         SetWaterData(response.data);
       });
     };
-    useEffect(() => {
-      Axios.get("http://localhost:3001/getWaterBills").then((response) => {
-        SetWaterData(response.data);
-      });
-    }, []);
+
 
     const getElecBills = () => {
       Axios.get("http://localhost:3001/getElecBills").then((response) => {
         SetElecData(response.data);
       });
     };
-    useEffect(() => {
-      Axios.get("http://localhost:3001/getElecBills").then((response) => {
-        SetElecData(response.data);
-      });
-    }, []);
+
 
   const handleFrom = (event) => {
     setFrom(event.target.value);
@@ -69,6 +66,8 @@ const Chart = () => {
   }
 
   const editData = () => {
+    getWaterBills();
+    getElecBills();
     if (type === "Electricity") {
 console.log(elecData);
       db = elecData;
@@ -96,14 +95,10 @@ console.log(elecData);
   };
 
  
-  let waterdb = [
-    { name: "2021-10", Shekel: 500 },
 
-  ];
+  let db ;
+  let db1;
 
-  let db = getWaterBills();
-  let db1=getElecBills();
- db1 = db;
 
   return (
     <div className="Chart-container">
@@ -113,18 +108,18 @@ console.log(elecData);
       <div className="BillFilter">
         <div className="billType">
           <label>Bill Type</label>
-          <select className="options" onChange={handleChange}>
+          <select className="options"  onChange={handleChange}>
             <option>Water</option>
             <option>Electricity</option>
           </select>
         </div>
         <div className="from">
           <label>From:</label>
-          <input id="from" type="month" onChange={handleFrom}></input>
+          <input id="from" type="month" defaultValue={"2021-10"} onChange={handleFrom}></input>
         </div>
         <div className="to">
           <label>To:</label>
-          <input id="to" type="month" onChange={handleTo}></input>
+          <input id="to" type="month" defaultValue={"2022-01"} onChange={handleTo}></input>
         </div>
         <button id="calc" onClick={editData} className="calco">
           Calculate
