@@ -6,7 +6,7 @@ const BillTable = (props) => {
       <table>
         <thead>
           <th>Invoice</th>
-          <th>Company</th>
+          <th>Bill type</th>
           <th>Due Date</th>
           <th>Status</th>
           <th>Amount</th>
@@ -17,16 +17,16 @@ const BillTable = (props) => {
               <td>
                 <a href="#">{i + 1}</a>
               </td>
-              <td>{item.bill_type} </td>
-              <td>{item.bill_date}</td>
+              <td>{item.type} </td>
+              <td>{item.date}</td>
               <td>
-                {item.bill_status == "unpaid" ? (
+                {item.status === "unpaid" ? (
                   <p className="status status-unpaid">Unpaid</p>
                 ) : (
                   <p className="status status-paid">Paid</p>
                 )}
               </td>
-              <td className="Amount">{item.bill_amount}</td>
+              <td className="Amount">{item.amount}₪</td>
             </tr>
           ))}
         </tbody>

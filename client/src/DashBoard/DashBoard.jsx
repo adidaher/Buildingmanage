@@ -55,12 +55,13 @@ class DashBoard extends Component {
         let unPaidAmount = 0;
         let unPaidBill = 0;
         for (i = 0; i < this.state.bills.length; i++) {
-          if (this.state.bills[i].bill_status === "unpaid") {
-            seriess[j] = this.state.bills[i].bill_amount;
-            labels[j] = this.state.bills[i].bill_type;
+          if (this.state.bills[i].status === "unpaid") {
+            seriess[j] = this.state.bills[i].amount;
+            labels[j] = this.state.bills[i].type;
             unPaidBill++;
-            unPaidAmount += this.state.bills[i].bill_amount;
+            unPaidAmount += this.state.bills[i].amount;
             j++;
+            console.log(unPaidAmount);
           }
         }
 
@@ -81,7 +82,7 @@ class DashBoard extends Component {
     const options = {
       series: [2, 4, 2],
       labels: this.state.label,
-      colors: ["#0D98FF", "#0450C2", "#00226C", "#C80000"],
+      colors: ["#0D98FF", "#ff0d0d", "#0dff41"],
       plotOptions: {
         pie: {
           expandOnclick: true,
@@ -108,8 +109,8 @@ class DashBoard extends Component {
             {this.state.series.length > 0 && (
               <>
                 <div className="DashBoardMessage">
-                  <span>You have {this.state.unPaidBills} Bills for pay</span>
-                  <span>total {this.state.unPaidBillsAmount}</span>
+                  <span>You have {this.state.unPaidBills} bills to pay</span>
+                  <span>Total: {this.state.unPaidBillsAmount}₪ </span>
                 </div>
                 <Chart
                   className="donutchart"
