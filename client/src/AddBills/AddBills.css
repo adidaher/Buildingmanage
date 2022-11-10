@@ -146,3 +146,42 @@
   border-bottom: 2px solid #932e3e;
   animation: spin 2s 500ms forwards;
 }
+
+@media (max-width: 648px) {
+  .AddBills-content {
+    margin: 0;
+    margin-top: 85px;
+  }
+  .AddBill-component div {
+    font-size: 12px;
+  }
+  .AddBill-Create {
+    margin: 10px 10px;
+  }
+  .AddBillDetails input {
+    font-size: 12px;
+  }
+  .AddBillDetails {
+    align-items: center;
+  }
+  .AddBillDetails select {
+    width: 219px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .options {
+    width: 219px;
+    height: 30px;
+    font-size: 18px;
+  }
+  .sbtn {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .noteMessage {
+    font-size: 14px;
+    margin-left: 25px;
+    margin-top: 25px;
+  }
+}

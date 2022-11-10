@@ -95,3 +95,42 @@
 .search-container:hover .tooltip {
   opacity: 1;
 }
+
+@media (max-width: 412px) {
+  .Navbar-container {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+  }
+  .navbar-leftSection {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  .navbar-leftSection p {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .search-container {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  .search-input {
+    font-size: 10px;
+  }
+  .navbar-rightSection {
+    margin: 0;
+    margin-right: 8px;
+    justify-content: space-between;
+  }
+
+  .navbar-notification {
+    margin-left: 1px;
+  }
+
+  .notifications-count {
+    font-size: 10px;
+  }
+}

@@ -91,7 +91,7 @@ class AddBills extends Component {
                 <input placeholder="320$" id="BillAmount" required />
               </div>
               <div className="addfile">
-                Please scan your bill
+                Please scan Bill Barcode
                 <button>
                   <InsertPageBreakOutlinedIcon style={{ color: "black" }} />
                 </button>

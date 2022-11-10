@@ -60,3 +60,19 @@
 .ProfileCard-sec1 p {
   color: gray;
 }
+
+@media (max-width: 412px) {
+  .ProfileCard-container {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .CardRightside {
+    margin-top: 25px;
+  }
+  .CardLeftSide P {
+    font-size: 14px;
+  }
+  .CardLeftSide span {
+    font-size: 14px;
+  }
+}

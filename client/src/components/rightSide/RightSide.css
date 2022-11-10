@@ -34,3 +34,9 @@
 .sec1 p {
   color: gray;
 }
+
+@media (max-width: 648px) {
+  .RightSide-container {
+    display: none;
+  }
+}

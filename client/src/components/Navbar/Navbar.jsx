@@ -8,7 +8,7 @@ import Axios from "axios";
 const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
-  const [notificationCount, setCount] = useState();
+  const [notificationCount, setCount] = useState(0);
 
   const openPopover = (event) => {
     setAnchor(event.currentTarget);
@@ -30,18 +30,17 @@ const Navbar = (props) => {
       setnotification(response.data);
       setCount(notificationList.length);
     });
-  }, []);
+  }, [notificationList, notificationCount]);
 
-  async function getnotification() {
+  /* async function getnotification() {
     await Axios.get("http://localhost:3001/getnotification").then(
       (response) => {
         setnotification(response.data);
         setCount(notificationList.length);
       }
     );
-  }
-
-  getnotification();
+  }*/
+  //getnotification();
   return (
     <div className="Navbar-container">
       <div className="navbar-leftSection">
@@ -81,7 +80,7 @@ const Navbar = (props) => {
               })}
             {notificationList.length == 0 && (
               <Typography variant="h6" style={{ margin: "5px" }}>
-                No nitification found
+                No notification found
               </Typography>
             )}
           </Popover>
