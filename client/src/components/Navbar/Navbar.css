@@ -96,6 +96,27 @@
   opacity: 1;
 }
 
+.openMenu .closeMenu {
+  font-size: 2rem;
+  margin: 20px;
+  display: none;
+  cursor: pointer;
+  background-color: none;
+  border: none;
+}
+.mainMenu li {
+  display: none;
+}
+.mainMenu li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
 @media (max-width: 413px) {
   .Navbar-container {
     top: 0;
@@ -131,5 +152,38 @@
 
   .notifications-count {
     font-size: 10px;
+  }
+  .mainMenu {
+    height: 40vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    transition: top 1s ease 0s;
+    display: none;
+  }
+  .mainMenu li {
+    display: block;
+  }
+  .openMenu {
+    display: block;
+    border: none;
+  }
+  .closeMenu {
+    z-index: 100;
+    top: 0;
+    border: none;
+    display: none;
+    background-color: transparent;
+  }
+  .mainMenu li a:hover {
+    background: none;
+    color: rgb(255, 123, 0);
   }
 }
