@@ -96,7 +96,7 @@
   opacity: 1;
 }
 
-@media (max-width: 270px) {
+@media (max-width: 413px) {
   .Navbar-container {
     top: 0;
     left: 0;

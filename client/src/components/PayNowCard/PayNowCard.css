@@ -16,13 +16,13 @@
   margin-top: 50px;
 }
 
-@media (max-width: 270px) {
+@media (max-width: 413px) {
   .card {
     width: 90%;
     padding: 1.5rem;
   }
 }
-@media (height: 270px) {
+@media (height: 413px) {
   .card {
     width: 90%;
     padding: 8vh;
