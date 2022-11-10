@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-@media (max-width: 648px) {
+@media (max-width: 610px) {
   .Home-content {
     margin: 0;
   }
