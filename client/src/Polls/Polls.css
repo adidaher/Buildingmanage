@@ -31,7 +31,7 @@
   color: gray;
 }
 
-@media (max-width: 610px) {
+@media (max-width: 264px) {
   .Polls-content {
     margin: 0;
     margin-top: 0;
