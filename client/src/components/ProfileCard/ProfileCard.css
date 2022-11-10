@@ -61,7 +61,7 @@
   color: gray;
 }
 
-@media (max-width: 264px) {
+@media (max-width: 270px) {
   .ProfileCard-container {
     margin-top: 20px;
     padding-top: 20px;

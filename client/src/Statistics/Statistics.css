@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-@media (max-width: 264px) {
+@media (max-width: 270px) {
   .Statistics-content {
     margin: 0;
     margin-top: 45px;

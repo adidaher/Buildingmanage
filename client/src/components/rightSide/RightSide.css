@@ -35,7 +35,7 @@
   color: gray;
 }
 
-@media (max-width: 264px) {
+@media (max-width: 270px) {
   .RightSide-container {
     display: none;
   }

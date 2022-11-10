@@ -96,12 +96,11 @@
   opacity: 1;
 }
 
-@media (max-width: 264px) {
+@media (max-width: 270px) {
   .Navbar-container {
     top: 0;
     left: 0;
     right: 0;
-
     width: 100%;
   }
   .navbar-leftSection {

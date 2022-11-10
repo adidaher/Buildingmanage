@@ -147,7 +147,7 @@
   animation: spin 2s 500ms forwards;
 }
 
-@media (max-width: 264px) {
+@media (max-width: 270px) {
   .AddBills-content {
     margin: 0;
     margin-top: 85px;
