@@ -68,3 +68,65 @@
   height: 42px;
   font-family: Work Sans;
 }
+
+@media (max-width: 413px) {
+
+  .container {
+
+    margin: 0 0;
+   margin-right: 500px;
+
+  }
+
+  #send {
+    
+    background-color: #0b677e;
+    color: white;
+    border-radius: 15px;
+    border-width: 3px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 20px;
+    height: 42px;
+    font-family: Work Sans;
+  }
+
+  .sendBtn {
+    text-align: center;
+
+
+  }
+
+  #messageType {
+    margin-bottom: 5px;
+    width:300px;
+    height: 40px;
+    border-radius: 15px;
+    border-width: 3px;
+    font-family: Work Sans;
+    font-size: 20px;
+    
+  }
+
+  .typeMessage {
+    text-align: center;
+
+  
+  }
+
+  .chatfeed-wrapper {
+
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    height: 400px;
+    width: 350px;
+
+    border: 3px solid #eeee;
+    padding-bottom: 20px;
+   
+
+  }
+  
+ 
+}
