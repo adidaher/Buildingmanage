@@ -47,3 +47,13 @@
   margin-top: 5px;
   font-size: 18px;
 }
+
+@media (max-width: 413px) {
+  .Services-Title {
+    font-size: 20px;
+  }
+  .service-background div img {
+    width: 15px;
+    height: 15px;
+  }
+}

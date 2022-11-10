@@ -136,6 +136,12 @@ const Navbar = (props) => {
               profile
             </a>
           </li>
+
+          <li>
+            <a href="#" onClick={() => navigate("/addbill")}>
+              Add Bill
+            </a>
+          </li>
         </ul>
 
         <button class="closeMenu" id="closeMenu" onClick={closeM}>

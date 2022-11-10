@@ -12,5 +12,6 @@
 @media (max-width: 413px) {
   .Home-content {
     margin: 0;
+    margin-top: 40px;
   }
 }

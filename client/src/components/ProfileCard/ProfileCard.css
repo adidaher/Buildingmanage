@@ -63,8 +63,8 @@
 
 @media (max-width: 413px) {
   .ProfileCard-container {
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 30px;
+    padding-top: 0px;
   }
   .CardRightside {
     margin-top: 25px;
@@ -74,5 +74,9 @@
   }
   .CardLeftSide span {
     font-size: 14px;
+  }
+
+  .ProfileCard-row {
+    font-size: 12px;
   }
 }
