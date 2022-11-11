@@ -36,9 +36,11 @@ class DashBoard extends Component {
   }
 
   getAllVotes = () => {
-    Axios.get("http://localhost:3001/retrieveAllBills").then((response) => {
-      this.setState({ bills: response.data });
-    });
+    Axios.get("https://buildingmanage.netlify.app/retrieveAllBills").then(
+      (response) => {
+        this.setState({ bills: response.data });
+      }
+    );
   };
 
   componentDidMount() {
