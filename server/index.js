@@ -42,7 +42,7 @@ app.get("/getIssues", (req, res) => {
 });
 
 app.get("/getWaterBills", (req, res) => {
-  db.query("SELECT * FROM bills WHERE type = ? ",["Water"], (err, result) => {
+  db.query("SELECT * FROM bills WHERE type = ? ", ["Water"], (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -61,7 +61,8 @@ app.get("/retrieveAllVotes", (req, res) => {
 });
 app.get("/getElecBills", (req, res) => {
   db.query(
-    "SELECT * FROM bills WHERE type = ? ",["Electricity"],
+    "SELECT * FROM bills WHERE type = ? ",
+    ["Electricity"],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -71,7 +72,6 @@ app.get("/getElecBills", (req, res) => {
     }
   );
 });
-
 
 app.post("/addPoll", (req, res) => {
   const vote_num = req.body.vote_num;
@@ -230,6 +230,6 @@ db.connect((err) => {
   if (err) console.log("Enable to Connected to MySQL Server!");
   console.log("Connected to MySQL Server!");
 });
-app.listen(3001, () => {
+app.listen(process.env.port, () => {
   console.log("Yey, your server is running on port 3001");
 });
