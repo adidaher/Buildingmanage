@@ -6,23 +6,23 @@ import Navbar from "../components/Navbar/Navbar";
 import IssuesCard from "../components/IssuesCard/IssuesCard";
 import AddIssue from "../components/AddIssue/AddIssue";
 import Axios from "axios";
-
+import config from "../config.json";
 const Issues = () => {
   const [issueList, setIssueList] = useState([]);
 
   const getIssues = () => {
-    Axios.get("http://localhost:3001/getIssues").then((response) => {
+    Axios.get(config.server_uri + "/getIssues").then((response) => {
       setIssueList(response.data);
     });
   };
   useEffect(() => {
-    Axios.get("http://localhost:3001/getIssues").then((response) => {
+    Axios.get(config.server_uri + "/getIssues").then((response) => {
       setIssueList(response.data);
     });
   }, []);
 
   const addIssue = (category, desc, date) => {
-    Axios.post("http://localhost:3001/addIssue", {
+    Axios.post(config.server_uri + "/addIssue", {
       category: category,
       desc: desc,
       date: date,

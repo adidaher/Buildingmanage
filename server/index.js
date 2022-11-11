@@ -230,6 +230,6 @@ db.connect((err) => {
   if (err) console.log("Enable to Connected to MySQL Server!");
   console.log("Connected to MySQL Server!");
 });
-app.listen(process.env.port, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("Yey, your server is running on port 3001");
 });

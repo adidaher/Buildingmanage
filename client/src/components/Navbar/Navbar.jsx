@@ -7,7 +7,7 @@ import Axios from "axios";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useNavigate } from "react-router-dom";
-
+import config from "../../config.json";
 const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
@@ -20,7 +20,7 @@ const Navbar = (props) => {
   async function closePopover(event) {
     console.log("hi" + notificationCount);
     setAnchor(false);
-    await Axios.post("http://localhost:3001/readnotification").then(() => {
+    await Axios.post(config.server_uri + "/readnotification").then(() => {
       console.log("notification count " + notificationCount);
       setAnchor(false);
       setnotification([]);

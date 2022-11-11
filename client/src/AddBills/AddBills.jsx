@@ -8,7 +8,7 @@ import InsertPageBreakOutlinedIcon from "@mui/icons-material/InsertPageBreakOutl
 import Axios from "axios";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import config from "../config.json";
 class AddBills extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +28,7 @@ class AddBills extends Component {
       document.getElementById("selectedMonth").value
     );
     console.log(document.getElementById("BillAmount").value);
-    Axios.post("http://localhost:3001/addbill", {
+    Axios.post(config.server_uri + "/addbill", {
       bill_id: document.getElementById("billID").value,
       bill_type: text,
       bill_date:

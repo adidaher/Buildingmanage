@@ -5,7 +5,7 @@ import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
 import Chart from "react-apexcharts";
 import BillTable from "../components/BillTable/BillTable";
-
+import config from "../config.json";
 import Axios from "axios";
 import LoadingComp from "../components/LoadingComp/LoadingComp";
 
@@ -36,11 +36,9 @@ class DashBoard extends Component {
   }
 
   getAllVotes = () => {
-    Axios.get("https://buildingmanage.netlify.app/retrieveAllBills").then(
-      (response) => {
-        this.setState({ bills: response.data });
-      }
-    );
+    Axios.get(config.server_uri + "/retrieveAllBills").then((response) => {
+      this.setState({ bills: response.data });
+    });
   };
 
   componentDidMount() {
@@ -48,7 +46,7 @@ class DashBoard extends Component {
   }
 
   fetchData() {
-    Axios.get("http://localhost:3001/retrieveAllBills").then((response) => {
+    Axios.get(config.server_uri + "/retrieveAllBills").then((response) => {
       this.setState({ bills: response.data }, () => {
         var i;
         var j = 0;

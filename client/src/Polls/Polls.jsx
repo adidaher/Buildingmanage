@@ -7,23 +7,23 @@ import VoteCard from "../components/Voting/VoteCard";
 import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
 import AddVotePopUp from "../components/AddVotePopUp/AddVotePopUp";
 import Axios from "axios";
-
+import config from "../config.json";
 const Polls = () => {
   const [cards, setCards] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/retrieveAllVotes").then((response) => {
+    Axios.get(config.server_uri + "/retrieveAllVotes").then((response) => {
       setCards(response.data);
     });
   }, []);
   const getAllVotes = () => {
-    Axios.get("http://localhost:3001/retrieveAllVotes").then((response) => {
+    Axios.get(config.server_uri + "/retrieveAllVotes").then((response) => {
       setCards(response.data);
     });
   };
   const onAddNewVoteHandle = (subject, option_one, option_two) => {
-    Axios.post("http://localhost:3001/addPoll", {
+    Axios.post(config.server_uri + "/addPoll", {
       vote_num: cards.length + 1,
       vote_question: subject,
       vote_option_one: option_one,

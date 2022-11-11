@@ -1,12 +1,12 @@
 import React from "react";
 import "./VoteCard.css";
 import Axios from "axios";
-
+import config from "../../config.json";
 const VoteCard = (props) => {
   const voteToFirst = () => {
     document.getElementById(props.id + "1").style.backgroundColor = "#009578";
     document.getElementById(props.id + "2").style.fontWeight = "bold";
-    Axios.post("http://localhost:3001/updateoptionone", {
+    Axios.post(config.server_uri + "/updateoptionone", {
       count: props.optionOneEvg + 1,
       voteNum: props.id,
     });
@@ -14,7 +14,7 @@ const VoteCard = (props) => {
   };
 
   async function voteToSec() {
-    await Axios.post("http://localhost:3001/updateoptiontwo", {
+    await Axios.post(config.server_uri + "/updateoptiontwo", {
       count: props.optionTwoEvg + 1,
       voteNum: props.id,
     });
@@ -24,7 +24,7 @@ const VoteCard = (props) => {
     document.getElementById(props.id + "4").style.fontWeight = "bold";
   }
   const DeletePoll = () => {
-    Axios.post("http://localhost:3001/deletePoll", {
+    Axios.post(config.server_uri + "/deletePoll", {
       voteNum: props.id,
     });
     props.votinghandler();
