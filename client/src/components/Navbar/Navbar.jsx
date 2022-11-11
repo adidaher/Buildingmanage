@@ -28,12 +28,12 @@ const Navbar = (props) => {
     });
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     Axios.get("http://localhost:3001/getnotification").then((response) => {
       setnotification(response.data);
       setCount(notificationList.length);
     });
-  }, [notificationList, notificationCount]);
+  }, [notificationList, notificationCount]);*/
 
   /* async function getnotification() {
     await Axios.get("http://localhost:3001/getnotification").then(

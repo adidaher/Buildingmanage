@@ -87,7 +87,7 @@ class DashBoard extends Component {
         pie: {
           expandOnclick: true,
           donut: {
-            size: "60px",
+            size: "70px",
             labels: {
               show: true,
               showAlways: true,

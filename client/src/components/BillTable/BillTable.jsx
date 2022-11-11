@@ -3,7 +3,7 @@ import "./BillTable.css";
 const BillTable = (props) => {
   return (
     <div className="BillTable-container">
-      <table>
+      <table className="tablee">
         <thead>
           <th>Invoice</th>
           <th>Bill type</th>
@@ -14,8 +14,10 @@ const BillTable = (props) => {
         <tbody>
           {props.tableData.map((item, i) => (
             <tr key={item.bill_id}>
-              <td>
-                <a href="#">{i + 1}</a>
+              <td className="rownum">
+                <a className="aaa" href="#">
+                  {i + 1}
+                </a>
               </td>
               <td>{item.type} </td>
               <td>{item.date}</td>
@@ -27,6 +29,13 @@ const BillTable = (props) => {
                 )}
               </td>
               <td className="Amount">{item.amount}₪</td>
+              <td>
+                {item.status === "unpaid" ? (
+                  <button className="paynowBtn">Pay Now</button>
+                ) : (
+                  <button style={{ display: "none" }}></button>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
