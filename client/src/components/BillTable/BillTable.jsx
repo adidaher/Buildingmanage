@@ -13,7 +13,7 @@ const BillTable = (props) => {
         </thead>
         <tbody>
           {props.tableData.map((item, i) => (
-            <tr key={item.bill_id}>
+            <tr key={i}>
               <td className="rownum">
                 <a className="aaa" href="#">
                   {i + 1}

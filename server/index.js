@@ -177,14 +177,13 @@ app.post("/updateoptionone", (req, res) => {
 });
 
 app.post("/addbill", (req, res) => {
-  const bill_id = req.body.bill_id;
   const bill_type = req.body.bill_type;
   const bill_date = req.body.bill_date;
   const bill_status = req.body.bill_status;
   const bill_amount = req.body.bill_amount;
   db.query(
-    "INSERT INTO bills (bill_id, bill_type, bill_date, bill_status, bill_amount) VALUES (?,?,?,?,?)",
-    [bill_id, bill_type, bill_date, bill_status, bill_amount],
+    "INSERT INTO bills (type, date, status,amount) VALUES (?,?,?,?)",
+    [bill_type, bill_date, bill_status, bill_amount],
     (err, result) => {
       if (err) {
         console.log(err);
