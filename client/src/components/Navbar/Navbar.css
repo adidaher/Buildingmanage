@@ -128,7 +128,8 @@
   }
   .navbar-leftSection {
     font-size: 10px;
-    margin-left: 5px;
+    justify-content: center;
+    margin-left: 15px;
   }
   .navbar-leftSection p {
     font-size: 10px;
