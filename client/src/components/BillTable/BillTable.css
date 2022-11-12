@@ -28,7 +28,7 @@ th {
   font-weight: 900;
 }
 td {
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
 }
 a {
   text-decoration: none;
@@ -89,8 +89,8 @@ tr:nth-child(even) {
     width: 100%;
   }
 
-  .tablee .tr {
-    margin-bottom: 15px;
+  table tr {
+    margin-bottom: 20px;
   }
 
   .tablee .tbody .tr .td {
