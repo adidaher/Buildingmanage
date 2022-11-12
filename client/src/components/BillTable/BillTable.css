@@ -28,7 +28,7 @@ th {
   font-weight: 900;
 }
 td {
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
 }
 a {
   text-decoration: none;
@@ -74,6 +74,7 @@ tr:nth-child(even) {
   .BillTable-container {
     margin: 0;
     font-size: 12px;
+    margin-top: 20px;
   }
 
   .tablee thead {
