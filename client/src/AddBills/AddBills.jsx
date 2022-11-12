@@ -31,12 +31,7 @@ class AddBills extends Component {
     Axios.post(config.server_uri + "/addbill", {
       bill_id: document.getElementById("billID").value,
       bill_type: text,
-      bill_date:
-        selecteddate.getDate() +
-        "-" +
-        selecteddate.getMonth() +
-        "-" +
-        selecteddate.getFullYear(),
+      bill_date: selecteddate.getFullYear() + "-" + selecteddate.getMonth(),
       bill_status: "unpaid",
       bill_amount: document.getElementById("BillAmount").value,
     }).then(() => {

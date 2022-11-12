@@ -73,33 +73,6 @@ app.get("/getElecBills", (req, res) => {
   );
 });
 
-app.post("/addPoll", (req, res) => {
-  const vote_num = req.body.vote_num;
-  const vote_question = req.body.vote_question;
-  const vote_option_one = req.body.vote_option_one;
-  const vote_optionone_number = req.body.vote_optionone_number;
-  const vote_option_two = req.body.vote_option_two;
-  const vote_optiontwo_number = req.body.vote_optiontwo_number;
-  db.query(
-    "INSERT INTO votes (vote_num, vote_question, vote_option_one, vote_optionone_number, vote_option_two, vote_optiontwo_number) VALUES (?,?,?,?,?,?)",
-    [
-      vote_num,
-      vote_question,
-      vote_option_one,
-      vote_optionone_number,
-      vote_option_two,
-      vote_optiontwo_number,
-    ],
-    (err, result) => {
-      if (err) {
-        console.log("error");
-      } else {
-        res.send("Values Inserted");
-      }
-    }
-  );
-});
-
 app.get("/retrieveAllBills", (req, res) => {
   db.query("SELECT * FROM bills ORDER BY status DESC", (err, result) => {
     if (err) {
