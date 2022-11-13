@@ -129,7 +129,7 @@ const Chart = () => {
       </div>
       <div className="charts">
         <BarChart
-          width={1000}
+          width={600}
           height={500}
           data={data}
           margin={{
@@ -138,7 +138,7 @@ const Chart = () => {
             left: 80,
             bottom: 5,
           }}
-          barSize={20}
+          barSize={10}
         >
           <XAxis
             dataKey="date"
@@ -152,7 +152,7 @@ const Chart = () => {
           <Bar dataKey="amount" fill={color} background={{ fill: "#eee" }} />
         </BarChart>
 
-        <LineChart width={1000} height={300} data={data}>
+        <LineChart width={400} height={300} data={data}>
           <XAxis dataKey="date" />
           <YAxis />
           <CartesianGrid stroke="#eee" strokeDasharray="5 5" />

@@ -79,3 +79,36 @@ justify-content: center;
 .IssuesCard-Arrow {
   margin-left: 8px;
 }
+
+@media (max-width: 413px) {
+  .IssuesCard-Button {
+
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 10px;
+    height: 20px;
+
+  }
+  .IssuesCard-container
+  {
+    width: 200px;
+ 
+  }
+  .IssuesCard-desc {
+
+    font-size: 10px;
+
+  }
+  .IssuesCard-date {
+
+    font-size: 10px;
+
+  }
+  .IssuesCard-title {
+   
+    font-size: 12px;
+  }
+
+
+
+}
