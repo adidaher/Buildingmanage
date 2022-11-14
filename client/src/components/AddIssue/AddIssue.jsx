@@ -35,7 +35,7 @@ const AddIssue = ({ addIssuehandler }) => {
             }}
           />
 
-          <div className="IssueHandler">
+          <div className="expected">
             Expected Fix Date
             <input
               type="date"

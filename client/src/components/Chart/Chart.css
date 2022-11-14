@@ -99,3 +99,24 @@ h2 {
   align-items: center;
   margin-top: 20px;
 }
+@media (max-width: 768px) {
+
+  #calc,
+  #pred {
+    background-color: #488d9f;
+    color: white;
+    border: none;
+    border-radius: 15px;
+  
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 11px;
+    height: 42px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Work Sans;
+  }
+
+
+}
