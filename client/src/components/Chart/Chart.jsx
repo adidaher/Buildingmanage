@@ -32,6 +32,10 @@ const Chart = () => {
     { date: "2022-01", amount: 500 },
   ]);
 
+  let isMobile = window.matchMedia(
+    "only screen and (max-width: 760px)"
+  ).matches;
+
   const getWaterBills = () => {
     Axios.get(config.server_uri + "/getWaterBills").then((response) => {
       SetWaterData(response.data);
@@ -128,36 +132,74 @@ const Chart = () => {
         </button>
       </div>
       <div className="charts">
-        <BarChart
-          width={1000}
-          height={500}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 80,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey="date"
-            scale="point"
-            padding={{ left: 10, right: 10 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="amount" fill={color} background={{ fill: "#eee" }} />
-        </BarChart>
+        {isMobile && (
+          <BarChart
+            width={400}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 15,
+              left: 0,
+              bottom: 5,
+            }}
+            barSize={20}
+          >
+            <XAxis
+              dataKey="date"
+              scale="point"
+              padding={{ left: 10, right: 10 }}
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid strokeDasharray="3 3" />
+            <Bar dataKey="amount" fill={color} background={{ fill: "#eee" }} />
+          </BarChart>
+        )}
 
-        <LineChart width={1000} height={300} data={data}>
-          <XAxis dataKey="date" />
-          <YAxis />
-          <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-          <Line dataKey="amount" fill={color} background={{ fill: "#eee" }} />
-        </LineChart>
+        {!isMobile && (
+          <BarChart
+            width={1000}
+            height={500}
+            data={data}
+            margin={{
+              top: 5,
+              right: 15,
+              left: 0,
+              bottom: 5,
+            }}
+            barSize={20}
+          >
+            <XAxis
+              dataKey="date"
+              scale="point"
+              padding={{ left: 10, right: 10 }}
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid strokeDasharray="3 3" />
+            <Bar dataKey="amount" fill={color} background={{ fill: "#eee" }} />
+          </BarChart>
+        )}
+
+        {isMobile && (
+          <LineChart width={400} height={200} data={data}>
+            <XAxis dataKey="date" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line dataKey="amount" fill={color} background={{ fill: "#eee" }} />
+          </LineChart>
+        )}
+        {!isMobile && (
+          <LineChart width={1000} height={300} data={data}>
+            <XAxis dataKey="date" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line dataKey="amount" fill={color} background={{ fill: "#eee" }} />
+          </LineChart>
+        )}
       </div>
       <div className="predict">
         <label className="monthChoose">Choose Month:</label>

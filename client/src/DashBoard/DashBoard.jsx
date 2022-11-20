@@ -56,12 +56,17 @@ class DashBoard extends Component {
         let unPaidBill = 0;
         for (i = 0; i < this.state.bills.length; i++) {
           if (this.state.bills[i].status === "unpaid") {
-            seriess[j] = this.state.bills[i].amount;
-            labels[j] = this.state.bills[i].type;
+            const index = labels.indexOf(this.state.bills[i].type);
+            if (index !== -1) {
+              seriess[index] += this.state.bills[i].amount;
+            } else {
+              seriess[j] = this.state.bills[i].amount;
+              labels[j] = this.state.bills[i].type;
+              j++;
+            }
             unPaidBill++;
             unPaidAmount += this.state.bills[i].amount;
-            j++;
-            console.log(unPaidAmount);
+            //console.log(unPaidAmount);
           }
         }
 

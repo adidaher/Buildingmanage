@@ -19,7 +19,6 @@ let messageData = [
   new Message({ id: "2", message: "Hello", senderName: "Michel" }),
   new Message({ id: "3", message: "Hi Adi", senderName: "Zeev" }),
   new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
-
 ];
 
 class Chat extends React.Component {

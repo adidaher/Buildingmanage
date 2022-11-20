@@ -3,10 +3,8 @@ import "./AddBills.css";
 import LeftSide from "../components/LeftSide/LeftSide.jsx";
 import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
-import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import InsertPageBreakOutlinedIcon from "@mui/icons-material/InsertPageBreakOutlined";
 import Axios from "axios";
-import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 import CircularProgress from "@mui/material/CircularProgress";
 import config from "../config.json";
 class AddBills extends Component {
@@ -22,8 +20,8 @@ class AddBills extends Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    var e = document.getElementById("options");
-    var text = e.options[e.selectedIndex].text;
+    var ee = document.getElementById("options");
+    var text = e.options[ee.selectedIndex].text;
     const selecteddate = new Date(
       document.getElementById("selectedMonth").value
     );

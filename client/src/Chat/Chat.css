@@ -9,3 +9,9 @@
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .Chat-content {
+    margin: 0;
+    margin-top: 40px;
+  }
+}

@@ -41,13 +41,19 @@
     margin-top: 40px;
   }
   .updates-card {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     margin-top: 55px;
     padding-left: 5px;
     padding-bottom: 10px;
   }
+
+  .DashBoardMessage span {
+    font-size: 24px;
+  }
   .updates-card span {
-    font-size: 10px;
+    font-size: 20px;
     margin: 0;
   }
   .donutchart {

@@ -48,16 +48,13 @@
     align-items: flex-start;
     justify-content: center;
   }
-  .recharts-surface {
-    width: 500px;
-    height: 200px;
-  }
+
   .recharts-legend-wrapper {
     width: 60px;
     height: 30px;
   }
   .recharts-wrapper {
-    width: 400px;
+    width: 100%;
     height: 200px;
   }
 }
