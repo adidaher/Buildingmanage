@@ -1,16 +1,31 @@
 import React from "react";
 import "./AddIssue.css";
-import Axios from "axios";
 import { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+const AddIssue = ({ addIssuehandler, setOpenModal }) => {
+  let isMobile = window.matchMedia(
+    "only screen and (max-width: 760px)"
+  ).matches;
 
-const AddIssue = ({ addIssuehandler }) => {
   const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
 
   return (
     <div className="AddIssue-Container">
       <div className="card mt-50 mb-50">
-        <div className="card-title mx-auto">Add Issue</div>
+        <div className="card-title mx-auto">
+          <span>Add Issue</span>
+          {isMobile && (
+            <div className="close-viewer">
+              <CloseIcon
+                className="close-button"
+                onClick={() => {
+                  setOpenModal(false);
+                }}
+              />
+            </div>
+          )}
+        </div>
 
         <div className="Title">Issue Catagory</div>
         <select id="choice" className="FilterOption">
@@ -47,19 +62,21 @@ const AddIssue = ({ addIssuehandler }) => {
             />
           </div>
         </div>
-
-        <button
-          className="btn d-flex mx-auto"
-          onClick={() => {
-            addIssuehandler(
-              document.getElementById("choice").value,
-              desc,
-              date
-            );
-          }}
-        >
-          <b>ADD</b>
-        </button>
+        <div className="buttonSub">
+          <button
+            className="btn d-flex mx-auto"
+            onClick={() => {
+              addIssuehandler(
+                document.getElementById("choice").value,
+                desc,
+                date
+              );
+              setOpenModal(false);
+            }}
+          >
+            <b>ADD</b>
+          </button>
+        </div>
       </div>
     </div>
   );

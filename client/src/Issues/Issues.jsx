@@ -5,11 +5,17 @@ import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
 import IssuesCard from "../components/IssuesCard/IssuesCard";
 import AddIssue from "../components/AddIssue/AddIssue";
+import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
+import AddVotePopUp from "../components/AddVotePopUp/AddVotePopUp";
 import Axios from "axios";
 import config from "../config.json";
+import AddIssuePopUp from "../components/AddIssuePopUp/AddIssuePopUp";
 const Issues = () => {
   const [issueList, setIssueList] = useState([]);
-
+  const [AddIssueOpen, setAddIssueOpen] = useState(false);
+  let isMobile = window.matchMedia(
+    "only screen and (max-width: 760px)"
+  ).matches;
   const getIssues = () => {
     Axios.get(config.server_uri + "/getIssues").then((response) => {
       setIssueList(response.data);
@@ -34,6 +40,17 @@ const Issues = () => {
       <LeftSide />
       <Navbar title={"Issues"} desc={"All Issues"} />
       <RightSide />
+
+      <div className="addIssue">
+        <button
+          onClick={() => {
+            setAddIssueOpen(true);
+          }}
+        >
+          <LibraryAddOutlinedIcon />
+        </button>
+      </div>
+
       <div className="IssuesCard-content">
         <div className="AllIssues">
           {issueList.map((data, id) => {
@@ -48,8 +65,18 @@ const Issues = () => {
           })}
         </div>
 
-        <AddIssue addIssuehandler={addIssue} />
+        {!isMobile && (
+          <AddIssue addIssuehandler={addIssue} setOpenModal={setAddIssueOpen} />
+        )}
       </div>
+
+      {AddIssueOpen && (
+        <AddIssuePopUp
+          addIssuehandler={addIssue}
+          setOpenModal={setAddIssueOpen}
+          //onClick={onAddNewVoteHandle}
+        />
+      )}
     </div>
   );
 };
