@@ -15,12 +15,14 @@ import {
 } from "recharts";
 import Axios from "axios";
 import config from "../../config.json";
+import NormalDistribution from "normal-distribution";
 const Chart = () => {
   const [from, setFrom] = useState("2021-10");
   const [to, setTo] = useState("2022-01");
-  const [selectedMonth, setSelectedMonth] = useState("");
-  const [prediction, setPrediction] = useState("");
-  const [elecPrediction, setElecPrediction] = useState("");
+  const [average, setAverage] = useState("");
+  const [deviation, setDeviation] = useState("");
+  const [probability, setProbability] = useState("");
+
   const [type, setType] = useState("Water");
   const [color, setColor] = useState("#347AE2");
   const [waterData, SetWaterData] = useState([{}]);
@@ -53,9 +55,7 @@ const Chart = () => {
     setTo(event.target.value);
   };
 
-  const handleSelectedMonth = (event) => {
-    setSelectedMonth(event.target.value);
-  };
+
 
   function handleChange(e) {
     setType(e.target.value);
@@ -83,10 +83,42 @@ const Chart = () => {
 
     SetData(db1);
   };
+
+  const getStandardDeviation = (arr, usePopulation = true) => {
+    const mean = arr.reduce((acc, val) => acc + val, 0) / arr.length;
+    return Math.sqrt(
+      arr.reduce((acc, val) => acc.concat((val - mean) ** 2), []).reduce((acc, val) => acc + val, 0) /
+        (arr.length - (usePopulation ? 0 : 1))
+    );
+  };
+
+
+
   const handlePrediction = () => {
-    let monthIndex = db.findIndex((obj) => obj.name === selectedMonth);
-    setPrediction(`Expected water bill: ${db[monthIndex].Shekel}₪`);
-    setElecPrediction(`Expected electricity bill: ${db[monthIndex].Shekel}₪`);
+    let avg=0;
+    let standard=0;
+    getWaterBills();
+    for(let i=0;i<waterData.length;i++)
+    {
+      avg+=waterData[i].amount;
+      console.log(waterData);
+    }
+avg=Math.round(avg/waterData.length);
+    setAverage(`Average: ${avg}₪`);
+    let amount=[];
+    for(let i=0;i<waterData.length;i++)
+    {
+      amount[i]=waterData[i].amount;
+    }
+    standard=getStandardDeviation(amount);
+    standard=Math.round(standard);
+    setDeviation(`Standard Deviation: ${standard}₪`)
+ 
+   
+    let normDist =  new NormalDistribution(avg,standard);
+    let prob= 2*(Math.min(normDist.cdf(700),1-normDist.cdf(700)));
+
+    setProbability(`Probability: ${prob.toFixed(4)}`)
   };
 
   let db;
@@ -160,17 +192,13 @@ const Chart = () => {
         </LineChart>
       </div>
       <div className="predict">
-        <label className="monthChoose">Choose Month:</label>
-        <input
-          id="predictMonth"
-          type="month"
-          onChange={handleSelectedMonth}
-        ></input>
         <button id="pred" onClick={handlePrediction}>
-          Predict Bill
+          Predict next bill
         </button>
-        <h2>{prediction}</h2>
-        <h2 className="elec">{elecPrediction}</h2>
+        <h2>{average}</h2>
+        <h2>{deviation}</h2>
+        <h2>{probability}</h2>
+ 
       </div>
     </div>
   );

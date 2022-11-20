@@ -36,31 +36,17 @@
   .BillFilter input {
     font-size: 10px;
     margin: 0;
-    width: 50px;
+    width: 40px;
+
   }
-  .BillFilter div {
-    margin-left: 5px;
-  }
-  #calc {
+
+  #calc{
     width: 60px;
     height: 30px;
     font-size: 10px;
   }
-  .recharts-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  .recharts-surface {
-    width: 500px;
-    height: 200px;
-  }
-  .recharts-legend-wrapper {
-    width: 60px;
-    height: 30px;
-  }
-  .recharts-wrapper {
-    width: 400px;
-    height: 200px;
-  }
+
+
+
+
 }
