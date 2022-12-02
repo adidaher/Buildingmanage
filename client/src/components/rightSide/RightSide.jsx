@@ -1,6 +1,5 @@
 import React from "react";
 import "./RightSide.css";
-import logo from "../../imges/logo.png";
 
 const RightSide = () => {
   return (

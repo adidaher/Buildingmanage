@@ -6,7 +6,6 @@ import Navbar from "../components/Navbar/Navbar";
 import IssuesCard from "../components/IssuesCard/IssuesCard";
 import AddIssue from "../components/AddIssue/AddIssue";
 import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
-import AddVotePopUp from "../components/AddVotePopUp/AddVotePopUp";
 import Axios from "axios";
 import config from "../config.json";
 import AddIssuePopUp from "../components/AddIssuePopUp/AddIssuePopUp";

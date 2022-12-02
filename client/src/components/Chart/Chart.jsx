@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Chart.css";
 import {
-  PieChart,
   Line,
-  Pie,
   Tooltip,
   BarChart,
   XAxis,
@@ -59,8 +57,6 @@ const Chart = () => {
     setTo(event.target.value);
   };
 
-
-
   function handleChange(e) {
     setType(e.target.value);
   }
@@ -91,38 +87,35 @@ const Chart = () => {
   const getStandardDeviation = (arr, usePopulation = true) => {
     const mean = arr.reduce((acc, val) => acc + val, 0) / arr.length;
     return Math.sqrt(
-      arr.reduce((acc, val) => acc.concat((val - mean) ** 2), []).reduce((acc, val) => acc + val, 0) /
+      arr
+        .reduce((acc, val) => acc.concat((val - mean) ** 2), [])
+        .reduce((acc, val) => acc + val, 0) /
         (arr.length - (usePopulation ? 0 : 1))
     );
   };
 
-
-
   const handlePrediction = () => {
-    let avg=0;
-    let standard=0;
+    let avg = 0;
+    let standard = 0;
     getWaterBills();
-    for(let i=0;i<waterData.length;i++)
-    {
-      avg+=waterData[i].amount;
+    for (let i = 0; i < waterData.length; i++) {
+      avg += waterData[i].amount;
       console.log(waterData);
     }
-avg=Math.round(avg/waterData.length);
+    avg = Math.round(avg / waterData.length);
     setAverage(`Average: ${avg}₪`);
-    let amount=[];
-    for(let i=0;i<waterData.length;i++)
-    {
-      amount[i]=waterData[i].amount;
+    let amount = [];
+    for (let i = 0; i < waterData.length; i++) {
+      amount[i] = waterData[i].amount;
     }
-    standard=getStandardDeviation(amount);
-    standard=Math.round(standard);
-    setDeviation(`Standard Deviation: ${standard}₪`)
- 
-   
-    let normDist =  new NormalDistribution(avg,standard);
-    let prob= 2*(Math.min(normDist.cdf(700),1-normDist.cdf(700)));
+    standard = getStandardDeviation(amount);
+    standard = Math.round(standard);
+    setDeviation(`Standard Deviation: ${standard}₪`);
 
-    setProbability(`Probability: ${prob.toFixed(4)}`)
+    let normDist = new NormalDistribution(avg, standard);
+    let prob = 2 * Math.min(normDist.cdf(700), 1 - normDist.cdf(700));
+
+    setProbability(`Probability: ${prob.toFixed(4)}`);
   };
 
   let db;
@@ -240,7 +233,6 @@ avg=Math.round(avg/waterData.length);
         <h2>{average}</h2>
         <h2>{deviation}</h2>
         <h2>{probability}</h2>
- 
       </div>
     </div>
   );
