@@ -15,7 +15,7 @@ import config from "../../config.json";
 
 const LeftSide = (props) => {
   const navigate = useNavigate();
-  const [lan, setLan] = useState(localStorage.getItem("web_language"));
+  const [lan, setLan] = useState("eng");
 
   const handleLanguage = (value) => {
     localStorage.setItem("web_language", value);

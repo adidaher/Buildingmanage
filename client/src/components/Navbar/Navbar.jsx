@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
   const [notificationCount, setCount] = useState(0);
-  const [lan, setLan] = useState(localStorage.getItem("web_language"));
+  const [lan, setLan] = useState("eng");
   const navigate = useNavigate();
   const openPopover = (event) => {
     setAnchor(event.currentTarget);
@@ -29,8 +29,11 @@ const Navbar = (props) => {
       setCount(0);
     });
   }
+  let vara = "";
   useEffect(() => {
-    setLan(localStorage.getItem("web_language"));
+    vara = localStorage.getItem("web_language");
+    console.log(vara);
+    setLan("eng");
   }, [lan]);
 
   /* useEffect(() => {

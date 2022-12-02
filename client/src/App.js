@@ -12,6 +12,7 @@ import AddBills from "./AddBills/AddBills";
 
 function App() {
   document.body.style = "background: #f5f5f5;";
+  localStorage.setItem("web_language", "eng");
   return (
     <Routes>
       <Route path="/" element={<DashBoard />} />
