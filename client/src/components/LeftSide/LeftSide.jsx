@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./LeftSide.css";
 import logo from "../../imges/logo.png";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -11,9 +11,23 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useNavigate } from "react-router-dom";
+import config from "../../config.json";
 
 const LeftSide = (props) => {
   const navigate = useNavigate();
+  const [lan, setLan] = useState(localStorage.getItem("web_language"));
+
+  const handleLanguage = (value) => {
+    localStorage.setItem("web_language", value);
+    setLan(value);
+
+    //console.log(config[lan].dashboard);
+  };
+
+  useEffect(() => {
+    setLan(localStorage.getItem("web_language"));
+  }, [lan]);
+
   return (
     <div className="leftSide-container">
       <div className="leftSide-logo">
@@ -26,50 +40,61 @@ const LeftSide = (props) => {
         onClick={() => navigate("/DashBoard")}
       >
         <HomeOutlinedIcon className="icons" />
-        <div className="sidebar-link title">Dashborad</div>
+        <div className="sidebar-link title">{config[lan].dashboard}</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/Issues")}>
         <ErrorOutlineOutlinedIcon className="icons" />
-        <div>Issue</div>
+        <div>{config[lan].Issue}</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/Polls")}>
         <HowToVoteOutlinedIcon className="icons" />
-        <div className="sidebar-link title">Vote</div>
+        <div className="sidebar-link title">{config[lan].Vote}</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/statistics")}>
         <InsightsOutlinedIcon className="icons" />
-        <div>Statistics</div>
+        <div>{config[lan].Statistics}</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/chat")}>
         <MailOutlinedIcon className="icons" />
-        <div>Chat</div>
+        <div>{config[lan].Chat}</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/profile")}>
         <Person2OutlinedIcon />
-        <div>Profile</div>
+        <div>{config[lan].Profile}</div>
       </div>
 
       <hr className="leftside-HR" />
 
-      <div className="leftside-font">Other</div>
+      <div className="leftside-font">{config[lan].Other}</div>
 
       <div className="sidebar-link" onClick={() => navigate("/addBill")}>
         <InfoOutlinedIcon className="icons" />
-        <div>Add Bill</div>
+        <div>{config[lan].AddBill}</div>
       </div>
       <div className="sidebar-link">
         <SettingsOutlinedIcon className="icons" />
-        <div>Setting</div>
+        <div>{config[lan].Setting}</div>
       </div>
 
       <div className="sidebar-link" style={{ paddingTop: "15px" }}>
         <LogoutOutlinedIcon className="icons" />
-        <div>Log Out</div>
+        <div>{config[lan].LogOut}</div>
+      </div>
+      <div className="language" style={{ paddingTop: "15px" }}>
+        <button className="lan" onClick={() => handleLanguage("heb")}>
+          עברית
+        </button>
+        <button className="lan" onClick={() => handleLanguage("eng")}>
+          English
+        </button>
+        <button className="lan" onClick={() => handleLanguage("ar")}>
+          العربيه
+        </button>
       </div>
     </div>
   );

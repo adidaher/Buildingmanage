@@ -88,6 +88,21 @@
   margin-bottom: 20px;
   margin-left: 10px;
 }
+.language {
+  display: flex;
+  flex-direction: column;
+}
+.lan {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  border: 4px;
+  background-color: transparent;
+  height: 15px;
+  font-size: 20px;
+  color: gray;
+  padding: 5px;
+}
 
 @media (max-width: 768px) {
   .leftSide-container {

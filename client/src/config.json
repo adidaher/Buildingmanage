@@ -1,3 +1,43 @@
 {
-  "server_uri": "https://buildingappa.herokuapp.com"
+  "server_uri": "https://buildingappa.herokuapp.com",
+
+  "heb": {
+    "dashboard": "דף ראשי",
+    "Issue": "בעיות",
+    "Vote": "הצבעה",
+    "Statistics": "סטטיסטיקה",
+    "Chat": "שיחות",
+    "Profile": "פרופיל",
+    "Other": "אחר",
+    "AddBill": "הוספת חשבון",
+    "Setting": "הגדרות",
+    "LogOut": "להתנתק",
+    "search": "חפש"
+  },
+  "ar": {
+    "dashboard": "الرئيسيه",
+    "Issue": "مشاكل",
+    "Vote": "تصويت",
+    "Statistics": "إحصائيات",
+    "Chat": "دردشة",
+    "Profile": "الملف الشخصي",
+    "Other": "آخر",
+    "AddBill": "إضافة فواتير",
+    "Setting": "إعدادات",
+    "LogOut": "تسجيل خروج",
+    "search": "ابحث"
+  },
+  "eng": {
+    "dashboard": "Dashboard",
+    "Issue": "Issue",
+    "Vote": "Vote",
+    "Statistics": "Statistics",
+    "Chat": "Chat",
+    "Profile": "Profile",
+    "Other": "Other",
+    "AddBill": "Add Bill",
+    "Setting": "Setting",
+    "LogOut": "Log Out",
+    "search": "Search"
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,10 +8,12 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useNavigate } from "react-router-dom";
 import config from "../../config.json";
+
 const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
   const [notificationCount, setCount] = useState(0);
+  const [lan, setLan] = useState(localStorage.getItem("web_language"));
   const navigate = useNavigate();
   const openPopover = (event) => {
     setAnchor(event.currentTarget);
@@ -27,6 +29,9 @@ const Navbar = (props) => {
       setCount(0);
     });
   }
+  useEffect(() => {
+    setLan(localStorage.getItem("web_language"));
+  }, [lan]);
 
   /* useEffect(() => {
     Axios.get("http://localhost:3001/getnotification").then((response) => {
@@ -63,9 +68,9 @@ const Navbar = (props) => {
       </div>
       <div className="navbar-rightSection">
         <div className="search-container">
-          <input className="search-input" placeholder="Search" />
+          <input className="search-input" placeholder={config[lan].search} />
           <SearchIcon style={{ color: "gray", fontSize: "30px" }} />
-          <div class="tooltip">Search</div>
+          <div className="tooltip">{config[lan].search}</div>
         </div>
 
         <div className="navbar-notification">
@@ -99,7 +104,7 @@ const Navbar = (props) => {
             )}
           </Popover>
         </div>
-        <button class="openMenu" onClick={openMenu}>
+        <button className="openMenu" onClick={openMenu}>
           <MenuOutlinedIcon />
         </button>
         <ul className="mainMenu" id="mainMenu">
@@ -144,7 +149,7 @@ const Navbar = (props) => {
           </li>
         </ul>
 
-        <button class="closeMenu" id="closeMenu" onClick={closeM}>
+        <button className="closeMenu" id="closeMenu" onClick={closeM}>
           <CloseOutlinedIcon />
         </button>
       </div>

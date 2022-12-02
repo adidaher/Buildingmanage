@@ -17,7 +17,6 @@
     "antd": "^4.23.5",
     "axios": "^1.1.2",
     "bootstrap": "^5.2.2",
-    "normal-distribution": "^1.1.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-chartjs-2": "^4.3.1",
