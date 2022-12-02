@@ -15,9 +15,7 @@ const BillTable = (props) => {
           {props.tableData.map((item, i) => (
             <tr key={i}>
               <td className="rownum">
-                <a className="aaa" href="#">
-                  {i + 1}
-                </a>
+                <a className="aaa">{i + 1}</a>
               </td>
               <td>{item.type} </td>
               <td>{item.date}</td>

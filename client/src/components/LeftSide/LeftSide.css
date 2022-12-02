@@ -40,23 +40,35 @@
 .sidebar-link {
   height: 55px;
   display: flex;
+  align-items: center;
   margin-left: 10px;
   flex-direction: row;
-  align-items: flex-start;
 }
 .sidebar-link:hover {
   cursor: pointer;
 }
 .sidebar-link div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: Roboto, Arial;
   font-size: 18px;
   margin-left: 10px;
   color: gray;
 }
 .sidebar-link svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: gray;
-  font-size: "40px";
+  text-align: center;
 }
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .leftside-HR {
   display: flex;
   width: 80%;

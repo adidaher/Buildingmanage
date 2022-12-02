@@ -13,24 +13,20 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useNavigate } from "react-router-dom";
 
 const LeftSide = (props) => {
-  // document.getElementById(props.name).style.backgroundColor = "#FCBA2D";
-  /* console.log(props.name);
-  console.log(props.name + "2");
-  document.getElementById(props.name).style.color = "#FCBA2D";
-  document.getElementById(props.name + "2").style.color = "#FCBA2D";*/
   const navigate = useNavigate();
   return (
     <div className="leftSide-container">
       <div className="leftSide-logo">
         <img src={logo} alt="" />
       </div>
+
       <div
         className="sidebar-link"
         style={{ paddingTop: "25px" }}
         onClick={() => navigate("/DashBoard")}
       >
         <HomeOutlinedIcon className="icons" />
-        <div>Dashborad</div>
+        <div className="sidebar-link title">Dashborad</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/Issues")}>
@@ -40,7 +36,7 @@ const LeftSide = (props) => {
 
       <div className="sidebar-link" onClick={() => navigate("/Polls")}>
         <HowToVoteOutlinedIcon className="icons" />
-        <div>Vote</div>
+        <div className="sidebar-link title">Vote</div>
       </div>
 
       <div className="sidebar-link" onClick={() => navigate("/statistics")}>

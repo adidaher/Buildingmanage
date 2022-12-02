@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SearchIcon from "@mui/icons-material/Search";
@@ -92,7 +92,7 @@ const Navbar = (props) => {
                   </Typography>
                 );
               })}
-            {notificationList.length == 0 && (
+            {notificationList.length === 0 && (
               <Typography variant="h6" style={{ margin: "5px" }}>
                 No notification found
               </Typography>

@@ -87,7 +87,7 @@ class DashBoard extends Component {
     const options = {
       series: [2, 4, 2],
       labels: this.state.label,
-      colors: ["#0D98FF", "#ff0d0d", "#0dff41"],
+      colors: ["#0D98FF", "#ff0d0d", "#ff960d"],
       plotOptions: {
         pie: {
           expandOnclick: true,
