@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddIssue.css";
-import { useState } from "react";
+import config from "../../config.json";
 import CloseIcon from "@mui/icons-material/Close";
 const AddIssue = ({ addIssuehandler, setOpenModal }) => {
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
+
   let isMobile = window.matchMedia(
     "only screen and (max-width: 760px)"
   ).matches;
@@ -14,7 +16,7 @@ const AddIssue = ({ addIssuehandler, setOpenModal }) => {
     <div className="AddIssue-Container">
       <div className="card mt-50 mb-50">
         <div className="card-title mx-auto">
-          <span>Add Issue</span>
+          <span>{config[lan].AddIssue}</span>
           {isMobile && (
             <div className="close-viewer">
               <CloseIcon
@@ -27,10 +29,10 @@ const AddIssue = ({ addIssuehandler, setOpenModal }) => {
           )}
         </div>
 
-        <div className="Title">Issue Catagory</div>
+        <div className="Title">{config[lan].IssueCatagory}</div>
         <select id="choice" className="FilterOption">
           <option disabled selected>
-            Select issue catagory
+            {config[lan].Selectissuecatagory}
           </option>
           <option className="FilterOption">Elevator Issue</option>
           <option className="FilterOption">Electricity Issue</option>
@@ -40,10 +42,10 @@ const AddIssue = ({ addIssuehandler, setOpenModal }) => {
         </select>
 
         <div className="IssueDesc">
-          <div>Issue Description</div>
+          <div>{config[lan].IssueDescription}</div>
 
           <input
-            placeholder="Please insert description"
+            placeholder={config[lan].PleaseInsertdescription}
             className="IssueDesInput"
             onChange={(event) => {
               setDesc(event.target.value);
@@ -51,10 +53,10 @@ const AddIssue = ({ addIssuehandler, setOpenModal }) => {
           />
 
           <div className="expected">
-            Expected Fix Date
+            {config[lan].ExpectedFixDate}
             <input
               type="date"
-              placeholder="Please insert date"
+              placeholder={config[lan].PleaseInsertdate}
               className="IssueDateInput"
               onChange={(event) => {
                 setDate(event.target.value);
@@ -74,7 +76,7 @@ const AddIssue = ({ addIssuehandler, setOpenModal }) => {
               setOpenModal(false);
             }}
           >
-            <b>ADD</b>
+            <b>{config[lan].ADD}</b>
           </button>
         </div>
       </div>

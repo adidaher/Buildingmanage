@@ -8,9 +8,11 @@ import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
 import AddVotePopUp from "../components/AddVotePopUp/AddVotePopUp";
 import Axios from "axios";
 import config from "../config.json";
+
 const Polls = () => {
   const [cards, setCards] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
 
   useEffect(() => {
     Axios.get(config.server_uri + "/retrieveAllVotes").then((response) => {
@@ -35,8 +37,11 @@ const Polls = () => {
   };
   return (
     <div className="Polls-container">
-      <LeftSide name={"Profile"} />
-      <Navbar title={"Vote"} desc={"Please Vote what you preffer"} />
+      <LeftSide />
+      <Navbar
+        title={config[lan].Vote}
+        desc={config[lan].PleaseVotewhatyoupreffer}
+      />
       <RightSide />
       <div className="Polls-content">
         <div className="addPolls">

@@ -12,6 +12,7 @@ class AddBills extends Component {
     super(props);
     this.state = {
       loading: false,
+      lan: localStorage.getItem("web_language") || "eng",
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -19,7 +20,6 @@ class AddBills extends Component {
   onSubmit(e) {
     e.preventDefault();
     this.setState({ loading: true });
-
     var ee = document.getElementById("options");
     var text = e.options[ee.selectedIndex].text;
     const selecteddate = new Date(
@@ -38,29 +38,35 @@ class AddBills extends Component {
       }, 1000);
     });
   }
+
   render() {
     const toDay = new Date().toISOString().substring(0, 10);
     return (
       <div className="AddBills-container">
-        <LeftSide name={"Profile"} />
-        <Navbar title={"ADD BILL"} desc={"Please Fill In bill details"} />
+        <LeftSide />
+        <Navbar
+          title={config[this.state.lan].ADDBILL}
+          desc={config[this.state.lan].PleaseFillInbilldetails}
+        />
         <RightSide />
         <div className="AddBills-content">
           <div className="AddBill-component">
             <div className="AddBill-Create">
               <span>Created By Adi Daher</span>
-              <span>Opened at {toDay}</span>
+              <span>
+                {config[this.state.lan].Openedat} {toDay}
+              </span>
             </div>
             <form onSubmit={this.onSubmit}>
               <div className="AddBillDetails">
-                <span>Bill ID</span>
+                <span>{config[this.state.lan].BillID}</span>
                 <input placeholder="#IV24984" id="billID" required />
               </div>
               <div className="AddBillDetails">
-                <span>Bill Name</span>
+                <span>{config[this.state.lan].BillName}</span>
                 <select className="options" id="options" required>
                   <option disabled selected defaultValue>
-                    Select
+                    {config[this.state.lan].Select}
                   </option>
                   <option>Water</option>
                   <option>Electricity</option>
@@ -69,7 +75,7 @@ class AddBills extends Component {
               </div>
 
               <div className="AddBillDetails">
-                <span>Due Date</span>
+                <span>{config[this.state.lan].DueDate}</span>
                 <input
                   type="date"
                   style={{ width: "219px" }}
@@ -80,11 +86,11 @@ class AddBills extends Component {
               </div>
               <hr className="AddBillHR" />
               <div className="AddBillDetails billamount">
-                <span>Bill Amount</span>
+                <span>{config[this.state.lan].BillAmount}</span>
                 <input placeholder="320$" id="BillAmount" required />
               </div>
               <div className="addfile">
-                Please scan Bill Barcode
+                {config[this.state.lan].PleasescanBillBarcode}
                 <button>
                   <InsertPageBreakOutlinedIcon style={{ color: "black" }} />
                 </button>
@@ -93,7 +99,7 @@ class AddBills extends Component {
               <div className="Submit-btn">
                 {!this.state.loading && (
                   <button className="sbtn" type="submit">
-                    <span id="submitbtn">Submit</span>
+                    <span id="submitbtn">{config[this.state.lan].Submit}</span>
                   </button>
                 )}
                 {this.state.loading && <CircularProgress />}
@@ -102,9 +108,8 @@ class AddBills extends Component {
           </div>
 
           <p className="noteMessage">
-            <div>Notes:</div>
-            Please Make Sure all the data that has been filled matching the
-            orginal Bill
+            <div>{config[this.state.lan].Notes}:</div>
+            {config[this.state.lan].Notes2}
           </p>
         </div>
       </div>

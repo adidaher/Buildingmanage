@@ -25,6 +25,8 @@ const Chart = () => {
   const [color, setColor] = useState("#347AE2");
   const [waterData, SetWaterData] = useState([{}]);
   const [elecData, SetElecData] = useState([{}]);
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
+
   const [data, SetData] = useState([
     { date: "2021-10", amount: 400 },
     { date: "2021-11", amount: 500 },
@@ -124,11 +126,11 @@ const Chart = () => {
   return (
     <div className="Chart-container">
       <span className="water">
-        <h1>{type} Bills</h1>
+        <h1>{config[lan].Bills}</h1>
       </span>
       <div className="BillFilter">
         <div className="billType">
-          <label>Bill Type</label>
+          <label>{config[lan].Billtype}</label>
           <select className="options" onChange={handleChange}>
             <option>Water</option>
             <option>Electricity</option>
@@ -153,7 +155,7 @@ const Chart = () => {
           ></input>
         </div>
         <button id="calc" onClick={editData} className="calco">
-          Calculate
+          {config[lan].Calculate}
         </button>
       </div>
       <div className="charts">
@@ -228,7 +230,7 @@ const Chart = () => {
       </div>
       <div className="predict">
         <button id="pred" onClick={handlePrediction}>
-          Predict next bill
+          {config[lan].Predictnextbill}
         </button>
         <h2>{average}</h2>
         <h2>{deviation}</h2>

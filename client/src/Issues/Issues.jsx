@@ -9,9 +9,12 @@ import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
 import Axios from "axios";
 import config from "../config.json";
 import AddIssuePopUp from "../components/AddIssuePopUp/AddIssuePopUp";
+
 const Issues = () => {
   const [issueList, setIssueList] = useState([]);
   const [AddIssueOpen, setAddIssueOpen] = useState(false);
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
+
   let isMobile = window.matchMedia(
     "only screen and (max-width: 760px)"
   ).matches;
@@ -37,7 +40,7 @@ const Issues = () => {
   return (
     <div className="home-container">
       <LeftSide />
-      <Navbar title={"Issues"} desc={"All Issues"} />
+      <Navbar title={config[lan].Issues} desc={config[lan].AllIssues} />
       <RightSide />
 
       <div className="addIssue">

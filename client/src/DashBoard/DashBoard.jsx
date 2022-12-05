@@ -19,6 +19,7 @@ class DashBoard extends Component {
       unPaidBillsAmount: 0,
       unPaidBills: 0,
       loading: true,
+      lan: localStorage.getItem("web_language") || "eng",
     };
     this.setBills = this.setBills.bind(this);
     this.fetchData = this.fetchData.bind(this);
@@ -107,15 +108,25 @@ class DashBoard extends Component {
       <div className="Inbox-container">
         {this.state.loading && <LoadingComp />}
         <LeftSide />
-        <Navbar title={"DashBoard"} desc={"Building Updates"} />
+        <Navbar
+          title={config[this.state.lan].dashboard}
+          desc={config[this.state.lan].BuildingUpdates}
+        />
         <RightSide />
         <div className="DashBoard-content">
           <div className="updates-card">
             {this.state.series.length > 0 && (
               <>
                 <div className="DashBoardMessage">
-                  <span>You have {this.state.unPaidBills} bills to pay</span>
-                  <span>Total: {this.state.unPaidBillsAmount}₪ </span>
+                  <span>
+                    {config[this.state.lan].Youhave} {this.state.unPaidBills}{" "}
+                    {config[this.state.lan].billstopay}
+                  </span>
+                  <span>
+                    {config[this.state.lan].Total} :{" "}
+                    {this.state.unPaidBillsAmount}
+                    {config[this.state.lan].shekel}{" "}
+                  </span>
                 </div>
                 <Chart
                   className="donutchart"

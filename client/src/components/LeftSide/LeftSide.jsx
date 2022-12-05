@@ -13,20 +13,17 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useNavigate } from "react-router-dom";
 import config from "../../config.json";
 
-const LeftSide = (props) => {
+const LeftSide = () => {
   const navigate = useNavigate();
-  const [lan, setLan] = useState("eng");
+
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
 
   const handleLanguage = (value) => {
     localStorage.setItem("web_language", value);
-    setLan(value);
-
-    //console.log(config[lan].dashboard);
+    setlan(value);
+    window.location.reload();
   };
-
-  useEffect(() => {
-    setLan(localStorage.getItem("web_language"));
-  }, [lan]);
+  console.log(lan);
 
   return (
     <div className="leftSide-container">

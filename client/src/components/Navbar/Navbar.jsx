@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const [anchor, setAnchor] = useState(null);
   const [notificationList, setnotification] = useState([]);
   const [notificationCount, setCount] = useState(0);
-  const [lan, setLan] = useState("eng");
+  const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
   const navigate = useNavigate();
   const openPopover = (event) => {
     setAnchor(event.currentTarget);
@@ -29,12 +29,6 @@ const Navbar = (props) => {
       setCount(0);
     });
   }
-  let vara = "";
-  useEffect(() => {
-    vara = localStorage.getItem("web_language");
-    console.log(vara);
-    setLan("eng");
-  }, [lan]);
 
   /* useEffect(() => {
     Axios.get("http://localhost:3001/getnotification").then((response) => {
