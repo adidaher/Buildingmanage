@@ -107,41 +107,41 @@ const Navbar = (props) => {
         <ul className="mainMenu" id="mainMenu">
           <li>
             <a href="#" onClick={() => navigate("/DashBoard")}>
-              DashBoard
+              {config[lan].dashboard}
             </a>
           </li>
           <li>
             <a href="#" onClick={() => navigate("/statistics")}>
-              statistics
+              {config[lan].Statistics}
             </a>
           </li>
           <li>
             <a href="#" onClick={() => navigate("/Polls")}>
-              Polls
+              {config[lan].Polls}
             </a>
           </li>
 
           <li>
             <a href="#" onClick={() => navigate("/Issues")}>
-              Issues
+              {config[lan].Issue}
             </a>
           </li>
 
           <li>
             <a href="#" onClick={() => navigate("/chat")}>
-              chat
+              {config[lan].Chat}
             </a>
           </li>
 
           <li>
             <a href="#" onClick={() => navigate("/profile")}>
-              profile
+              {config[lan].Profile}
             </a>
           </li>
 
           <li>
             <a href="#" onClick={() => navigate("/addbill")}>
-              Add Bill
+              {config[lan].AddBill}
             </a>
           </li>
         </ul>
