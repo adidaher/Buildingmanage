@@ -49,7 +49,7 @@
     "Phone": "טלפון",
     "FamilyMembers": "חברי משפחה",
     "AvailableServices": "שירותים זמינים",
-    "wifi": "וויי - פיי",
+    "wifi": "וויי-פיי",
     "cleaning": "ניקוי",
     "AddIssue": "הוסף בעיה",
     "IssueCatagory": "קטגוריה",
@@ -77,7 +77,8 @@
     "Notes": "הערות",
     "Notes2": "אנא ודא שכל הנתונים שמולאו תואמים את החשבון המקורי",
     "ADDBILL": "הוסף חשבונית",
-    "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית"
+    "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית",
+    "Polls": "סקרים"
   },
   "ar": {
     "dashboard": "الرئيسيه",
@@ -155,7 +156,8 @@
     "Notes": "ملحوظات",
     "Notes2": "يرجى التأكد من أن جميع البيانات التي تم ملؤها مطابقة للفاتورة الأصلية",
     "ADDBILL": "إضافة الفاتورة",
-    "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة"
+    "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة",
+    "Polls": "استطلاعات الرأي"
   },
   "eng": {
     "dashboard": "Dashboard",
@@ -223,7 +225,6 @@
     "Calculate": "Calculate",
     "Predictnextbill": "Predict next bill",
     "Checkyourchat": "Check your chat",
-
     "Openedat": "Opened at",
     "BillID": "Bill ID",
     "BillName": "Bill type",
@@ -234,6 +235,7 @@
     "Notes": "Notes",
     "Notes2": "Please Make Sure all the data that has been filled matching the orginal Bill",
     "ADDBILL": "ADD BILL",
-    "PleaseFillInbilldetails": "Please Fill In bill details"
+    "PleaseFillInbilldetails": "Please Fill In bill details",
+    "Polls": "Polls"
   }
 }
