@@ -11,7 +11,6 @@ const IssuesCard = (props) => {
 
         <span className="IssuesCard-desc">{props.desc}</span>
       </div>
-
       <div className="IssuesCard-row2">
         <InsertInvitationOutlinedIcon className="IssuesCarddate-icon" />
         <div className="IssuesCard-date">Expected fix date : {props.date}</div>

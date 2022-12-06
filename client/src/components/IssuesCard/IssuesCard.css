@@ -82,11 +82,12 @@
 @media (max-width: 768px) {
   .IssuesCard-container {
     width: 90%;
-    height: 3%;
+    height: 18%;
     margin-left: 0;
     padding-top: 0;
     padding: 5px;
     border-radius: 15px;
+    font-size: 10px;
   }
 
   .IssuesCard-Button {
