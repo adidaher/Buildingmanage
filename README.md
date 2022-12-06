@@ -6,5 +6,5 @@ Instructions:
 1.on the command line type: cd server \
 2.on the command line type: node index.js \
 3.on the command line type: cd client \
-4.on the command line type: npm install \
+4.on the command line type: npm i -force \
 5.on the command line type: npm start
