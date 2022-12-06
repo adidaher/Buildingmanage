@@ -27,15 +27,16 @@ const Issues = () => {
     Axios.get(config.server_uri + "/getIssues").then((response) => {
       setIssueList(response.data);
     });
-  }, []);
+  }, [issueList]);
 
   const addIssue = (category, desc, date) => {
     Axios.post(config.server_uri + "/addIssue", {
       category: category,
       desc: desc,
       date: date,
+    }).then(() => {
+      getIssues();
     });
-    getIssues();
   };
   return (
     <div className="home-container">

@@ -18,6 +18,7 @@ class AddBills extends Component {
   }
 
   onSubmit(e) {
+    console.log(document.getElementById("BillAmount").value);
     e.preventDefault();
     this.setState({ loading: true });
     var ee = document.getElementById("options");

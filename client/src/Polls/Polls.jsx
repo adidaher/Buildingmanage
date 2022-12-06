@@ -18,12 +18,16 @@ const Polls = () => {
     Axios.get(config.server_uri + "/retrieveAllVotes").then((response) => {
       setCards(response.data);
     });
-  }, []);
+  }, [cards]);
+
   const getAllVotes = () => {
-    Axios.get(config.server_uri + "/retrieveAllVotes").then((response) => {
-      setCards(response.data);
-    });
+    Axios.get(config.server_uri + "/retrieveAllVotes")
+      .then((response) => {
+        setCards(response.data);
+      })
+      .then(() => window.location.reload());
   };
+
   const onAddNewVoteHandle = (subject, option_one, option_two) => {
     Axios.post(config.server_uri + "/addPoll", {
       vote_num: cards.length + 1,
@@ -32,8 +36,7 @@ const Polls = () => {
       vote_optionone_number: 0,
       vote_option_two: option_two,
       vote_optiontwo_number: 0,
-    });
-    getAllVotes();
+    }).then(() => getAllVotes());
   };
   return (
     <div className="Polls-container">

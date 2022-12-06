@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddIssue.css";
 import config from "../../config.json";
 import CloseIcon from "@mui/icons-material/Close";
+
 const AddIssue = ({ addIssuehandler, setOpenModal }) => {
   const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
 

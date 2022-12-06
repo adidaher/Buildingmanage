@@ -26,8 +26,7 @@ const VoteCard = (props) => {
   const DeletePoll = () => {
     Axios.post(config.server_uri + "/deletePoll", {
       voteNum: props.id,
-    });
-    props.votinghandler();
+    }).then(() => props.votinghandler());
   };
   return (
     <div className="poll">
