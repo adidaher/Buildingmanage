@@ -100,12 +100,16 @@
 .openMenu,
 .closeMenu {
   font-size: 2rem;
-  margin: 20px;
+
   display: none;
   cursor: pointer;
   background-color: none;
   border: none;
 }
+.openMenu {
+  margin: 20px;
+}
+
 .mainMenu li {
   display: none;
 }
@@ -178,10 +182,12 @@
   }
   .closeMenu {
     z-index: 100;
-    top: 0;
+    top: 5;
     border: none;
     display: none;
     background-color: transparent;
+    position: fixed;
+    right: 0;
   }
   .mainMenu li a:hover {
     background: none;
