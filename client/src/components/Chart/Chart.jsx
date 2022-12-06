@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import Axios from "axios";
 import config from "../../config.json";
+import regression from "regression";
 import NormalDistribution from "normal-distribution";
 const Chart = () => {
   const [from, setFrom] = useState("2021-10");
@@ -114,8 +115,19 @@ const Chart = () => {
     standard = Math.round(standard);
     setDeviation(`Standard Deviation: ${standard}₪`);
 
+    let linearPoints = [
+      [300, 350],
+      [400, 420],
+    ];
+    let regressionModel = regression.linear(linearPoints);
+    let predictx = regressionModel.predict(avg)[1];
+    predictx = Math.round(predictx);
+    console.log(predictx);
+
     let normDist = new NormalDistribution(avg, standard);
-    let prob = 2 * Math.min(normDist.cdf(700), 1 - normDist.cdf(700));
+
+    let prob = 2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
+    console.log(prob);
 
     setProbability(`Probability: ${prob.toFixed(4)}`);
   };

@@ -17,6 +17,7 @@
     "antd": "^4.23.5",
     "axios": "^1.1.2",
     "bootstrap": "^5.2.2",
+    "normal-distribution": "^1.1.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-chartjs-2": "^4.3.1",
@@ -32,6 +33,7 @@
     "reactstrap": "^9.1.4",
     "rechart": "^0.0.1",
     "recharts": "^2.1.14",
+    "regression": "^2.0.1",
     "sass": "^1.55.0",
     "web-vitals": "^2.1.4"
   },

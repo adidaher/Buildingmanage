@@ -12,13 +12,15 @@ const users = {
 
 let messageData = [
   new Message({
+    id: "2",
+    message: "There is a car blocking my driveway",
+    senderName: "Michel",
+  }),
+  new Message({
     id: "1",
-    message: "Hey guys",
+    message: "Thats mine, sorry I will move it straight away",
     senderName: "Adi",
   }),
-  new Message({ id: "2", message: "Hello", senderName: "Michel" }),
-  new Message({ id: "3", message: "Hi Adi", senderName: "Zeev" }),
-  new Message({ id: "4", message: " Shabat Shalom", senderName: "Shlomo" }),
 ];
 
 class Chat extends React.Component {
