@@ -30,6 +30,11 @@ const Navbar = (props) => {
     });
   }
 
+  const handleLanguage = (value) => {
+    localStorage.setItem("web_language", value);
+    setlan(value);
+    window.location.reload();
+  };
   /* useEffect(() => {
     Axios.get("http://localhost:3001/getnotification").then((response) => {
       setnotification(response.data);
@@ -144,10 +149,28 @@ const Navbar = (props) => {
               {config[lan].AddBill}
             </a>
           </li>
+
+          <li>
+            <a href="#" onClick={() => handleLanguage("heb")}>
+              עברית
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onClick={() => handleLanguage("eng")}>
+              English
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onClick={() => handleLanguage("ar")}>
+              العربيه
+            </a>
+          </li>
         </ul>
 
         <button className="closeMenu" id="closeMenu" onClick={closeM}>
-          <CloseOutlinedIcon />
+          <CloseOutlinedIcon style={{ color: "white" }} />
         </button>
       </div>
     </div>
