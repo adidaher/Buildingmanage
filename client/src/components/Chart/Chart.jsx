@@ -192,7 +192,7 @@ const Chart = () => {
       <div className="charts">
         {isMobile && (
           <BarChart
-            width={330}
+            width={350}
             height={300}
             data={data}
             margin={{
@@ -243,7 +243,7 @@ const Chart = () => {
         )}
 
         {isMobile && (
-          <LineChart width={330} height={300} data={data}>
+          <LineChart width={350} height={300} data={data}>
             <XAxis dataKey="date" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
