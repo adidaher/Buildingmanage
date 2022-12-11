@@ -78,7 +78,8 @@
     "Notes2": "אנא ודא שכל הנתונים שמולאו תואמים את החשבון המקורי",
     "ADDBILL": "הוסף חשבונית",
     "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית",
-    "Polls": "סקרים"
+    "Polls": "סקרים",
+    "GetPredictionDetails": "קבל פרטי חיזוי"
   },
   "ar": {
     "dashboard": "الرئيسيه",
@@ -157,7 +158,8 @@
     "Notes2": "يرجى التأكد من أن جميع البيانات التي تم ملؤها مطابقة للفاتورة الأصلية",
     "ADDBILL": "إضافة الفاتورة",
     "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة",
-    "Polls": "استطلاعات الرأي"
+    "Polls": "استطلاعات الرأي",
+    "GetPredictionDetails": "احصل على تفاصيل التنبؤ"
   },
   "eng": {
     "dashboard": "Dashboard",
@@ -236,6 +238,7 @@
     "Notes2": "Please Make Sure all the data that has been filled matching the orginal Bill",
     "ADDBILL": "ADD BILL",
     "PleaseFillInbilldetails": "Please Fill In bill details",
-    "Polls": "Polls"
+    "Polls": "Polls",
+    "GetPredictionDetails": "Get Preduction Details"
   }
 }
