@@ -33,6 +33,7 @@ const Chart = () => {
     { date: "2021-11", amount: 500 },
     { date: "2021-12", amount: 450 },
     { date: "2022-01", amount: 500 },
+    { date: "2022-02(pred)", amount: 478 },
   ]);
 
   let isMobile = window.matchMedia(
@@ -143,7 +144,7 @@ const Chart = () => {
       <div className="BillFilter">
         <div className="billType">
           <label>{config[lan].Billtype}</label>
-          <select className="options" onChange={handleChange}>
+          <select className="options" id="opt" onChange={handleChange}>
             <option>Water</option>
             <option>Electricity</option>
           </select>
@@ -173,7 +174,7 @@ const Chart = () => {
       <div className="charts">
         {isMobile && (
           <BarChart
-            width={400}
+            width={330}
             height={300}
             data={data}
             margin={{
@@ -224,7 +225,7 @@ const Chart = () => {
         )}
 
         {isMobile && (
-          <LineChart width={400} height={200} data={data}>
+          <LineChart width={330} height={300} data={data}>
             <XAxis dataKey="date" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
@@ -242,7 +243,7 @@ const Chart = () => {
       </div>
       <div className="predict">
         <button id="pred" onClick={handlePrediction}>
-          {config[lan].Predictnextbill}
+          {config[lan].GetPredictionDetails}
         </button>
         <h2>{average}</h2>
         <h2>{deviation}</h2>
