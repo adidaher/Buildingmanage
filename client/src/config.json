@@ -65,7 +65,7 @@
     "CheckYourStatistic": "בדוק את הסטטיסטיקה שלך",
     "Bills": "חשבוניות",
     "Calculate": "בדוק",
-    "Predictnextbill": "נחש סכום החשבון הבא",
+    "GetPredictionDetails": "נחש סכום החשבון הבא",
     "Checkyourchat": "בדוק את הצ'אט שלך",
     "Openedat": "נפתח ב",
     "BillID": "מזהה חשבון",
@@ -78,8 +78,7 @@
     "Notes2": "אנא ודא שכל הנתונים שמולאו תואמים את החשבון המקורי",
     "ADDBILL": "הוסף חשבונית",
     "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית",
-    "Polls": "סקרים",
-    "GetPredictionDetails": "קבל פרטי חיזוי"
+    "Polls": "סקרים"
   },
   "ar": {
     "dashboard": "الرئيسيه",
@@ -145,7 +144,7 @@
     "CheckYourStatistic": "تحقق من الإحصائيات الخاصة بك",
     "Bills": "الفواتير",
     "Calculate": "احسب",
-    "Predictnextbill": "توقع الفاتورة التالية",
+    "GetPredictionDetails": "توقع الفاتورة التالية",
     "Checkyourchat": "تحقق من الدردشة الخاصة بك",
     "Openedat": "افتتح في",
     "BillID": "معرف الفاتورة",
@@ -158,8 +157,7 @@
     "Notes2": "يرجى التأكد من أن جميع البيانات التي تم ملؤها مطابقة للفاتورة الأصلية",
     "ADDBILL": "إضافة الفاتورة",
     "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة",
-    "Polls": "استطلاعات الرأي",
-    "GetPredictionDetails": "احصل على تفاصيل التنبؤ"
+    "Polls": "استطلاعات الرأي"
   },
   "eng": {
     "dashboard": "Dashboard",
@@ -225,7 +223,7 @@
     "CheckYourStatistic": "Check Your Statistic",
     "Bills": "Bills",
     "Calculate": "Calculate",
-    "Predictnextbill": "Predict next bill",
+    "GetPredictionDetails": "Get Prediction Details",
     "Checkyourchat": "Check your chat",
     "Openedat": "Opened at",
     "BillID": "Bill ID",
@@ -238,7 +236,6 @@
     "Notes2": "Please Make Sure all the data that has been filled matching the orginal Bill",
     "ADDBILL": "ADD BILL",
     "PleaseFillInbilldetails": "Please Fill In bill details",
-    "Polls": "Polls",
-    "GetPredictionDetails": "Get Preduction Details"
+    "Polls": "Polls"
   }
 }

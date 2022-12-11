@@ -40,10 +40,13 @@ const Chart = () => {
     "only screen and (max-width: 760px)"
   ).matches;
 
-  const getWaterBills = () => {
-    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
-      SetWaterData(response.data);
-    });
+  const getWaterBills = async () => {
+    const result = await Axios.get(config.server_uri + "/getWaterBills").then(
+      (response) => {
+        SetWaterData(response.data);
+      }
+    );
+    return result;
   };
 
   const getElecBills = () => {
@@ -65,17 +68,23 @@ const Chart = () => {
     setType(e.target.value);
   }
 
-  const editData = () => {
+  const editData = async () => {
     getWaterBills();
     getElecBills();
     if (type === "Electricity") {
-      console.log(elecData);
-      db = elecData;
-      setColor("#FF9500");
+      const result = await Axios.get(
+        config.server_uri + "/getElectricityBills"
+      ).then((response) => {
+        db = response.data;
+        setColor("#FF9500");
+      });
     } else {
-      console.log(waterData);
-      db = waterData;
-      setColor("#347AE2");
+      const result = await Axios.get(config.server_uri + "/getWaterBills").then(
+        (response) => {
+          db = response.data;
+          setColor("#347AE2");
+        }
+      );
     }
 
     let start = db.findIndex((obj) => obj.date === from);
@@ -98,40 +107,43 @@ const Chart = () => {
     );
   };
 
-  const handlePrediction = () => {
+  const handlePrediction = async () => {
     let avg = 0;
     let standard = 0;
-    getWaterBills();
-    for (let i = 0; i < waterData.length; i++) {
-      avg += waterData[i].amount;
-      console.log(waterData);
-    }
-    avg = Math.round(avg / waterData.length);
-    console.log(avg);
-    setAverage(`Average: ${avg}₪`);
-    let amount = [];
-    for (let i = 0; i < waterData.length; i++) {
-      amount[i] = waterData[i].amount;
-    }
-    standard = getStandardDeviation(amount);
-    standard = Math.round(standard);
-    setDeviation(`Standard Deviation: ${standard}₪`);
+    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+      const waterData1 = response.data;
+      for (let i = 0; i < waterData1.length; i++) {
+        avg += waterData1[i].amount;
+        console.log(waterData1);
+      }
+      avg = Math.round(avg / waterData1.length);
+      console.log("average:" + avg);
+      setAverage(`Average: ${avg}₪`);
+      let amount = [];
+      for (let i = 0; i < waterData1.length; i++) {
+        amount[i] = waterData1[i].amount;
+      }
+      standard = getStandardDeviation(amount);
+      standard = Math.round(standard);
+      setDeviation(`Standard Deviation: ${standard}₪`);
 
-    let linearPoints = [
-      [300, 350],
-      [400, 420],
-    ];
-    let regressionModel = regression.linear(linearPoints);
-    let predictx = regressionModel.predict(avg)[1];
-    predictx = Math.round(predictx);
-    console.log(predictx);
+      let linearPoints = [
+        [300, 350],
+        [400, 420],
+      ];
+      let regressionModel = regression.linear(linearPoints);
+      let predictx = regressionModel.predict(avg)[1];
+      predictx = Math.round(predictx);
+      console.log(predictx);
 
-    let normDist = new NormalDistribution(avg, standard);
+      let normDist = new NormalDistribution(avg, standard);
 
-    let prob = 2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
-    console.log(prob);
+      let prob =
+        2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
+      console.log(prob);
 
-    setProbability(`Probability: ${prob.toFixed(4)}`);
+      setProbability(`Probability: ${prob.toFixed(4)}`);
+    });
   };
 
   let db;
