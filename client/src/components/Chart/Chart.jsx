@@ -33,16 +33,18 @@ const Chart = () => {
     { date: "2021-11", amount: 500 },
     { date: "2021-12", amount: 450 },
     { date: "2022-01", amount: 500 },
+    { date: "2022-02(pred)", amount:478},
   ]);
 
   let isMobile = window.matchMedia(
     "only screen and (max-width: 760px)"
   ).matches;
 
-  const getWaterBills = () => {
-    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+  const  getWaterBills = async() => {
+    const result=await Axios.get(config.server_uri + "/getWaterBills").then((response) => {
       SetWaterData(response.data);
     });
+    return result;
   };
 
   const getElecBills = () => {
@@ -64,18 +66,20 @@ const Chart = () => {
     setType(e.target.value);
   }
 
-  const editData = () => {
+  const editData = async() => {
     getWaterBills();
     getElecBills();
     if (type === "Electricity") {
-      console.log(elecData);
-      db = elecData;
+      const result=await Axios.get(config.server_uri + "/getElectricityBills").then((response) => {
+      db = response.data;
       setColor("#FF9500");
+      })
     } else {
-      console.log(waterData);
-      db = waterData;
+      const result=await Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+      db = response.data;
       setColor("#347AE2");
-    }
+    })
+  }
 
     let start = db.findIndex((obj) => obj.date === from);
 
@@ -97,19 +101,23 @@ const Chart = () => {
     );
   };
 
-  const handlePrediction = () => {
+
+  const handlePrediction = async () => {
+
     let avg = 0;
     let standard = 0;
-    getWaterBills();
-    for (let i = 0; i < waterData.length; i++) {
-      avg += waterData[i].amount;
-      console.log(waterData);
+    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+     const waterData1=response.data;
+    for (let i = 0; i < waterData1.length; i++) {
+      avg += waterData1[i].amount;
+      console.log(waterData1);
     }
-    avg = Math.round(avg / waterData.length);
+    avg = Math.round(avg / waterData1.length);
+    console.log("average:"+ avg);
     setAverage(`Average: ${avg}₪`);
     let amount = [];
-    for (let i = 0; i < waterData.length; i++) {
-      amount[i] = waterData[i].amount;
+    for (let i = 0; i < waterData1.length; i++) {
+      amount[i] = waterData1[i].amount;
     }
     standard = getStandardDeviation(amount);
     standard = Math.round(standard);
@@ -130,12 +138,19 @@ const Chart = () => {
     console.log(prob);
 
     setProbability(`Probability: ${prob.toFixed(4)}`);
-  };
+     
+    });
+  }
+  
+
+  
+   
 
   let db;
   let db1;
 
   return (
+
     <div className="Chart-container">
       <span className="water">
         <h1>{config[lan].Bills}</h1>
@@ -143,7 +158,7 @@ const Chart = () => {
       <div className="BillFilter">
         <div className="billType">
           <label>{config[lan].Billtype}</label>
-          <select className="options" onChange={handleChange}>
+          <select  className="options" id="opt" onChange={handleChange}>
             <option>Water</option>
             <option>Electricity</option>
           </select>
@@ -173,7 +188,7 @@ const Chart = () => {
       <div className="charts">
         {isMobile && (
           <BarChart
-            width={400}
+            width={330}
             height={300}
             data={data}
             margin={{
@@ -224,7 +239,7 @@ const Chart = () => {
         )}
 
         {isMobile && (
-          <LineChart width={400} height={200} data={data}>
+          <LineChart width={330} height={300} data={data}>
             <XAxis dataKey="date" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
@@ -242,7 +257,7 @@ const Chart = () => {
       </div>
       <div className="predict">
         <button id="pred" onClick={handlePrediction}>
-          {config[lan].Predictnextbill}
+          {config[lan].GetPredictionDetails}
         </button>
         <h2>{average}</h2>
         <h2>{deviation}</h2>
