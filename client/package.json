@@ -15,6 +15,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.5",
+    "apexcharts": "^3.36.3",
     "axios": "^1.1.2",
     "bootstrap": "^5.2.2",
     "normal-distribution": "^1.1.1",
