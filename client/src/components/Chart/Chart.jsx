@@ -69,8 +69,6 @@ const Chart = () => {
   }
 
   const editData = async () => {
-    getWaterBills();
-    getElecBills();
     if (type === "Electricity") {
       const result = await Axios.get(
         config.server_uri + "/getElectricityBills"
@@ -157,7 +155,7 @@ const Chart = () => {
       <div className="BillFilter">
         <div className="billType">
           <label>{config[lan].Billtype}</label>
-          <select className="options" id="opt" onChange={handleChange}>
+          <select className="optionssss" id="opt" onChange={handleChange}>
             <option>Water</option>
             <option>Electricity</option>
           </select>
@@ -180,10 +178,17 @@ const Chart = () => {
             onChange={handleTo}
           ></input>
         </div>
+        {!isMobile && (
+          <button id="calc" onClick={editData} className="calco">
+            {config[lan].Calculate}
+          </button>
+        )}
+      </div>
+      {isMobile && (
         <button id="calc" onClick={editData} className="calco">
           {config[lan].Calculate}
         </button>
-      </div>
+      )}
       <div className="charts">
         {isMobile && (
           <BarChart
