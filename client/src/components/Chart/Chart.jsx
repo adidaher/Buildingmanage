@@ -107,6 +107,7 @@ const Chart = () => {
       console.log(waterData);
     }
     avg = Math.round(avg / waterData.length);
+    console.log(avg);
     setAverage(`Average: ${avg}₪`);
     let amount = [];
     for (let i = 0; i < waterData.length; i++) {

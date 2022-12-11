@@ -98,7 +98,6 @@ h2 {
   margin-top: 20px;
 }
 @media (max-width: 768px) {
-  #calc,
   #pred {
     background-color: #488d9f;
     color: white;
@@ -108,11 +107,38 @@ h2 {
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-    font-size: 10px;
+    font-size: 8px;
 
-    height: 42px;
+    height: 25px;
     padding-left: 10px;
     padding-right: 10px;
     font-family: Work Sans;
+  }
+  #calc {
+    background-color: #488d9f;
+    color: white;
+    border: none;
+    border-radius: 15px;
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    font-size: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-family: Work Sans;
+  }
+
+  #to,
+  #from {
+    width: 85px;
+  }
+  .from,
+  .to {
+    margin-left: 0px;
+  }
+
+  .opt {
+    width: 50px;
   }
 }
