@@ -3,8 +3,6 @@ import imag from "../../imges/profile.png";
 import "./Reply.css";
 function Reply({ commentss, handleComments }) {
   const submitReply = () => {
-    console.log(commentss);
-    console.log(document.getElementById("cmnt-input").value);
     handleComments(
       commentss.concat([
         {
@@ -17,7 +15,6 @@ function Reply({ commentss, handleComments }) {
         },
       ])
     );
-    console.log(commentss);
   };
 
   return (
