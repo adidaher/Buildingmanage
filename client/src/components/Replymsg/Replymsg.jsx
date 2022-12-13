@@ -1,12 +1,12 @@
 import React from "react";
-import imag from "../../image-juliusomo.webp";
-import delt from "../../icon-delete.svg";
-import edd from "../../icon-edit.svg";
-import reply from "../../icon-reply.svg";
-import plus from "../../icon-plus.svg";
-import minus from "../../icon-minus.svg";
+import imag from "../../imges/TheBigMan.png";
+import delt from "../../imges/icon-delete.svg";
+import edd from "../../imges/icon-edit.svg";
+import reply from "../../imges/icon-reply.svg";
+import plus from "../../imges/icon-plus.svg";
+import minus from "../../imges/icon-minus.svg";
 import "./Replymsg.css";
-function Replymsg() {
+function Replymsg({ username, createdAt, content, imagess }) {
   return (
     <div className="replies comments-wrp">
       <div className="comment container this-user">
