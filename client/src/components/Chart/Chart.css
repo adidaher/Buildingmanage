@@ -157,6 +157,8 @@ h2 {
   .BillFilter {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+  }
+  .BillFilter div {
+    margin-left: 0.5rem;
   }
 }
