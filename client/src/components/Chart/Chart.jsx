@@ -27,7 +27,7 @@ const Chart = () => {
   const [waterData, SetWaterData] = useState([{}]);
   const [elecData, SetElecData] = useState([{}]);
   const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
-
+  let width = window.innerWidth;
   const [data, SetData] = useState([
     { date: "2021-10", amount: 400 },
     { date: "2021-11", amount: 500 },
@@ -37,7 +37,7 @@ const Chart = () => {
   ]);
 
   let isMobile = window.matchMedia(
-    "only screen and (max-width: 760px)"
+    "only screen and (max-width: 768px)"
   ).matches;
 
   const getWaterBills = async () => {
@@ -156,6 +156,7 @@ const Chart = () => {
         <div className="billType">
           <label>{config[lan].Billtype}</label>
           <select className="optionssss" id="opt" onChange={handleChange}>
+            <option disabled>Water</option>
             <option>Water</option>
             <option>Electricity</option>
           </select>
@@ -177,22 +178,18 @@ const Chart = () => {
             defaultValue={"2022-01"}
             onChange={handleTo}
           ></input>
+          <div>
+            <button id="calc" onClick={editData} className="calco">
+              {config[lan].Calculate}
+            </button>
+          </div>
         </div>
-        {!isMobile && (
-          <button id="calc" onClick={editData} className="calco">
-            {config[lan].Calculate}
-          </button>
-        )}
       </div>
-      {isMobile && (
-        <button id="calc" onClick={editData} className="calco">
-          {config[lan].Calculate}
-        </button>
-      )}
+
       <div className="charts">
         {isMobile && (
           <BarChart
-            width={370}
+            width={width * 0.8}
             height={300}
             data={data}
             margin={{
@@ -218,7 +215,7 @@ const Chart = () => {
 
         {!isMobile && (
           <BarChart
-            width={1000}
+            width={width * 0.5}
             height={500}
             data={data}
             margin={{
@@ -243,7 +240,7 @@ const Chart = () => {
         )}
 
         {isMobile && (
-          <LineChart width={370} height={300} data={data}>
+          <LineChart width={width * 0.8} height={300} data={data}>
             <XAxis dataKey="date" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
@@ -251,7 +248,7 @@ const Chart = () => {
           </LineChart>
         )}
         {!isMobile && (
-          <LineChart width={1000} height={300} data={data}>
+          <LineChart width={width * 0.5} height={300} data={data}>
             <XAxis dataKey="date" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
