@@ -71,7 +71,7 @@ const Chart = () => {
   const editData = async () => {
     if (type === "Electricity") {
       const result = await Axios.get(
-        config.server_uri + "/getElectricityBills"
+        config.server_uri + "/getElecBills"
       ).then((response) => {
         db = response.data;
         setColor("#FF9500");
