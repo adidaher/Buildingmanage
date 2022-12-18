@@ -31,6 +31,7 @@ app.post("/addIssue", (req, res) => {
   );
 });
 
+
 app.get("/getIssues", (req, res) => {
   db.query("SELECT * FROM issues Order BY date DESC", (err, result) => {
     if (err) {
