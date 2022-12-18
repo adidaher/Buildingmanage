@@ -246,37 +246,26 @@
   },
 
   "comments": [
+
     {
-      "content": "Hello",
+      "content": "There is a car blocking my driveway",
+      "createdAt": "1  Week ago",
+      "user": {
+        "image": "./TheBigMan.png",
+        "username": "Michel"
+      }
+    },
+
+    {
+      
+      "content": "Thats mine, sorry I will move it straight away",
       "createdAt": "1 Week ago",
       "user": {
         "image": "./profile.png",
         "username": "Adi"
-      }
-    },
-    {
-      "content": "Hey guys",
-      "createdAt": "1 Week ago",
-      "user": {
-        "image": "./TheBigMan.png",
-        "username": "Michael"
-      }
-    },
-    {
-      "content": "Shabat Shalom",
-      "createdAt": "1 month ago",
-      "user": {
-        "image": "./profile.png",
-        "username": "Adi"
-      }
-    },
-    {
-      "content": "Shabat Shalom",
-      "createdAt": "1 month ago",
-      "user": {
-        "image": "./TheBigMan.png",
-        "username": "Michael"
       }
     }
+  
+  
   ]
 }

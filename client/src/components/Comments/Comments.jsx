@@ -12,15 +12,7 @@ function Comments({ username, createdAt, content, imagess }) {
     <div className="comments-wrp">
       <div className="comment-wrp">
         <div className="comment container">
-          <div className="c-score">
-            <img src={plus} alt="plus" className="score-control score-plus" />
-            <p className="score-number">5</p>
-            <img
-              src={minus}
-              alt="minus"
-              className="score-control score-minus"
-            />
-          </div>
+
           <div className="c-controls">
             <a className="delete">
               <img src={delt} alt="" className="control-icon" />

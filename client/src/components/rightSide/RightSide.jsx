@@ -49,18 +49,18 @@ const RightSide = () => {
       <div className="row">
         <div className="sec1">
           <p>{config[lan].MonthleyRepayments}</p>
-          <span>2500$</span>
+          <span>2500₪</span>
         </div>
         <div className="sec1">
           <p>{config[lan].TotalRepayments}</p>
-          <span>74658$</span>
+          <span>74658₪</span>
         </div>
       </div>
 
       <div className="row">
         <div className="sec1">
           <p>{config[lan].OverDueLimit}</p>
-          <span>10$</span>
+          <span>100₪</span>
         </div>
       </div>
     </div>

@@ -22,15 +22,16 @@ class AddBills extends Component {
     e.preventDefault();
     this.setState({ loading: true });
     var ee = document.getElementById("options");
-    var text = e.options[ee.selectedIndex].text;
+    var text = ee.options[ee.selectedIndex].text;
     const selecteddate = new Date(
       document.getElementById("selectedMonth").value
     );
+    console.log("date=",selecteddate.getMonth())
     console.log(document.getElementById("BillAmount").value);
     Axios.post(config.server_uri + "/addbill", {
       bill_id: document.getElementById("billID").value,
       bill_type: text,
-      bill_date: selecteddate.getFullYear() + "-" + selecteddate.getMonth(),
+      bill_date: selecteddate.getFullYear() + "-" + (selecteddate.getMonth()+1),
       bill_status: "unpaid",
       bill_amount: document.getElementById("BillAmount").value,
     }).then(() => {
@@ -58,7 +59,7 @@ class AddBills extends Component {
                 {config[this.state.lan].Openedat} {toDay}
               </span>
             </div>
-            <form onSubmit={this.onSubmit}>
+
               <div className="AddBillDetails">
                 <span>{config[this.state.lan].BillID}</span>
                 <input placeholder="#IV24984" id="billID" required />
@@ -88,7 +89,7 @@ class AddBills extends Component {
               <hr className="AddBillHR" />
               <div className="AddBillDetails billamount">
                 <span>{config[this.state.lan].BillAmount}</span>
-                <input placeholder="320$" id="BillAmount" required />
+                <input placeholder="320₪" id="BillAmount" required />
               </div>
               <div className="addfile">
                 {config[this.state.lan].PleasescanBillBarcode}
@@ -99,13 +100,13 @@ class AddBills extends Component {
 
               <div className="Submit-btn">
                 {!this.state.loading && (
-                  <button className="sbtn" type="submit">
+                  <button className="sbtn" type="submit" onClick={this.onSubmit}>
                     <span id="submitbtn">{config[this.state.lan].Submit}</span>
                   </button>
                 )}
                 {this.state.loading && <CircularProgress />}
               </div>
-            </form>
+
           </div>
 
           <p className="noteMessage">
