@@ -78,7 +78,9 @@
     "Notes2": "אנא ודא שכל הנתונים שמולאו תואמים את החשבון המקורי",
     "ADDBILL": "הוסף חשבונית",
     "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית",
-    "Polls": "סקרים"
+    "Polls": "סקרים",
+    "From": "מ",
+    "To": "עד"
   },
   "ar": {
     "dashboard": "الرئيسيه",
@@ -115,7 +117,7 @@
     "Apatmentnumber": "رقم الشقة",
     "location": " ب5 الطابق رقم 4",
     "OwnerName": "اسم المالك",
-    "Postalcode": "مز بريدي",
+    "Postalcode": "رمز بريدي",
     "Location": "موقع",
     "NAZARETH": "الناصرة",
     "SerialNumber": "رقم تسلسلي",
@@ -157,7 +159,9 @@
     "Notes2": "يرجى التأكد من أن جميع البيانات التي تم ملؤها مطابقة للفاتورة الأصلية",
     "ADDBILL": "إضافة الفاتورة",
     "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة",
-    "Polls": "استطلاعات الرأي"
+    "Polls": "استطلاعات الرأي",
+    "From": "من",
+    "To": "حتى"
   },
   "eng": {
     "dashboard": "Dashboard",
@@ -236,7 +240,9 @@
     "Notes2": "Please Make Sure all the data that has been filled matching the orginal Bill",
     "ADDBILL": "ADD BILL",
     "PleaseFillInbilldetails": "Please Fill In bill details",
-    "Polls": "Polls"
+    "Polls": "Polls",
+    "From": "From",
+    "To": "To"
   },
 
   "comments": [

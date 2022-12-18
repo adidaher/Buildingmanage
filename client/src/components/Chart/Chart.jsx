@@ -70,12 +70,12 @@ const Chart = () => {
 
   const editData = async () => {
     if (type === "Electricity") {
-      const result = await Axios.get(
-        config.server_uri + "/getElecBills"
-      ).then((response) => {
-        db = response.data;
-        setColor("#FF9500");
-      });
+      const result = await Axios.get(config.server_uri + "/getElecBills").then(
+        (response) => {
+          db = response.data;
+          setColor("#FF9500");
+        }
+      );
     } else {
       const result = await Axios.get(config.server_uri + "/getWaterBills").then(
         (response) => {
@@ -162,7 +162,7 @@ const Chart = () => {
           </select>
         </div>
         <div className="from">
-          <label>From:</label>
+          <label>{config[lan].From}:</label>
           <input
             id="from"
             type="month"
@@ -171,7 +171,7 @@ const Chart = () => {
           ></input>
         </div>
         <div className="to">
-          <label>To:</label>
+          <label>{config[lan].To}:</label>
           <input
             id="to"
             type="month"
