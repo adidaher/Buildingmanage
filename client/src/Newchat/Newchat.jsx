@@ -34,6 +34,6 @@ function Newchat() {
       {window.scrollTo(0, 100000)}
     </div>
   );
-}
+} //**// */
 
 export default Newchat;
