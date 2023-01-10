@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ChatCard from "../components/ChatCard/ChatCard";
 import LeftSide from "../components/LeftSide/LeftSide.jsx";
 import RightSide from "../components/rightSide/RightSide.jsx";
 import Navbar from "../components/Navbar/Navbar";
