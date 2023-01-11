@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  user: "tnmbu7y340mkr2rs",
-  host: "ltnya0pnki2ck9w8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
-  password: "svtos4dpd0dgmbjb",
-  database: "uheo6treuqryu8h7",
+  user: "admin",
+  host: "database-buildingproject.ccnnq8gjj4co.ap-northeast-1.rds.amazonaws.com",
+  password: "svtos4buildingprojectdpd0dgmbjb",
+  database: "sys",
 });
 
 app.post("/addIssue", (req, res) => {
@@ -30,7 +30,6 @@ app.post("/addIssue", (req, res) => {
     }
   );
 });
-
 
 app.get("/getIssues", (req, res) => {
   db.query("SELECT * FROM issues Order BY date DESC", (err, result) => {
