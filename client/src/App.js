@@ -4,7 +4,6 @@ import Home from "./Home/Home.jsx";
 import Inbox from "./Inbox/Inbox";
 import Statistics from "./Statistics/Statistics";
 import { Route, Routes } from "react-router-dom";
-import Chat from "./Chat/Chat";
 import Issues from "./Issues/Issues";
 import Polls from "./Polls/Polls";
 import DashBoard from "./DashBoard/DashBoard";
