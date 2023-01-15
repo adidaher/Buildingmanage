@@ -18,7 +18,7 @@ import regression from "regression";
 import NormalDistribution from "normal-distribution";
 const Chart = () => {
   const [from, setFrom] = useState("2021-10");
-  const [to, setTo] = useState("2022-01");
+  const [to, setTo] = useState("2023-01");
   const [average, setAverage] = useState("");
   const [deviation, setDeviation] = useState("");
   const [probability, setProbability] = useState("");
