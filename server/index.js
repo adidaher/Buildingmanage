@@ -74,7 +74,7 @@ app.get("/getElecBills", (req, res) => {
 });
 
 app.get("/retrieveAllBills", (req, res) => {
-  db.query("SELECT * FROM bills ORDER BY status DESC", (err, result) => {
+  db.query("SELECT * FROM bills ORDER BY date DESC", (err, result) => {
     if (err) {
       console.log(err);
     } else {
