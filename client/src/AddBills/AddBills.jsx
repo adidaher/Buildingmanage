@@ -26,12 +26,18 @@ class AddBills extends Component {
     const selecteddate = new Date(
       document.getElementById("selectedMonth").value
     );
-    console.log("date=",selecteddate.getMonth())
+    console.log("date=", selecteddate.getMonth());
     console.log(document.getElementById("BillAmount").value);
+
+    const dats =
+      selecteddate.getMonth() < 9
+        ? selecteddate.getFullYear() + "-0" + (selecteddate.getMonth() + 1)
+        : selecteddate.getFullYear() + "-" + (selecteddate.getMonth() + 1);
+
     Axios.post(config.server_uri + "/addbill", {
       bill_id: document.getElementById("billID").value,
       bill_type: text,
-      bill_date: selecteddate.getFullYear() + "-" + (selecteddate.getMonth()+1),
+      bill_date: dats,
       bill_status: "unpaid",
       bill_amount: document.getElementById("BillAmount").value,
     }).then(() => {
@@ -60,53 +66,52 @@ class AddBills extends Component {
               </span>
             </div>
 
-              <div className="AddBillDetails">
-                <span>{config[this.state.lan].BillID}</span>
-                <input placeholder="#IV24984" id="billID" required />
-              </div>
-              <div className="AddBillDetails">
-                <span>{config[this.state.lan].BillName}</span>
-                <select className="options" id="options" required>
-                  <option disabled selected defaultValue>
-                    {config[this.state.lan].Select}
-                  </option>
-                  <option>Water</option>
-                  <option>Electricity</option>
-                  <option>Committe</option>
-                </select>
-              </div>
+            <div className="AddBillDetails">
+              <span>{config[this.state.lan].BillID}</span>
+              <input placeholder="#IV24984" id="billID" required />
+            </div>
+            <div className="AddBillDetails">
+              <span>{config[this.state.lan].BillName}</span>
+              <select className="options" id="options" required>
+                <option disabled selected defaultValue>
+                  {config[this.state.lan].Select}
+                </option>
+                <option>Water</option>
+                <option>Electricity</option>
+                <option>Cleaning</option>
+              </select>
+            </div>
 
-              <div className="AddBillDetails">
-                <span>{config[this.state.lan].DueDate}</span>
-                <input
-                  type="date"
-                  style={{ width: "219px" }}
-                  defaultValue={toDay}
-                  id="selectedMonth"
-                  required
-                />
-              </div>
-              <hr className="AddBillHR" />
-              <div className="AddBillDetails billamount">
-                <span>{config[this.state.lan].BillAmount}</span>
-                <input placeholder="320₪" id="BillAmount" required />
-              </div>
-              <div className="addfile">
-                {config[this.state.lan].PleasescanBillBarcode}
-                <button>
-                  <InsertPageBreakOutlinedIcon style={{ color: "black" }} />
+            <div className="AddBillDetails">
+              <span>{config[this.state.lan].DueDate}</span>
+              <input
+                type="date"
+                style={{ width: "219px" }}
+                defaultValue={toDay}
+                id="selectedMonth"
+                required
+              />
+            </div>
+            <hr className="AddBillHR" />
+            <div className="AddBillDetails billamount">
+              <span>{config[this.state.lan].BillAmount}</span>
+              <input placeholder="320₪" id="BillAmount" required />
+            </div>
+            <div className="addfile">
+              {config[this.state.lan].PleasescanBillBarcode}
+              <button>
+                <InsertPageBreakOutlinedIcon style={{ color: "black" }} />
+              </button>
+            </div>
+
+            <div className="Submit-btn">
+              {!this.state.loading && (
+                <button className="sbtn" type="submit" onClick={this.onSubmit}>
+                  <span id="submitbtn">{config[this.state.lan].Submit}</span>
                 </button>
-              </div>
-
-              <div className="Submit-btn">
-                {!this.state.loading && (
-                  <button className="sbtn" type="submit" onClick={this.onSubmit}>
-                    <span id="submitbtn">{config[this.state.lan].Submit}</span>
-                  </button>
-                )}
-                {this.state.loading && <CircularProgress />}
-              </div>
-
+              )}
+              {this.state.loading && <CircularProgress />}
+            </div>
           </div>
 
           <p className="noteMessage">

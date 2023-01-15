@@ -80,7 +80,8 @@
     "PleaseFillInbilldetails": "נא למלא את פרטי החשבונית",
     "Polls": "סקרים",
     "From": "מ",
-    "To": "עד"
+    "To": "עד",
+    "Cleaninig": "נקיון"
   },
   "ar": {
     "dashboard": "الرئيسيه",
@@ -161,7 +162,8 @@
     "PleaseFillInbilldetails": "يرجى ملء تفاصيل الفاتورة",
     "Polls": "استطلاعات الرأي",
     "From": "من",
-    "To": "حتى"
+    "To": "حتى",
+    "Cleaninig": "تنظيف"
   },
   "eng": {
     "dashboard": "Dashboard",
@@ -242,11 +244,11 @@
     "PleaseFillInbilldetails": "Please Fill In bill details",
     "Polls": "Polls",
     "From": "From",
-    "To": "To"
+    "To": "To",
+    "Cleaninig": "Cleaninig"
   },
 
   "comments": [
-
     {
       "content": "There is a car blocking my driveway",
       "createdAt": "1  Week ago",
@@ -257,7 +259,6 @@
     },
 
     {
-      
       "content": "Thats mine, sorry I will move it straight away",
       "createdAt": "1 Week ago",
       "user": {
@@ -265,7 +266,5 @@
         "username": "Adi"
       }
     }
-  
-  
   ]
 }
