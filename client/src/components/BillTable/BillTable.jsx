@@ -20,7 +20,7 @@ const BillTable = (props) => {
               <td className="rownum">
                 <a className="aaa">{i + 1}</a>
               </td>
-              {item.type === "Committee" && <td>{config[lan].Committee} </td>}
+              {item.type === "Cleaning" && <td>{config[lan].Cleaninig} </td>}
               {item.type === "Electricity" && (
                 <td>{config[lan].Electricity} </td>
               )}

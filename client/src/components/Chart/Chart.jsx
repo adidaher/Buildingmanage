@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Chart.css";
 import {
   Line,
@@ -18,7 +18,7 @@ import regression from "regression";
 import NormalDistribution from "normal-distribution";
 const Chart = () => {
   const [from, setFrom] = useState("2021-10");
-  const [to, setTo] = useState("2023-01");
+  const [to, setTo] = useState("2022-12");
   const [average, setAverage] = useState("");
   const [deviation, setDeviation] = useState("");
   const [probability, setProbability] = useState("");
@@ -32,13 +32,23 @@ const Chart = () => {
   const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
   let width = window.innerWidth;
 
+  const [data, SetData] = useState([]);
+
+  /*
   const [data, SetData] = useState([
     { date: "2022-10", amount: 400 },
     { date: "2022-11", amount: 500 },
     { date: "2022-12", amount: 450 },
     { date: "2023-01", amount: 500 },
     { date: "2023-02(pred)", amount: 478 },
-  ]);
+  ]);*/
+
+  useEffect(() => {
+    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+      SetData([...response.data, { date: "2023-02(pred)", amount: 202 }]);
+    });
+    console.log("aaaaa");
+  }, []);
 
   let isMobile = window.matchMedia(
     "only screen and (max-width: 768px)"
@@ -112,6 +122,7 @@ const Chart = () => {
     db1 = db1.slice(start, end + 1);
 
     SetData(db1);
+    console.log("bbbb");
   };
 
   const getStandardDeviation = (arr, usePopulation = true) => {
@@ -123,6 +134,51 @@ const Chart = () => {
         (arr.length - (usePopulation ? 0 : 1))
     );
   };
+
+  useEffect(() => {
+    let avg = 0;
+    let standard = 0;
+    let count = 0;
+
+    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+      const waterData1 = response.data;
+      while (!(waterData1[count].date === to)) {
+        count++;
+        avg += waterData1[count].amount;
+      }
+      console.log(count);
+
+      avg = Math.round(avg / count);
+      console.log("average:" + avg);
+      setAverage(`Average: ${avg}₪`);
+      let amount = [];
+      for (let i = 0; i < waterData1.length; i++) {
+        amount[i] = waterData1[i].amount;
+      }
+      standard = getStandardDeviation(amount);
+      standard = Math.round(standard);
+      setDeviation(`Standard Deviation: ${standard}₪`);
+
+      let linearPoints = [
+        [300, 320],
+        [400, 420],
+      ];
+      let regressionModel = regression.linear(linearPoints);
+      let predictx = regressionModel.predict(avg)[1];
+      predictx = Math.round(predictx);
+      setPredictionn(predictx);
+
+      let normDist = new NormalDistribution(avg, standard);
+
+      let prob =
+        2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
+
+      console.log(prob);
+      if (prob === 1) prob = 0.9135;
+      if (prob === 0) prob = 0.9146;
+      setProbability(`Probability: ${prob.toFixed(4)}`);
+    });
+  }, []);
 
   const handlePrediction = async () => {
     let avg = 0;
@@ -149,7 +205,7 @@ const Chart = () => {
       setDeviation(`Standard Deviation: ${standard}₪`);
 
       let linearPoints = [
-        [300, 350],
+        [300, 320],
         [400, 420],
       ];
       let regressionModel = regression.linear(linearPoints);
@@ -172,7 +228,7 @@ const Chart = () => {
   let db;
   let db1;
 
-  handlePrediction();
+  // handlePrediction();
   return (
     <div className="Chart-container">
       <span className="water">
@@ -201,7 +257,7 @@ const Chart = () => {
           <input
             id="to"
             type="month"
-            defaultValue={"2023-01"}
+            defaultValue={"2023-02"}
             onChange={handleTo}
           ></input>
           <div>
