@@ -18,7 +18,7 @@ import regression from "regression";
 import NormalDistribution from "normal-distribution";
 const Chart = () => {
   const [from, setFrom] = useState("2021-10");
-  const [to, setTo] = useState("2022-12");
+  const [to, setTo] = useState("");
   const [average, setAverage] = useState("");
   const [deviation, setDeviation] = useState("");
   const [probability, setProbability] = useState("");
@@ -36,21 +36,18 @@ const Chart = () => {
 
   const [data, SetData] = useState([]);
 
-  /*
-  const [data, SetData] = useState([
-    { date: "2022-10", amount: 400 },
-    { date: "2022-11", amount: 500 },
-    { date: "2022-12", amount: 450 },
-    { date: "2023-01", amount: 500 },
-    { date: "2023-02(pred)", amount: 478 },
-  ]);*/
+  const [nextmonth, setnextmonth] = useState();
 
   useEffect(() => {
     Axios.get(config.server_uri + "/getWaterBills").then((response) => {
-      SetData([...response.data, { date: "2023-02(pred)", amount: 166 }]);
+
+      
+
     });
-    console.log("aaaaa");
+
   }, []);
+
+
 
   let isMobile = window.matchMedia(
     "only screen and (max-width: 768px)"
@@ -114,10 +111,26 @@ const Chart = () => {
         }
       );
     }
+let start=0;
+  for (let i=0;i<db.length;i++)
+  {
+    if(db[i].date>=from)
+    {
+    start=i;
+    break;
+    }
+  }
+let end=0;
+  for (let i=(db.length-1);i>=0;i--)
+  {
+    if(db[i].date<=to)
+    {
+   end=i;
+    break;
+    }
+  }
 
-    let start = db.findIndex((obj) => obj.date === from);
-
-    let end = db.findIndex((obj) => obj.date === to);
+   
     db1 = db;
 
     db1 = db1.slice(start, end + 1);
@@ -141,11 +154,29 @@ const Chart = () => {
     let standard = 0;
     let count = 0;
 
+
+
     Axios.get(config.server_uri + "/getWaterBills").then((response) => {
+      const waterbills = response.data;
+      setTo(waterbills[waterbills.length - 1].date);
+      let current = waterbills[waterbills.length - 1].date.split("-")[1];
+      let nextd=0;
+      let nextdate = parseFloat(current);
+      if (nextdate === 12) {
+        nextdate = 2;
+         nextd = "2023-0" + nextdate;
+        setnextmonth(nextd);
+      } else {
+nextdate += 2;
+
+nextd = "2023-0" + nextdate;
+        setnextmonth(nextd);
+      }
       const waterData1 = response.data;
-      while (!(waterData1[count].date === to)) {
-        count++;
+      console.log(waterData1 +"responseee");
+      while (count<waterData1.length) {
         avg += waterData1[count].amount;
+        count++;
       }
       console.log(count);
 
@@ -166,18 +197,22 @@ const Chart = () => {
       ];
       let regressionModel = regression.linear(linearPoints);
       let predictx = regressionModel.predict(avg)[1];
+      console.log(predictx+"preddd");
       predictx = Math.round(predictx);
       setPredictionn(predictx);
 
       let normDist = new NormalDistribution(avg, standard);
 
       let prob =
-        2 * Math.min(normDist.cdf(180), 1 - normDist.cdf(180));
+        2 * Math.min(normDist.cdf(waterData1[waterData1.length-1].amount), 1 - normDist.cdf(waterData1[waterData1.length-1].amount));
       setProbabilityNUM(prob);
-
+      console.log(prob+"prob");
       setProbability(`Probability: ${prob.toFixed(4)}`);
-      prob = 2 * Math.min(normDist.cdf(166), 1 - normDist.cdf(166));
+      prob = 2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
       setProbability1(`Probability: ${prob.toFixed(4)}`);
+      console.log(prob+"prob");
+
+      SetData([...response.data, { date:  nextd + "(pred)", amount: predictx}]);
  
     });
   }, []);
@@ -313,13 +348,13 @@ const Chart = () => {
       </div>
 
       <div className="predict">
-        {(probabilityNUM>=0.01)?(<h2>{to +" Calculations:(good bill)"}</h2>) :(<h2>{to +" Calculations:(suspension bill)"}</h2>)}
+        {(probabilityNUM>=0.02)?(<h2>{to +" Calculations:(good bill)"}</h2>) :(<h2>{to +" Calculations:(suspension bill)"}</h2>)}
         <h2>{average}</h2>
         <h2>{deviation}</h2>
         <h2>{probability}</h2>
         <br></br>
 
-        <h2>{ "2023-02 Calculations:"}</h2>
+        <h2>{ nextmonth+ " Calculations:"}</h2>
         <h2>{"Our prediction:" + predictionn + "₪"}</h2>
         <h2>{probability1}</h2>
       </div>
