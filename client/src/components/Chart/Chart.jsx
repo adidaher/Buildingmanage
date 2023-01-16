@@ -24,7 +24,7 @@ const Chart = () => {
   const [probability, setProbability] = useState("");
   const [probabilityNUM, setProbabilityNUM] = useState(0);
   const [probability1, setProbability1] = useState("");
-  
+
   const [predictionn, setPredictionn] = useState(0);
 
   const [type, setType] = useState("Water");
@@ -33,21 +33,8 @@ const Chart = () => {
   const [elecData, SetElecData] = useState([{}]);
   const [lan, setlan] = useState(localStorage.getItem("web_language") || "eng");
   let width = window.innerWidth;
-
   const [data, SetData] = useState([]);
-
   const [nextmonth, setnextmonth] = useState();
-
-  useEffect(() => {
-    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
-
-      
-
-    });
-
-  }, []);
-
-
 
   let isMobile = window.matchMedia(
     "only screen and (max-width: 768px)"
@@ -74,9 +61,7 @@ const Chart = () => {
     else {
       setFrom(event.target.value);
       db1 = db;
-   
     }
-
   };
 
   const handleTo = (event) => {
@@ -84,10 +69,7 @@ const Chart = () => {
       window.alert("please choose month less than 2023-02");
     else {
       setTo(event.target.value);
-    
     }
-
-
   };
 
   function handleChange(e) {
@@ -95,7 +77,6 @@ const Chart = () => {
   }
 
   const editData = async () => {
-    
     if (type === "Electricity") {
       const result = await Axios.get(config.server_uri + "/getElecBills").then(
         (response) => {
@@ -111,26 +92,21 @@ const Chart = () => {
         }
       );
     }
-let start=0;
-  for (let i=0;i<db.length;i++)
-  {
-    if(db[i].date>=from)
-    {
-    start=i;
-    break;
+    let start = 0;
+    for (let i = 0; i < db.length; i++) {
+      if (db[i].date >= from) {
+        start = i;
+        break;
+      }
     }
-  }
-let end=0;
-  for (let i=(db.length-1);i>=0;i--)
-  {
-    if(db[i].date<=to)
-    {
-   end=i;
-    break;
+    let end = 0;
+    for (let i = db.length - 1; i >= 0; i--) {
+      if (db[i].date <= to) {
+        end = i;
+        break;
+      }
     }
-  }
 
-   
     db1 = db;
 
     db1 = db1.slice(start, end + 1);
@@ -154,27 +130,25 @@ let end=0;
     let standard = 0;
     let count = 0;
 
-
-
     Axios.get(config.server_uri + "/getWaterBills").then((response) => {
       const waterbills = response.data;
       setTo(waterbills[waterbills.length - 1].date);
       let current = waterbills[waterbills.length - 1].date.split("-")[1];
-      let nextd=0;
+      let nextd = 0;
       let nextdate = parseFloat(current);
       if (nextdate === 12) {
         nextdate = 2;
-         nextd = "2023-0" + nextdate;
+        nextd = "2023-0" + nextdate;
         setnextmonth(nextd);
       } else {
-nextdate += 2;
+        nextdate += 2;
 
-nextd = "2023-0" + nextdate;
+        nextd = "2023-0" + nextdate;
         setnextmonth(nextd);
       }
       const waterData1 = response.data;
-      console.log(waterData1 +"responseee");
-      while (count<waterData1.length) {
+      console.log(waterData1 + "responseee");
+      while (count < waterData1.length) {
         avg += waterData1[count].amount;
         count++;
       }
@@ -197,27 +171,28 @@ nextd = "2023-0" + nextdate;
       ];
       let regressionModel = regression.linear(linearPoints);
       let predictx = regressionModel.predict(avg)[1];
-      console.log(predictx+"preddd");
+      console.log(predictx + "preddd");
       predictx = Math.round(predictx);
       setPredictionn(predictx);
 
       let normDist = new NormalDistribution(avg, standard);
 
       let prob =
-        2 * Math.min(normDist.cdf(waterData1[waterData1.length-1].amount), 1 - normDist.cdf(waterData1[waterData1.length-1].amount));
+        2 *
+        Math.min(
+          normDist.cdf(waterData1[waterData1.length - 1].amount),
+          1 - normDist.cdf(waterData1[waterData1.length - 1].amount)
+        );
       setProbabilityNUM(prob);
-      console.log(prob+"prob");
+      console.log(prob + "prob");
       setProbability(`Probability: ${prob.toFixed(4)}`);
       prob = 2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
       setProbability1(`Probability: ${prob.toFixed(4)}`);
-      console.log(prob+"prob");
+      console.log(prob + "prob");
 
-      SetData([...response.data, { date:  nextd + "(pred)", amount: predictx}]);
- 
+      SetData([...response.data, { date: nextd + "(pred)", amount: predictx }]);
     });
   }, []);
-
-
 
   let db;
   let db1;
@@ -348,18 +323,22 @@ nextd = "2023-0" + nextdate;
       </div>
 
       <div className="predict">
-        {(probabilityNUM>=0.02)?(<h2>{to +" Calculations:(good bill)"}</h2>) :(<h2>{to +" Calculations:(suspension bill)"}</h2>)}
+        {probabilityNUM >= 0.02 ? (
+          <h2>{to + " Calculations:(good bill)"}</h2>
+        ) : (
+          <h2>{to + " Calculations:(suspension bill)"}</h2>
+        )}
         <h2>{average}</h2>
         <h2>{deviation}</h2>
         <h2>{probability}</h2>
         <br></br>
 
-        <h2>{ nextmonth+ " Calculations:"}</h2>
+        <h2>{nextmonth + " Calculations:"}</h2>
         <h2>{"Our prediction:" + predictionn + "₪"}</h2>
         <h2>{probability1}</h2>
       </div>
     </div>
   );
 };
-      //suspension bill
+//suspension bill
 export default Chart;
