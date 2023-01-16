@@ -22,7 +22,9 @@ const Chart = () => {
   const [average, setAverage] = useState("");
   const [deviation, setDeviation] = useState("");
   const [probability, setProbability] = useState("");
-  const [flag, setFlag] = useState(1);
+  const [probabilityNUM, setProbabilityNUM] = useState(0);
+  const [probability1, setProbability1] = useState("");
+  
   const [predictionn, setPredictionn] = useState(0);
 
   const [type, setType] = useState("Water");
@@ -45,7 +47,7 @@ const Chart = () => {
 
   useEffect(() => {
     Axios.get(config.server_uri + "/getWaterBills").then((response) => {
-      SetData([...response.data, { date: "2023-02(pred)", amount: 202 }]);
+      SetData([...response.data, { date: "2023-02(pred)", amount: 166 }]);
     });
     console.log("aaaaa");
   }, []);
@@ -75,10 +77,9 @@ const Chart = () => {
     else {
       setFrom(event.target.value);
       db1 = db;
-      setFlag(0);
+   
     }
 
-    handlePrediction();
   };
 
   const handleTo = (event) => {
@@ -86,10 +87,10 @@ const Chart = () => {
       window.alert("please choose month less than 2023-02");
     else {
       setTo(event.target.value);
-      setFlag(0);
+    
     }
 
-    handlePrediction();
+
   };
 
   function handleChange(e) {
@@ -97,7 +98,7 @@ const Chart = () => {
   }
 
   const editData = async () => {
-    handlePrediction();
+    
     if (type === "Electricity") {
       const result = await Axios.get(config.server_uri + "/getElecBills").then(
         (response) => {
@@ -171,59 +172,17 @@ const Chart = () => {
       let normDist = new NormalDistribution(avg, standard);
 
       let prob =
-        2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
+        2 * Math.min(normDist.cdf(180), 1 - normDist.cdf(180));
+      setProbabilityNUM(prob);
 
-      console.log(prob);
-      if (prob === 1) prob = 0.9135;
-      if (prob === 0) prob = 0.9146;
       setProbability(`Probability: ${prob.toFixed(4)}`);
+      prob = 2 * Math.min(normDist.cdf(166), 1 - normDist.cdf(166));
+      setProbability1(`Probability: ${prob.toFixed(4)}`);
+ 
     });
   }, []);
 
-  const handlePrediction = async () => {
-    let avg = 0;
-    let standard = 0;
-    let count = 0;
 
-    Axios.get(config.server_uri + "/getWaterBills").then((response) => {
-      const waterData1 = response.data;
-      while (!(waterData1[count].date === to)) {
-        count++;
-        avg += waterData1[count].amount;
-      }
-      console.log(count);
-
-      avg = Math.round(avg / count);
-      console.log("average:" + avg);
-      setAverage(`Average: ${avg}₪`);
-      let amount = [];
-      for (let i = 0; i < waterData1.length; i++) {
-        amount[i] = waterData1[i].amount;
-      }
-      standard = getStandardDeviation(amount);
-      standard = Math.round(standard);
-      setDeviation(`Standard Deviation: ${standard}₪`);
-
-      let linearPoints = [
-        [300, 320],
-        [400, 420],
-      ];
-      let regressionModel = regression.linear(linearPoints);
-      let predictx = regressionModel.predict(avg)[1];
-      predictx = Math.round(predictx);
-      setPredictionn(predictx);
-
-      let normDist = new NormalDistribution(avg, standard);
-
-      let prob =
-        2 * Math.min(normDist.cdf(predictx), 1 - normDist.cdf(predictx));
-
-      console.log(prob);
-      if (prob === 1) prob = 0.9135;
-      if (prob === 0) prob = 0.9146;
-      setProbability(`Probability: ${prob.toFixed(4)}`);
-    });
-  };
 
   let db;
   let db1;
@@ -354,19 +313,18 @@ const Chart = () => {
       </div>
 
       <div className="predict">
-        {flag === 1 && <h2>{"2023-02 Calculations:"}</h2>}
-        {flag === 1 && <h2>{average}</h2>}
-        {flag === 1 && <h2>{deviation}</h2>}
-        {flag === 1 && <h2>{probability}</h2>}
-        {flag === 1 && <br></br>}
+        {(probabilityNUM>=0.01)?(<h2>{to +" Calculations:(good bill)"}</h2>) :(<h2>{to +" Calculations:(suspension bill)"}</h2>)}
+        <h2>{average}</h2>
+        <h2>{deviation}</h2>
+        <h2>{probability}</h2>
+        <br></br>
 
-        <h2>{to + " Calculations:"}</h2>
-        {predictionn && <h2>{"Our prediction:" + predictionn + "₪"}</h2>}
-
-        {probability && <h2>{probability}</h2>}
+        <h2>{ "2023-02 Calculations:"}</h2>
+        <h2>{"Our prediction:" + predictionn + "₪"}</h2>
+        <h2>{probability1}</h2>
       </div>
     </div>
   );
 };
-
+      //suspension bill
 export default Chart;
