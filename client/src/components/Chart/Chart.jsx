@@ -136,14 +136,18 @@ const Chart = () => {
       let current = waterbills[waterbills.length - 1].date.split("-")[1];
       let nextd = 0;
       let nextdate = parseFloat(current);
-      if (nextdate === 12) {
+      if (nextdate < 9) {
+        nextdate += 2;
+        nextd = "2023-0" + nextdate;
+        setnextmonth(nextd);
+      } else if (nextdate === 12) {
         nextdate = 2;
         nextd = "2023-0" + nextdate;
         setnextmonth(nextd);
       } else {
         nextdate += 2;
 
-        nextd = "2023-0" + nextdate;
+        nextd = "2023-" + nextdate;
         setnextmonth(nextd);
       }
       const waterData1 = response.data;
